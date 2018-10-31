@@ -27,16 +27,16 @@ PySFC also brings added value, by adding the possibility to adjust the number of
 
 Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the `examples/` directory.
 
-![alt text](r1_DC_393.png)
+![alt text](figures/r1_DC_393.png)
 **Figure 1.** Example PySFC intonation decomposition for the French utterance: *Son bagou pourrait faciliter la communauté.* into constituent functional contours: declaration (DC), dependency to the left/right (DG/DD), and cliticisation (XX, DV).
 
-![alt text](r1_chinese_003.png)
+![alt text](figures/r1_chinese_003.png)
 **Figure 2.** Example PySFC intonation decomposition for the Chinese utterance: *Tā men céng zài jī cāng nèi géi lǔ kè diǎn gē hè shēng rì,
 céng ná zhē shuí guǒ nái fěn qù tàn wàng yóu tā men zhuǎn sòng qù yī yuàn de lǔ kè chǎn fù.* into constituent functional contours: declaration (DC), tones (C0-4), word boundaries (WB), and independence (ID).
 
-![alt text](r1_expansion_DD.png)
+![alt text](figures/r1_expansion_DD.png)
 **Figure 3.** Example PySFC expansion in left and right context for the dependency to the right (DD) functional contour, numbers next to the plots show the number of occurences of that scope in the data.
 
-![alt text](r1_losses_DC.png)
+![alt text](figures/r1_losses_DC.png)
 
 **Figure 4.** Example PySFC plots of `f_0` reconstruction losses for all NNCGs for attitude DC per iteration for French.
