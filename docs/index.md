@@ -2,6 +2,7 @@
 title: ProsoDeep
 menus: header
 --- -->
+{% include nav.html %}
 # ProsoDeep
 **Deep understanding and modelling of the hierarchical structure of Prosody**
 
