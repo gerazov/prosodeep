@@ -23,21 +23,20 @@ The importance of prosody in TTS systems has been the driving force in the devel
 
 ### SFC
 
-The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [1](refs.md). It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the SFC approach is the many-to-many ill-posed problem of determining the shape of the function specific contours.
+The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [1]({{ site.baseurl }}{% link refs.md %}). It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the SFC approach is the many-to-many ill-posed problem of determining the shape of the function specific contours.
 
 The SFC model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. NNCG training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each syllable.
 
-The SFC has been implemented in Python and called [PySFC](PySFC.md). The code has been released as free software on GitHub: https://github.com/bgerazov/PySFC
+The SFC has been implemented in Python and called [PySFC]({{ site.baseurl }}{% link PySFC.md %}). The code has been released as free software on GitHub: https://github.com/bgerazov/PySFC
 
 ### GCR
 
-One representative bottom-up model with physiological constraints is the Generalized Command Response (GCR) model that describes the intonation contour using atoms that correspond to elementary muscle activations [2]. The parameters of the GCR model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This was experimentally confirmed for English, French and German. The GCR atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise emphasis.
+One representative bottom-up model with physiological constraints is the Generalized Command Response (GCR) model that describes the intonation contour using atoms that correspond to elementary muscle activations [2]({{ site.baseurl }}{% link refs.md %}). The parameters of the GCR model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This was experimentally confirmed for English, French and German. The GCR atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise emphasis.
 
 The implementation of the GCR parameter extraction algorithm called Weighted Correlation based Atom Decomposition (WCAD) is free software and is available on GitHub at: https://github.com/dipteam/wcad
 
 The main problem with the bottom-up approach is that it is difficult to establish the linguistic significance of the extracted model parameters.
 
-[2] Pierre-Edouard Honnet, Branislav Gerazov, Aleksandar Gjoreski, and Philip N. Garner. Intonation modelling using a muscle model and perceptually weighted matching pursuit. Speech Communication, 97:81--93, March 2018.
 
 ### Goal
 
