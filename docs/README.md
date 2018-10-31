@@ -1,7 +1,8 @@
 # ProsoDeep
 Deep understanding and modelling of the hierarchical structure of Prosody
 
-The [ProsoDeep project](ProsoDeep.md) seeks to gain a deeper understanding of the hierarchical structure of the language of prosody through the utilisation of deep models.
+The [ProsoDeep project]({{ site.baseurl }}{% link ProsoDeep.md %})  #(ProsoDeep.md)
+seeks to gain a deeper understanding of the hierarchical structure of the language of prosody through the utilisation of deep models.
 The results will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (TTS) systems, and its analysis, e.g. speech recognition and speech emotion recognition (SER).
 
 ## The models
