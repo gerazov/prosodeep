@@ -1,4 +1,4 @@
-# Prosodeep
+# ProsoDeep
 **Deep understanding and modelling of the hierarchical structure of Prosody**
 
 Project Framework |	Horizon 2020 Marie Skłodowska-Curie Actions Individual Fellowship
