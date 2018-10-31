@@ -1,5 +1,5 @@
 # ProsoDeep
-** Deep understanding and modelling of the hierarchical structure of Prosody **
+_Deep understanding and modelling of the hierarchical structure of Prosody_
 
 The [ProsoDeep project]({{ site.baseurl }}{% link ProsoDeep.md %})
 seeks to gain a deeper understanding of the hierarchical structure of the language of prosody through the utilisation of deep models.
