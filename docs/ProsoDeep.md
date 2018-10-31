@@ -23,13 +23,11 @@ The importance of prosody in TTS systems has been the driving force in the devel
 
 ### SFC
 
-The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [1]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the SFC approach is the many-to-many ill-posed problem of determining the shape of the function specific contours.
+The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [1](refs.md). It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the SFC approach is the many-to-many ill-posed problem of determining the shape of the function specific contours.
 
 The SFC model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. NNCG training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each syllable.
 
 The SFC has been implemented in Python and called [PySFC](PySFC.md). The code has been released as free software on GitHub: https://github.com/bgerazov/PySFC
-
-[1] Bailly, Gérard, and Bleicke Holm. "SFC: a trainable prosodic model." Speech communication 46, no. 3 (2005): 348-364.
 
 ### GCR
 
