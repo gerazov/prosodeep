@@ -4,7 +4,7 @@ PySFC is a Python implementation of the SFC model that was created with two goal
 The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully functional.
 
 Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. It is based on [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural networks and their training have been facilitated through the use of the Multi Layer Perceptron (MLP) regressor in the powerful [scikit-learn](http://scikit-learn.org/stable/index.html) module.
-Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping. Finally, the whole implementation has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found on GitHub: https://github.com/bgerazov/PySFC
+Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping. Finally, the whole implementation has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found on GitHub: <https://github.com/bgerazov/PySFC>
 
 ## PySFC Modules
 
