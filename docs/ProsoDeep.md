@@ -27,7 +27,7 @@ The Superposition of Functional Contours (SFC) model is a top-down approach base
 
 The SFC model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. NNCG training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each syllable.
 
-The SFC has been implemented in Python and called [PySFC]({{ site.baseurl }}{% link PySFC.md %}). The code has been released as free software on GitHub: (https://github.com/bgerazov/PySFC)
+The SFC has been implemented in Python and called [PySFC]({{ site.baseurl }}{% link PySFC.md %}). The code has been released as free software on GitHub: <https://github.com/bgerazov/PySFC>
 
 ### GCR
 
