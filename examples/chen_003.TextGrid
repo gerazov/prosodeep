@@ -1,0 +1,1061 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 10.3245 
+tiers? <exists> 
+size = 10 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "PHON" 
+        xmin = 0 
+        xmax = 10.3245 
+        intervals: size = 75 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.7779 
+            text = "__" 
+        intervals [2]:
+            xmin = 0.7779 
+            xmax = 0.8519 
+            text = "t" 
+        intervals [3]:
+            xmin = 0.8519 
+            xmax = 0.9569 
+            text = "a" 
+        intervals [4]:
+            xmin = 0.9569 
+            xmax = 1.026 
+            text = "m" 
+        intervals [5]:
+            xmin = 1.026 
+            xmax = 1.1138 
+            text = "en" 
+        intervals [6]:
+            xmin = 1.1138 
+            xmax = 1.2 
+            text = "c" 
+        intervals [7]:
+            xmin = 1.2 
+            xmax = 1.34 
+            text = "eng" 
+        intervals [8]:
+            xmin = 1.34 
+            xmax = 1.386 
+            text = "z" 
+        intervals [9]:
+            xmin = 1.386 
+            xmax = 1.5622 
+            text = "ai" 
+        intervals [10]:
+            xmin = 1.5622 
+            xmax = 1.692 
+            text = "j" 
+        intervals [11]:
+            xmin = 1.692 
+            xmax = 1.7804 
+            text = "i" 
+        intervals [12]:
+            xmin = 1.7804 
+            xmax = 1.8719 
+            text = "c" 
+        intervals [13]:
+            xmin = 1.8719 
+            xmax = 1.979 
+            text = "ang" 
+        intervals [14]:
+            xmin = 1.979 
+            xmax = 2.0357 
+            text = "n" 
+        intervals [15]:
+            xmin = 2.0357 
+            xmax = 2.2448 
+            text = "ei" 
+        intervals [16]:
+            xmin = 2.2448 
+            xmax = 2.3459 
+            text = "g" 
+        intervals [17]:
+            xmin = 2.3459 
+            xmax = 2.4929 
+            text = "ei" 
+        intervals [18]:
+            xmin = 2.4929 
+            xmax = 2.5439 
+            text = "l" 
+        intervals [19]:
+            xmin = 2.5439 
+            xmax = 2.6389 
+            text = "v" 
+        intervals [20]:
+            xmin = 2.6389 
+            xmax = 2.7899 
+            text = "k" 
+        intervals [21]:
+            xmin = 2.7899 
+            xmax = 2.9815 
+            text = "e" 
+        intervals [22]:
+            xmin = 2.9815 
+            xmax = 3.072 
+            text = "d" 
+        intervals [23]:
+            xmin = 3.072 
+            xmax = 3.2941 
+            text = "ian" 
+        intervals [24]:
+            xmin = 3.2941 
+            xmax = 3.384 
+            text = "g" 
+        intervals [25]:
+            xmin = 3.384 
+            xmax = 3.5758 
+            text = "e" 
+        intervals [26]:
+            xmin = 3.5758 
+            xmax = 3.72 
+            text = "h" 
+        intervals [27]:
+            xmin = 3.72 
+            xmax = 3.8271 
+            text = "e" 
+        intervals [28]:
+            xmin = 3.8271 
+            xmax = 3.924 
+            text = "sh" 
+        intervals [29]:
+            xmin = 3.924 
+            xmax = 4.0731 
+            text = "eng" 
+        intervals [30]:
+            xmin = 4.0731 
+            xmax = 4.1432 
+            text = "r" 
+        intervals [31]:
+            xmin = 4.1432 
+            xmax = 4.3528 
+            text = "iii" 
+        intervals [32]:
+            xmin = 4.3528 
+            xmax = 4.7544 
+            text = "__" 
+        intervals [33]:
+            xmin = 4.7544 
+            xmax = 4.8239 
+            text = "c" 
+        intervals [34]:
+            xmin = 4.8239 
+            xmax = 4.9157 
+            text = "eng" 
+        intervals [35]:
+            xmin = 4.9157 
+            xmax = 4.992 
+            text = "n" 
+        intervals [36]:
+            xmin = 4.992 
+            xmax = 5.13 
+            text = "a" 
+        intervals [37]:
+            xmin = 5.13 
+            xmax = 5.184 
+            text = "zh" 
+        intervals [38]:
+            xmin = 5.184 
+            xmax = 5.3249 
+            text = "e" 
+        intervals [39]:
+            xmin = 5.3249 
+            xmax = 5.4299 
+            text = "sh" 
+        intervals [40]:
+            xmin = 5.4299 
+            xmax = 5.5519 
+            text = "uei" 
+        intervals [41]:
+            xmin = 5.5519 
+            xmax = 5.622 
+            text = "g" 
+        intervals [42]:
+            xmin = 5.622 
+            xmax = 5.7041 
+            text = "uo" 
+        intervals [43]:
+            xmin = 5.7041 
+            xmax = 5.7659 
+            text = "n" 
+        intervals [44]:
+            xmin = 5.7659 
+            xmax = 5.9355 
+            text = "ai" 
+        intervals [45]:
+            xmin = 5.9355 
+            xmax = 6.0419 
+            text = "f" 
+        intervals [46]:
+            xmin = 6.0419 
+            xmax = 6.249 
+            text = "en" 
+        intervals [47]:
+            xmin = 6.249 
+            xmax = 6.354 
+            text = "q" 
+        intervals [48]:
+            xmin = 6.354 
+            xmax = 6.4302 
+            text = "v" 
+        intervals [49]:
+            xmin = 6.4302 
+            xmax = 6.558 
+            text = "t" 
+        intervals [50]:
+            xmin = 6.558 
+            xmax = 6.6842 
+            text = "an" 
+        intervals [51]:
+            xmin = 6.6842 
+            xmax = 6.9428 
+            text = "uang" 
+        intervals [52]:
+            xmin = 6.9428 
+            xmax = 7.1248 
+            text = "iou" 
+        intervals [53]:
+            xmin = 7.1248 
+            xmax = 7.236 
+            text = "t" 
+        intervals [54]:
+            xmin = 7.236 
+            xmax = 7.3229 
+            text = "a" 
+        intervals [55]:
+            xmin = 7.3229 
+            xmax = 7.386 
+            text = "m" 
+        intervals [56]:
+            xmin = 7.386 
+            xmax = 7.4449 
+            text = "en" 
+        intervals [57]:
+            xmin = 7.4449 
+            xmax = 7.5359 
+            text = "zh" 
+        intervals [58]:
+            xmin = 7.5359 
+            xmax = 7.6857 
+            text = "uan" 
+        intervals [59]:
+            xmin = 7.6857 
+            xmax = 7.7579 
+            text = "s" 
+        intervals [60]:
+            xmin = 7.7579 
+            xmax = 7.8869 
+            text = "ong" 
+        intervals [61]:
+            xmin = 7.8869 
+            xmax = 7.998 
+            text = "q" 
+        intervals [62]:
+            xmin = 7.998 
+            xmax = 8.1645 
+            text = "v" 
+        intervals [63]:
+            xmin = 8.1645 
+            xmax = 8.3975 
+            text = "i" 
+        intervals [64]:
+            xmin = 8.3975 
+            xmax = 8.6023 
+            text = "van" 
+        intervals [65]:
+            xmin = 8.6023 
+            xmax = 8.6459 
+            text = "d" 
+        intervals [66]:
+            xmin = 8.6459 
+            xmax = 8.7915 
+            text = "e" 
+        intervals [67]:
+            xmin = 8.7915 
+            xmax = 8.868 
+            text = "l" 
+        intervals [68]:
+            xmin = 8.868 
+            xmax = 9.0454 
+            text = "v" 
+        intervals [69]:
+            xmin = 9.0454 
+            xmax = 9.18 
+            text = "k" 
+        intervals [70]:
+            xmin = 9.18 
+            xmax = 9.265 
+            text = "e" 
+        intervals [71]:
+            xmin = 9.265 
+            xmax = 9.3719 
+            text = "ch" 
+        intervals [72]:
+            xmin = 9.3719 
+            xmax = 9.4783 
+            text = "an" 
+        intervals [73]:
+            xmin = 9.4783 
+            xmax = 9.5933 
+            text = "f" 
+        intervals [74]:
+            xmin = 9.5933 
+            xmax = 9.7239 
+            text = "u" 
+        intervals [75]:
+            xmin = 9.7239 
+            xmax = 10.3245 
+            text = "__" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "SYLL" 
+        xmin = 0 
+        xmax = 10.3245 
+        intervals: size = 38 
+        intervals [1]:
+            xmin = 0.7779 
+            xmax = 0.9569 
+            text = "SYL" 
+        intervals [2]:
+            xmin = 0.9569 
+            xmax = 1.1138 
+            text = "SYL" 
+        intervals [3]:
+            xmin = 1.1138 
+            xmax = 1.34 
+            text = "SYL" 
+        intervals [4]:
+            xmin = 1.34 
+            xmax = 1.5622 
+            text = "SYL" 
+        intervals [5]:
+            xmin = 1.5622 
+            xmax = 1.7804 
+            text = "SYL" 
+        intervals [6]:
+            xmin = 1.7804 
+            xmax = 1.979 
+            text = "SYL" 
+        intervals [7]:
+            xmin = 1.979 
+            xmax = 2.2448 
+            text = "SYL" 
+        intervals [8]:
+            xmin = 2.2448 
+            xmax = 2.4929 
+            text = "SYL" 
+        intervals [9]:
+            xmin = 2.4929 
+            xmax = 2.6389 
+            text = "SYL" 
+        intervals [10]:
+            xmin = 2.6389 
+            xmax = 2.9815 
+            text = "SYL" 
+        intervals [11]:
+            xmin = 2.9815 
+            xmax = 3.2941 
+            text = "SYL" 
+        intervals [12]:
+            xmin = 3.2941 
+            xmax = 3.5758 
+            text = "SYL" 
+        intervals [13]:
+            xmin = 3.5758 
+            xmax = 3.8271 
+            text = "SYL" 
+        intervals [14]:
+            xmin = 3.8271 
+            xmax = 4.0731 
+            text = "SYL" 
+        intervals [15]:
+            xmin = 4.0731 
+            xmax = 4.7544 
+            text = "SYL" 
+        intervals [16]:
+            xmin = 4.7544 
+            xmax = 4.9157 
+            text = "SYL" 
+        intervals [17]:
+            xmin = 4.9157 
+            xmax = 5.13 
+            text = "SYL" 
+        intervals [18]:
+            xmin = 5.13 
+            xmax = 5.3249 
+            text = "SYL" 
+        intervals [19]:
+            xmin = 5.3249 
+            xmax = 5.5519 
+            text = "SYL" 
+        intervals [20]:
+            xmin = 5.5519 
+            xmax = 5.7041 
+            text = "SYL" 
+        intervals [21]:
+            xmin = 5.7041 
+            xmax = 5.9355 
+            text = "SYL" 
+        intervals [22]:
+            xmin = 5.9355 
+            xmax = 6.249 
+            text = "SYL" 
+        intervals [23]:
+            xmin = 6.249 
+            xmax = 6.4302 
+            text = "SYL" 
+        intervals [24]:
+            xmin = 6.4302 
+            xmax = 6.6842 
+            text = "SYL" 
+        intervals [25]:
+            xmin = 6.6842 
+            xmax = 6.9428 
+            text = "SYL" 
+        intervals [26]:
+            xmin = 6.9428 
+            xmax = 7.1248 
+            text = "SYL" 
+        intervals [27]:
+            xmin = 7.1248 
+            xmax = 7.3229 
+            text = "SYL" 
+        intervals [28]:
+            xmin = 7.3229 
+            xmax = 7.4449 
+            text = "SYL" 
+        intervals [29]:
+            xmin = 7.4449 
+            xmax = 7.6857 
+            text = "SYL" 
+        intervals [30]:
+            xmin = 7.6857 
+            xmax = 7.8869 
+            text = "SYL" 
+        intervals [31]:
+            xmin = 7.8869 
+            xmax = 8.1645 
+            text = "SYL" 
+        intervals [32]:
+            xmin = 8.1645 
+            xmax = 8.3975 
+            text = "SYL" 
+        intervals [33]:
+            xmin = 8.3975 
+            xmax = 8.6023 
+            text = "SYL" 
+        intervals [34]:
+            xmin = 8.6023 
+            xmax = 8.7915 
+            text = "SYL" 
+        intervals [35]:
+            xmin = 8.7915 
+            xmax = 9.0454 
+            text = "SYL" 
+        intervals [36]:
+            xmin = 9.0454 
+            xmax = 9.265 
+            text = "SYL" 
+        intervals [37]:
+            xmin = 9.265 
+            xmax = 9.4783 
+            text = "SYL" 
+        intervals [38]:
+            xmin = 9.4783 
+            xmax = 10.3245 
+            text = "SYL" 
+    item [3]:
+        class = "TextTier" 
+        name = "TONE1" 
+        xmin = 0 
+        xmax = 10.3245 
+        points: size = 40 
+        points [1]:
+            time = 0.7779 
+            mark = ":FF" 
+        points [2]:
+            time = 0.9569 
+            mark = ":C1" 
+        points [3]:
+            time = 1.1138 
+            mark = ":FF" 
+        points [4]:
+            time = 1.34 
+            mark = ":C2" 
+        points [5]:
+            time = 1.5622 
+            mark = ":FF" 
+        points [6]:
+            time = 1.7804 
+            mark = ":C1" 
+        points [7]:
+            time = 1.979 
+            mark = ":FF" 
+        points [8]:
+            time = 2.2448 
+            mark = ":C4" 
+        points [9]:
+            time = 2.4929 
+            mark = ":FF" 
+        points [10]:
+            time = 2.6389 
+            mark = ":C3" 
+        points [11]:
+            time = 2.9815 
+            mark = ":FF" 
+        points [12]:
+            time = 3.2941 
+            mark = ":C3" 
+        points [13]:
+            time = 3.5758 
+            mark = ":FF" 
+        points [14]:
+            time = 3.8271 
+            mark = ":C4" 
+        points [15]:
+            time = 4.0731 
+            mark = ":FF" 
+        points [16]:
+            time = 4.3528 
+            mark = ":C4" 
+        points [17]:
+            time = 4.7544 
+            mark = ":FF" 
+        points [18]:
+            time = 4.9157 
+            mark = ":FF" 
+        points [19]:
+            time = 5.13 
+            mark = ":C2" 
+        points [20]:
+            time = 5.3249 
+            mark = ":FF" 
+        points [21]:
+            time = 5.5519 
+            mark = ":C2" 
+        points [22]:
+            time = 5.7041 
+            mark = ":FF" 
+        points [23]:
+            time = 5.9355 
+            mark = ":C2" 
+        points [24]:
+            time = 6.249 
+            mark = ":FF" 
+        points [25]:
+            time = 6.4302 
+            mark = ":C4" 
+        points [26]:
+            time = 6.6842 
+            mark = ":FF" 
+        points [27]:
+            time = 6.9428 
+            mark = ":C4" 
+        points [28]:
+            time = 7.1248 
+            mark = ":FF" 
+        points [29]:
+            time = 7.3229 
+            mark = ":C1" 
+        points [30]:
+            time = 7.4449 
+            mark = ":FF" 
+        points [31]:
+            time = 7.6857 
+            mark = ":C3" 
+        points [32]:
+            time = 7.8869 
+            mark = ":FF" 
+        points [33]:
+            time = 8.1645 
+            mark = ":C4" 
+        points [34]:
+            time = 8.3975 
+            mark = ":FF" 
+        points [35]:
+            time = 8.6023 
+            mark = ":C4" 
+        points [36]:
+            time = 8.7915 
+            mark = ":FF" 
+        points [37]:
+            time = 9.0454 
+            mark = ":C3" 
+        points [38]:
+            time = 9.265 
+            mark = ":FF" 
+        points [39]:
+            time = 9.4783 
+            mark = ":C3" 
+        points [40]:
+            time = 9.7239 
+            mark = ":FF" 
+    item [4]:
+        class = "TextTier" 
+        name = "TONE2" 
+        xmin = 0 
+        xmax = 10.3245 
+        points: size = 39 
+        points [1]:
+            time = 0.9569 
+            mark = ":FF" 
+        points [2]:
+            time = 1.1138 
+            mark = ":C0" 
+        points [3]:
+            time = 1.34 
+            mark = ":FF" 
+        points [4]:
+            time = 1.5622 
+            mark = ":C4" 
+        points [5]:
+            time = 1.7804 
+            mark = ":FF" 
+        points [6]:
+            time = 1.979 
+            mark = ":C1" 
+        points [7]:
+            time = 2.2448 
+            mark = ":FF" 
+        points [8]:
+            time = 2.4929 
+            mark = ":C2" 
+        points [9]:
+            time = 2.6389 
+            mark = ":FF" 
+        points [10]:
+            time = 2.9815 
+            mark = ":C4" 
+        points [11]:
+            time = 3.2941 
+            mark = ":FF" 
+        points [12]:
+            time = 3.5758 
+            mark = ":C1" 
+        points [13]:
+            time = 3.8271 
+            mark = ":FF" 
+        points [14]:
+            time = 4.0731 
+            mark = ":C1" 
+        points [15]:
+            time = 4.3528 
+            mark = ":FF" 
+        points [16]:
+            time = 4.7544 
+            mark = ":FF" 
+        points [17]:
+            time = 4.9157 
+            mark = ":C2" 
+        points [18]:
+            time = 5.13 
+            mark = ":FF" 
+        points [19]:
+            time = 5.3249 
+            mark = ":C1" 
+        points [20]:
+            time = 5.5519 
+            mark = ":FF" 
+        points [21]:
+            time = 5.7041 
+            mark = ":C3" 
+        points [22]:
+            time = 5.9355 
+            mark = ":FF" 
+        points [23]:
+            time = 6.249 
+            mark = ":C3" 
+        points [24]:
+            time = 6.4302 
+            mark = ":FF" 
+        points [25]:
+            time = 6.6842 
+            mark = ":C4" 
+        points [26]:
+            time = 6.9428 
+            mark = ":FF" 
+        points [27]:
+            time = 7.1248 
+            mark = ":C2" 
+        points [28]:
+            time = 7.3229 
+            mark = ":FF" 
+        points [29]:
+            time = 7.4449 
+            mark = ":C0" 
+        points [30]:
+            time = 7.6857 
+            mark = ":FF" 
+        points [31]:
+            time = 7.8869 
+            mark = ":C4" 
+        points [32]:
+            time = 8.1645 
+            mark = ":FF" 
+        points [33]:
+            time = 8.3975 
+            mark = ":C1" 
+        points [34]:
+            time = 8.6023 
+            mark = ":FF" 
+        points [35]:
+            time = 8.7915 
+            mark = ":C0" 
+        points [36]:
+            time = 9.0454 
+            mark = ":FF" 
+        points [37]:
+            time = 9.265 
+            mark = ":C4" 
+        points [38]:
+            time = 9.4783 
+            mark = ":FF" 
+        points [39]:
+            time = 9.7239 
+            mark = ":C4" 
+    item [5]:
+        class = "IntervalTier" 
+        name = "ORTHOGRAPHE" 
+        xmin = 0 
+        xmax = 10.3245 
+        intervals: size = 40 
+        intervals [1]:
+            xmin = 0.7779 
+            xmax = 0.9569 
+            text = "ta1" 
+        intervals [2]:
+            xmin = 0.9569 
+            xmax = 1.1138 
+            text = "men0" 
+        intervals [3]:
+            xmin = 1.1138 
+            xmax = 1.34 
+            text = "ceng2" 
+        intervals [4]:
+            xmin = 1.34 
+            xmax = 1.5622 
+            text = "zai4" 
+        intervals [5]:
+            xmin = 1.5622 
+            xmax = 1.7804 
+            text = "ji1" 
+        intervals [6]:
+            xmin = 1.7804 
+            xmax = 1.979 
+            text = "cang1" 
+        intervals [7]:
+            xmin = 1.979 
+            xmax = 2.2448 
+            text = "nei4" 
+        intervals [8]:
+            xmin = 2.2448 
+            xmax = 2.4929 
+            text = "gei2" 
+        intervals [9]:
+            xmin = 2.4929 
+            xmax = 2.6389 
+            text = "lv3" 
+        intervals [10]:
+            xmin = 2.6389 
+            xmax = 2.9815 
+            text = "ke4" 
+        intervals [11]:
+            xmin = 2.9815 
+            xmax = 3.2941 
+            text = "dian3" 
+        intervals [12]:
+            xmin = 3.2941 
+            xmax = 3.5758 
+            text = "ge1" 
+        intervals [13]:
+            xmin = 3.5758 
+            xmax = 3.8271 
+            text = "he4" 
+        intervals [14]:
+            xmin = 3.8271 
+            xmax = 4.0731 
+            text = "sheng1" 
+        intervals [15]:
+            xmin = 4.0731 
+            xmax = 4.3528 
+            text = "ri4" 
+        intervals [16]:
+            xmin = 4.3528 
+            xmax = 4.7544 
+            text = "," 
+        intervals [17]:
+            xmin = 4.7544 
+            xmax = 4.9157 
+            text = "ceng2" 
+        intervals [18]:
+            xmin = 4.9157 
+            xmax = 5.13 
+            text = "na2" 
+        intervals [19]:
+            xmin = 5.13 
+            xmax = 5.3249 
+            text = "zhe1" 
+        intervals [20]:
+            xmin = 5.3249 
+            xmax = 5.5519 
+            text = "shui2" 
+        intervals [21]:
+            xmin = 5.5519 
+            xmax = 5.7041 
+            text = "guo3" 
+        intervals [22]:
+            xmin = 5.7041 
+            xmax = 5.9355 
+            text = "nai2" 
+        intervals [23]:
+            xmin = 5.9355 
+            xmax = 6.249 
+            text = "fen3" 
+        intervals [24]:
+            xmin = 6.249 
+            xmax = 6.4302 
+            text = "qu4" 
+        intervals [25]:
+            xmin = 6.4302 
+            xmax = 6.6842 
+            text = "tan4" 
+        intervals [26]:
+            xmin = 6.6842 
+            xmax = 6.9428 
+            text = "wang4" 
+        intervals [27]:
+            xmin = 6.9428 
+            xmax = 7.1248 
+            text = "you2" 
+        intervals [28]:
+            xmin = 7.1248 
+            xmax = 7.3229 
+            text = "ta1" 
+        intervals [29]:
+            xmin = 7.3229 
+            xmax = 7.4449 
+            text = "men0" 
+        intervals [30]:
+            xmin = 7.4449 
+            xmax = 7.6857 
+            text = "zhuan3" 
+        intervals [31]:
+            xmin = 7.6857 
+            xmax = 7.8869 
+            text = "song4" 
+        intervals [32]:
+            xmin = 7.8869 
+            xmax = 8.1645 
+            text = "qu4" 
+        intervals [33]:
+            xmin = 8.1645 
+            xmax = 8.3975 
+            text = "yi1" 
+        intervals [34]:
+            xmin = 8.3975 
+            xmax = 8.6023 
+            text = "yuan4" 
+        intervals [35]:
+            xmin = 8.6023 
+            xmax = 8.7915 
+            text = "de0" 
+        intervals [36]:
+            xmin = 8.7915 
+            xmax = 9.0454 
+            text = "lv3" 
+        intervals [37]:
+            xmin = 9.0454 
+            xmax = 9.265 
+            text = "ke4" 
+        intervals [38]:
+            xmin = 9.265 
+            xmax = 9.4783 
+            text = "chan3" 
+        intervals [39]:
+            xmin = 9.4783 
+            xmax = 9.7239 
+            text = "fu4" 
+        intervals [40]:
+            xmin = 9.7239 
+            xmax = 10.3245 
+            text = "." 
+    item [6]:
+        class = "IntervalTier" 
+        name = "TRANSLATION" 
+        xmin = 0 
+        xmax = 10.3245 
+        intervals: size = 0 
+    item [7]:
+        class = "IntervalTier" 
+        name = "LEX" 
+        xmin = 0 
+        xmax = 10.3245 
+        intervals: size = 18 
+        intervals [1]:
+            xmin = 0.7779 
+            xmax = 1.1138 
+            text = "u" 
+        intervals [2]:
+            xmin = 1.1138 
+            xmax = 1.5622 
+            text = "p" 
+        intervals [3]:
+            xmin = 1.5622 
+            xmax = 2.2448 
+            text = "f" 
+        intervals [4]:
+            xmin = 2.2448 
+            xmax = 2.9815 
+            text = "ngp" 
+        intervals [5]:
+            xmin = 2.9815 
+            xmax = 3.5758 
+            text = "n" 
+        intervals [6]:
+            xmin = 3.5758 
+            xmax = 4.7544 
+            text = "ngp" 
+        intervals [7]:
+            xmin = 4.7544 
+            xmax = 5.3249 
+            text = "u" 
+        intervals [8]:
+            xmin = 5.3249 
+            xmax = 5.7041 
+            text = "n" 
+        intervals [9]:
+            xmin = 5.7041 
+            xmax = 6.249 
+            text = "n" 
+        intervals [10]:
+            xmin = 6.249 
+            xmax = 6.4302 
+            text = "v" 
+        intervals [11]:
+            xmin = 6.4302 
+            xmax = 6.9428 
+            text = "v" 
+        intervals [12]:
+            xmin = 6.9428 
+            xmax = 7.1248 
+            text = "p" 
+        intervals [13]:
+            xmin = 7.1248 
+            xmax = 7.4449 
+            text = "u" 
+        intervals [14]:
+            xmin = 7.4449 
+            xmax = 7.8869 
+            text = "v" 
+        intervals [15]:
+            xmin = 7.8869 
+            xmax = 8.1645 
+            text = "v" 
+        intervals [16]:
+            xmin = 8.1645 
+            xmax = 8.7915 
+            text = "u" 
+        intervals [17]:
+            xmin = 8.7915 
+            xmax = 9.265 
+            text = "ngp" 
+        intervals [18]:
+            xmin = 9.265 
+            xmax = 10.3245 
+            text = "ngp" 
+    item [8]:
+        class = "TextTier" 
+        name = "CLAUSE" 
+        xmin = 0 
+        xmax = 10.3245 
+        points: size = 2 
+        points [1]:
+            time = 0.7779 
+            mark = ":FF" 
+        points [2]:
+            time = 9.7239 
+            mark = ":DC" 
+    item [9]:
+        class = "TextTier" 
+        name = "WORD" 
+        xmin = 0 
+        xmax = 10.3245 
+        points: size = 19 
+        points [1]:
+            time = 0.7779 
+            mark = ":FF" 
+        points [2]:
+            time = 1.1138 
+            mark = ":WB" 
+        points [3]:
+            time = 1.5622 
+            mark = ":WB" 
+        points [4]:
+            time = 2.2448 
+            mark = ":WB" 
+        points [5]:
+            time = 2.9815 
+            mark = ":WB" 
+        points [6]:
+            time = 3.5758 
+            mark = ":WB" 
+        points [7]:
+            time = 4.7544 
+            mark = ":WB" 
+        points [8]:
+            time = 5.3249 
+            mark = ":WB" 
+        points [9]:
+            time = 5.7041 
+            mark = ":WB" 
+        points [10]:
+            time = 6.249 
+            mark = ":WB" 
+        points [11]:
+            time = 6.4302 
+            mark = ":WB" 
+        points [12]:
+            time = 6.9428 
+            mark = ":WB" 
+        points [13]:
+            time = 7.1248 
+            mark = ":WB" 
+        points [14]:
+            time = 7.4449 
+            mark = ":WB" 
+        points [15]:
+            time = 7.8869 
+            mark = ":WB" 
+        points [16]:
+            time = 8.1645 
+            mark = ":WB" 
+        points [17]:
+            time = 8.7915 
+            mark = ":WB" 
+        points [18]:
+            time = 9.265 
+            mark = ":WB" 
+        points [19]:
+            time = 9.7239 
+            mark = ":WB" 
+    item [10]:
+        class = "TextTier" 
+        name = "NIV1" 
+        xmin = 0 
+        xmax = 10.3245 
+        points: size = 3 
+        points [1]:
+            time = 0.7779 
+            mark = ":FF" 
+        points [2]:
+            time = 4.7544 
+            mark = ":ID" 
+        points [3]:
+            time = 9.7239 
+            mark = ":FF" 

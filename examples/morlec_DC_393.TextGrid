@@ -1,0 +1,321 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 2.53 
+tiers? <exists> 
+size = 7 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "PHON" 
+        xmin = 0 
+        xmax = 2.53 
+        intervals: size = 30 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.015 
+            text = "_" 
+        intervals [2]:
+            xmin = 0.015 
+            xmax = 0.11 
+            text = "s" 
+        intervals [3]:
+            xmin = 0.11 
+            xmax = 0.2067 
+            text = "o~" 
+        intervals [4]:
+            xmin = 0.2067 
+            xmax = 0.2831 
+            text = "b" 
+        intervals [5]:
+            xmin = 0.2831 
+            xmax = 0.39 
+            text = "a" 
+        intervals [6]:
+            xmin = 0.39 
+            xmax = 0.4675 
+            text = "g" 
+        intervals [7]:
+            xmin = 0.4675 
+            xmax = 0.61 
+            text = "u" 
+        intervals [8]:
+            xmin = 0.61 
+            xmax = 0.71 
+            text = "p" 
+        intervals [9]:
+            xmin = 0.71 
+            xmax = 0.7824 
+            text = "u" 
+        intervals [10]:
+            xmin = 0.7824 
+            xmax = 0.83 
+            text = "r" 
+        intervals [11]:
+            xmin = 0.83 
+            xmax = 0.91 
+            text = "e^" 
+        intervals [12]:
+            xmin = 0.91 
+            xmax = 1.0178 
+            text = "f" 
+        intervals [13]:
+            xmin = 1.0178 
+            xmax = 1.08 
+            text = "a" 
+        intervals [14]:
+            xmin = 1.08 
+            xmax = 1.19 
+            text = "s" 
+        intervals [15]:
+            xmin = 1.19 
+            xmax = 1.2531 
+            text = "i" 
+        intervals [16]:
+            xmin = 1.2531 
+            xmax = 1.2881 
+            text = "l" 
+        intervals [17]:
+            xmin = 1.2881 
+            xmax = 1.365 
+            text = "i" 
+        intervals [18]:
+            xmin = 1.365 
+            xmax = 1.48 
+            text = "t" 
+        intervals [19]:
+            xmin = 1.48 
+            xmax = 1.6 
+            text = "e" 
+        intervals [20]:
+            xmin = 1.6 
+            xmax = 1.6507 
+            text = "l" 
+        intervals [21]:
+            xmin = 1.6507 
+            xmax = 1.725 
+            text = "a" 
+        intervals [22]:
+            xmin = 1.725 
+            xmax = 1.835 
+            text = "k" 
+        intervals [23]:
+            xmin = 1.835 
+            xmax = 1.89 
+            text = "o^" 
+        intervals [24]:
+            xmin = 1.89 
+            xmax = 1.9656 
+            text = "m" 
+        intervals [25]:
+            xmin = 1.9656 
+            xmax = 2.0228 
+            text = "y" 
+        intervals [26]:
+            xmin = 2.0228 
+            xmax = 2.0769 
+            text = "n" 
+        intervals [27]:
+            xmin = 2.0769 
+            xmax = 2.1564 
+            text = "o" 
+        intervals [28]:
+            xmin = 2.1564 
+            xmax = 2.29 
+            text = "t" 
+        intervals [29]:
+            xmin = 2.29 
+            xmax = 2.414 
+            text = "e" 
+        intervals [30]:
+            xmin = 2.414 
+            xmax = 2.53 
+            text = "_" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "SYLL" 
+        xmin = 0 
+        xmax = 2.53 
+        intervals: size = 15 
+        intervals [1]:
+            xmin = 0.015 
+            xmax = 0.2067 
+            text = "Syl" 
+        intervals [2]:
+            xmin = 0.2067 
+            xmax = 0.39 
+            text = "Syl" 
+        intervals [3]:
+            xmin = 0.39 
+            xmax = 0.61 
+            text = "Acc" 
+        intervals [4]:
+            xmin = 0.61 
+            xmax = 0.7824 
+            text = "Syl" 
+        intervals [5]:
+            xmin = 0.7824 
+            xmax = 0.91 
+            text = "Syl" 
+        intervals [6]:
+            xmin = 0.91 
+            xmax = 1.08 
+            text = "Syl" 
+        intervals [7]:
+            xmin = 1.08 
+            xmax = 1.2531 
+            text = "Syl" 
+        intervals [8]:
+            xmin = 1.2531 
+            xmax = 1.365 
+            text = "Syl" 
+        intervals [9]:
+            xmin = 1.365 
+            xmax = 1.6 
+            text = "Syl" 
+        intervals [10]:
+            xmin = 1.6 
+            xmax = 1.725 
+            text = "Syl" 
+        intervals [11]:
+            xmin = 1.725 
+            xmax = 1.89 
+            text = "Syl" 
+        intervals [12]:
+            xmin = 1.89 
+            xmax = 2.0228 
+            text = "Syl" 
+        intervals [13]:
+            xmin = 2.0228 
+            xmax = 2.1564 
+            text = "Syl" 
+        intervals [14]:
+            xmin = 2.1564 
+            xmax = 2.414 
+            text = "Acc" 
+        intervals [15]:
+            xmin = 2.414 
+            xmax = 2.53 
+            text = "Syl" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "LEX" 
+        xmin = 0 
+        xmax = 2.53 
+        intervals: size = 6 
+        intervals [1]:
+            xmin = 0.015 
+            xmax = 0.2067 
+            text = "Det" 
+        intervals [2]:
+            xmin = 0.2067 
+            xmax = 0.61 
+            text = "Nom" 
+        intervals [3]:
+            xmin = 0.61 
+            xmax = 0.91 
+            text = "Vrb" 
+        intervals [4]:
+            xmin = 0.91 
+            xmax = 1.6 
+            text = "Inf" 
+        intervals [5]:
+            xmin = 1.6 
+            xmax = 1.725 
+            text = "Det" 
+        intervals [6]:
+            xmin = 1.725 
+            xmax = 2.53 
+            text = "Nom" 
+    item [4]:
+        class = "IntervalTier" 
+        name = "ORTHOGRAPHE" 
+        xmin = 0 
+        xmax = 2.53 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0.015 
+            xmax = 0.2067 
+            text = "SON" 
+        intervals [2]:
+            xmin = 0.2067 
+            xmax = 0.61 
+            text = "BAGOU" 
+        intervals [3]:
+            xmin = 0.61 
+            xmax = 0.91 
+            text = "POURRAIENT" 
+        intervals [4]:
+            xmin = 0.91 
+            xmax = 1.6 
+            text = "FACILITER" 
+        intervals [5]:
+            xmin = 1.6 
+            xmax = 1.725 
+            text = "LA" 
+        intervals [6]:
+            xmin = 1.725 
+            xmax = 2.414 
+            text = "COMMUNAUTE" 
+        intervals [7]:
+            xmin = 2.414 
+            xmax = 2.53 
+            text = "." 
+    item [5]:
+        class = "TextTier" 
+        name = "PHRASE" 
+        xmin = 0 
+        xmax = 2.53 
+        points: size = 2 
+        points [1]:
+            time = 0.015 
+            mark = ":FF" 
+        points [2]:
+            time = 2.414 
+            mark = ":DC" 
+    item [6]:
+        class = "TextTier" 
+        name = "NIV1" 
+        xmin = 0 
+        xmax = 2.53 
+        points: size = 4 
+        points [1]:
+            time = 0.015 
+            mark = ":FF" 
+        points [2]:
+            time = 0.61 
+            mark = ":DG" 
+        points [3]:
+            time = 1.6 
+            mark = ":DD" 
+        points [4]:
+            time = 2.414 
+            mark = ":FF" 
+    item [7]:
+        class = "TextTier" 
+        name = "NIV2" 
+        xmin = 0 
+        xmax = 2.53 
+        points: size = 7 
+        points [1]:
+            time = 0.015 
+            mark = ":FF" 
+        points [2]:
+            time = 0.2067 
+            mark = ":XX" 
+        points [3]:
+            time = 0.61 
+            mark = ":FF" 
+        points [4]:
+            time = 0.91 
+            mark = ":XX" 
+        points [5]:
+            time = 1.6 
+            mark = ":FF" 
+        points [6]:
+            time = 1.725 
+            mark = ":XX" 
+        points [7]:
+            time = 2.414 
+            mark = ":FF" 
