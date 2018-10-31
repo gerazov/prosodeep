@@ -1,60 +1,44 @@
-# PySFC
-Python implementation of the SFC intonation model.
- 
+# Prosodeep
+Deep understanding and modelling of the hierarchical structure of Prosody
 
-## The SFC model
+Project Framework |	Horizon 2020 Marie Skłodowska-Curie Actions Individual Fellowship
+Project Call 	| H2020-MSCA-IF-2016
+Project title 	| ProsoDeep : Deep understanding and modelling of the hierarchical structure of Prosody
+Supervisor 	| Gérard Bailly
+Researcher 	| Brаnislаv Gеrаzоv
 
-The Superposition of Functional Contours (SFC) model is a prosody model that is based on the decomposition of prosodic contours into functionally relevant elementary contours [1]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. 
-The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. 
+## Objectives
 
-The SFC model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. 
-NNCG training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. 
-Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each syllable.
+The prime objective of the ProsoDeep project is to gain a deeper understanding of the language of prosody through the analysis of all the levels in the production hierarchy of prosody. In particular, it will exploit the benefits of the top-down and bottom-up approaches through their incorporation within a Deep Prosody Model (DPM).
 
+The DPM will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (TTS) systems, and its analysis, e.g. speech recognition and speech emotion recognition (SER). To reach this objective the project will draw on a variety of scientific fields, including signal processing, physiology of prosody production and biomechanics, linguistics, and machine learning, and will also be augmented with respiratory measurements.
+
+## The problem
+
+Prosody is a multidimensional phenomenon comprising intonation, energy, and rhythm. It is the carrier of both linguistic information, e.g. sentence structure, focus and contrast, lexical stress; as well as paralinguistic information, e.g. gender, age, personality, and emotions. In recent years, prosodic research has considerably enlarged the spectrum of properties and functions. In contrast, prosodic models able to map signals to functions or vice-versa are rare: comprehensive models of rhythm and intonation have difficulties coping with this expanding dimensionality, and machine learning techniques still have difficulties with offering structuring principles.
+
+## State of the art
+
+The importance of prosody in TTS systems has been the driving force in the development of prosody models, with a special focus on intonation. Most of these models follow a bottom-up approach, i.e. from signals to functions. A number of intonation models following this approach also incorporate physiological constrains. Only a few models seek to model prosody taking a top-down function that starts with the linguistic functions themselves.
+
+### SFC
+
+The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [1]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the SFC approach is the many-to-many ill-posed problem of determining the shape of the function specific contours.
+
+The SFC model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. NNCG training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each syllable.
+
+The SFC has been implemented in Python and called [PySFC](PySFC.md). The code has been released as free software on GitHub: https://github.com/bgerazov/PySFC
 
 [1] Bailly, Gérard, and Bleicke Holm. "SFC: a trainable prosodic model." Speech communication 46, no. 3 (2005): 348-364.
 
-## PySFC
+### GCR
 
-PySFC is a Python implementation of the SFC model that was created with two goals: *i*) to make the SFC more accessible to the scientific community, and *ii*) to serve as a foundation for future improvements of the prosody model. 
-The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully functional. 
+One representative bottom-up model with physiological constraints is the Generalized Command Response (GCR) model that describes the intonation contour using atoms that correspond to elementary muscle activations [2]. The parameters of the GCR model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This was experimentally confirmed for English, French and German. The GCR atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise emphasis.
 
-Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. It is based on [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural networks and their training have been facilitated through the use of the Multi Layer Perceptron (MLP) regressor in the powerful [scikit-learn](http://scikit-learn.org/stable/index.html) module. 
-Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping. Finally, the whole implementation has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/).
+The implementation of the GCR parameter extraction algorithm called Weighted Correlation based Atom Decomposition (WCAD) is free software and is available on GitHub at: https://github.com/dipteam/wcad
 
-### PySFC Modules
+The main problem with the bottom-up approach is that it is difficult to establish the linguistic significance of the extracted model parameters.
 
-PySFC comprises the following modules:
- * `sfc.py` - main module that controls the application of the SFC model to a chosen dataset. 
- * `sfc_params.py` - parameter setting module that includes:
-      * data related parameters - type of input data, phrase level functional contours, local functional contours, 
-      * SFC hyperparameters - number of points to be sampled from the pitch, number of iterations for analysis-by-synthesis, as well as NNCG parameters, 
-      * SFC execution parameters - use of preprocessed data, use of trained models, plotting.
- * `sfc_corpus.py` - holds all the functions that are used to consolidate and work with the corpus of data that is directly fed and output from the SFC model. The corpus is a [Pandas](http://pandas.pydata.org/) data frame object, which allows easy data access and analysis. 
- * `sfc_data.py` - comprises functions that read the input data files and calculate the `f_0` and duration coefficients,
- * `sfc_learn.py` - holds the SFC training function `analysis_by_synthesis()` and the function for NNCG initialisation,
- * `sfc_dsp.py` - holds DSP functions for smoothing the pitch contour based on SciPy,
- * `sfc_plot.py` - holds the plotting functions based on [matplotlib](http://matplotlib.org/) and [seaborn](http://seaborn.pydata.org/).
+### Goal
 
-Currently, PySFC supports the proprietary SFC `fpro` file format as well as standard Praat `TextGrid` annotations. Pitch is calculated based on Praat `PointProcess` pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future. 
-PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance analysis.
-
-### PySFC Example Plots
-
-Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the `examples/` directory.
-
-![alt text](r1_DC_393.png)
-**Figure 1.** Example PySFC intonation decomposition for the French utterance: *Son bagou pourrait faciliter la communauté.* into constituent functional contours: declaration (DC), dependency to the left/right (DG/DD), and cliticisation (XX, DV).
-
-![alt text](r1_chinese_003.png)
-**Figure 2.** Example PySFC intonation decomposition for the Chinese utterance: *Tā men céng zài jī cāng nèi géi lǔ kè diǎn gē hè shēng rì,
-céng ná zhē shuí guǒ nái fěn qù tàn wàng yóu tā men zhuǎn sòng qù yī yuàn de lǔ kè chǎn fù.* into constituent functional contours: declaration (DC), tones (C0-4), word boundaries (WB), and independence (ID).
-
-![alt text](r1_expansion_DD.png)
-**Figure 3.** Example PySFC expansion in left and right context for the dependency to the right (DD) functional contour, numbers next to the plots show the number of occurences of that scope in the data.
-
-![alt text](r1_losses_DC.png)
-
-**Figure 4.** Example PySFC plots of `f_0` reconstruction losses for all NNCGs for attitude DC per iteration for French.
-
-
+The DPM will seek to merge the strengths of these two opposing paradigms. Specifically, we will expand further on the methodology developed in the SFC while incorporating GCR's physiological constraints.
