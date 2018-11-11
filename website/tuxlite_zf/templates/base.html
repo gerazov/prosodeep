@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>
+        <!-- {% include "github.html" %} -->
+        {% block title %}
+        {{ SITENAME }}
+        {%endblock%}</title>
+
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/normalize.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />
+    <script src="{{ SITEURL }}/theme/js/custom.modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+	{% for title, link in MENUITEMS %}
+    <li><a href="{{ link }}" class="button secondary small">{{ title }}</a></li>
+    {% endfor %}
+
+    {% if DISPLAY_PAGES_ON_MENU %}
+        {% for page in pages %}
+            <li><a href="{{ SITEURL }}/{{ page.url }}" class="button secondary small">{{ page.title }}</a></li>
+        {% endfor %}
+    {% endif %}
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Sidebar -->
+    <aside class="large-2 columns">
+        <h5 class="sidebar-title">   </h5>
+        <ul class="side-nav">
+            <!-- <li><a href="{{ SITEURL }}/archives.html">Archives</a> -->
+            <!-- <li><a href="{{ SITEURL }}/tags.html">Tags</a> -->
+            {% for title, url in PAGES %}
+            <li><a href="{{ SITEURL }}/{{ url }}"
+                >{{ title }}</a></li>
+                <!-- class="button primary large" -->
+                {% endfor %}
+            </ul>
+
+            {% if LINKS %}
+            <h5 class="sidebar-title">   </h5>
+            <!-- <h5 class="sidebar-title">Links</h5> -->
+            <ul class="side-nav">
+                {% for name, link in LINKS %}
+                <li><a href="{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+        </aside> <!-- End Sidebar -->
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+    {% block content %}{% endblock %}
+    </div>
+    <!-- End Main Content -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-12 columns">
+                <small>
+                    <p>
+                        <a href="/">{{ SITENAME }}</a> by
+                        <a href="https://github.com/bgerazov">{{ AUTHOR }}</a>.
+                <!-- </p> -->
+                <!-- <p> -->
+                        Powered by <a href="http://getpelican.com/">Pelican</a>
+                        and based on <a href="https://github.com/getpelican/pelican-themes/tree/master/tuxlite_zf">TuxLite ZF Theme</a>.
+                    </p>
+                    <p>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>  The content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons BY-NC 4.0 License</a>.
+                    </p>
+                </small>
+            </div>
+            </div>
+    </div>
+{% include "analytics.html" %}
+</footer>
