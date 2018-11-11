@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+
+    <title>
+        <!-- <a href="https://github.com/bgerazov/prosodeep">
+<img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Code on GitHub" />
+</a>
+ -->
+<span class="caps">SFC</span></title>
+
+    <link rel="stylesheet" href="../theme/css/normalize.css" />
+    <link rel="stylesheet" href="../theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="../theme/css/style.css" />
+    <link rel="stylesheet" href="../theme/css/pygments.css" />
+    <script src="../theme/js/custom.modernizr.js"></script>
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href="..">ProsoDeep</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+    <li><a href="/" class="button secondary small">Home</a></li>
+    <li><a href="/project" class="button secondary small">Project</a></li>
+    <li><a href="/pysfc" class="button secondary small">PySFC</a></li>
+    <li><a href="/wsfc" class="button secondary small">WSFC</a></li>
+    <li><a href="/vpm" class="button secondary small">VPM</a></li>
+    <li><a href="/vrpm" class="button secondary small">VRPM</a></li>
+    <li><a href="/refs" class="button secondary small">References</a></li>
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+    <h3><span class="caps">SFC</span></h3>
+    
+    <p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours <a href="../refs">1</a>. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The <span class="caps">SFC</span> has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the <span class="caps">SFC</span> model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the <span class="caps">SFC</span> approach is the many-to-many ill-posed problem of determining the shape of the function specific&nbsp;contours.</p>
+<p>The <span class="caps">SFC</span> model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. <span class="caps">NNCG</span> training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each&nbsp;syllable.</p>
+<p>The <span class="caps">SFC</span> has been implemented in Python and called <a href="..//pysfc">PySFC</a>. The code has been released as free software on GitHub:&nbsp;https://github.com/bgerazov/PySFC</p>
+    </div>
+    <!-- End Main Content -->
+
+    <!-- Sidebar -->
+    <aside class="large-3 columns">
+        <h5 class="sidebar-title">ProsoDeep</h5>
+        <ul class="side-nav">
+            <!-- <li><a href="../archives.html">Archives</a> -->
+            <!-- <li><a href="../tags.html">Tags</a> -->
+                <li><a href="..//"
+                    class="button secondary small"
+                    >Home</a></li>
+                    <!-- class="button primary large" -->
+                <li><a href="..//project"
+                    class="button secondary small"
+                    >Project</a></li>
+                    <!-- class="button primary large" -->
+                <li><a href="..//pysfc"
+                    class="button secondary small"
+                    >PySFC</a></li>
+                    <!-- class="button primary large" -->
+                <li><a href="..//wsfc"
+                    class="button secondary small"
+                    >WSFC</a></li>
+                    <!-- class="button primary large" -->
+                <li><a href="..//vpm"
+                    class="button secondary small"
+                    >VPM</a></li>
+                    <!-- class="button primary large" -->
+                <li><a href="..//vrpm"
+                    class="button secondary small"
+                    >VRPM</a></li>
+                    <!-- class="button primary large" -->
+                <li><a href="..//refs"
+                    class="button secondary small"
+                    >References</a></li>
+                    <!-- class="button primary large" -->
+
+
+        </ul>
+
+
+        <h5 class="sidebar-title">Links</h5>
+        <ul class="side-nav">
+            <li><a href="http://getpelican.com/">Pelican</a></li>
+            <li><a href="http://python.org/">Python.org</a></li>
+            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+        </ul>
+
+
+    </aside> <!-- End Sidebar -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-6 columns">
+                <p>ProsoDeep by bgerazov</p>
+            </div>
+            </div>
+    </div>
+</footer>

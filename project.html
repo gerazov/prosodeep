@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>
+        <!-- <a href="https://github.com/bgerazov/prosodeep">
+<img style="position: absolute; top: 0; left: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_left_white_ffffff.png" alt="Code on GitHub" />
+</a>
+ -->
+Project&nbsp;outline</title>
+
+    <link rel="stylesheet" href="./theme/css/normalize.css" />
+    <link rel="stylesheet" href="./theme/css/foundation.min.css" />
+    <link rel="stylesheet" href="./theme/css/style.css" />
+    <link rel="stylesheet" href="./theme/css/pygments.css" />
+    <script src="./theme/js/custom.modernizr.js"></script>
+</head>
+
+<body>
+
+<!-- Nav Bar -->
+<nav>
+<div class="top-bar">
+<div class="row">
+    <div class="large-9 large-centered columns">
+	    <h1><a href=".">ProsoDeep</a></h1>
+    </div>
+</div>
+</div>
+
+<!-- Show menu items and pages -->
+<div class="row">
+<div class="large-9 columns">
+    <ul class="button-group navigation">
+
+    </ul>
+</div>
+</div>
+</nav>
+<!-- End Nav -->
+
+
+<!-- Main Page Content and Sidebar -->
+<div class="row">
+
+    <!-- Sidebar -->
+    <aside class="large-2 columns">
+        <h5 class="sidebar-title">   </h5>
+        <ul class="side-nav">
+            <!-- <li><a href="./archives.html">Archives</a> -->
+            <!-- <li><a href="./tags.html">Tags</a> -->
+            <li><a href=".//"
+                >Home</a></li>
+                <!-- class="button primary large" -->
+            <li><a href=".//project"
+                >Project</a></li>
+                <!-- class="button primary large" -->
+            <li><a href=".//pysfc"
+                >PySFC</a></li>
+                <!-- class="button primary large" -->
+            <li><a href=".//wsfc"
+                >WSFC</a></li>
+                <!-- class="button primary large" -->
+            <li><a href=".//vpm"
+                >VPM</a></li>
+                <!-- class="button primary large" -->
+            <li><a href=".//vrpm"
+                >VRPM</a></li>
+                <!-- class="button primary large" -->
+            <li><a href=".//refs"
+                >References</a></li>
+                <!-- class="button primary large" -->
+            </ul>
+
+            <h5 class="sidebar-title">   </h5>
+            <!-- <h5 class="sidebar-title">Links</h5> -->
+            <ul class="side-nav">
+                <li><a href="https://github.com/bgerazov/prosodeep">Code on GitHub</a></li>
+            </ul>
+
+        </aside> <!-- End Sidebar -->
+
+    <!-- Main Blog Content -->
+    <div class="large-9 columns">
+        
+    <h3>Project&nbsp;outline</h3>
+    
+    <!-- date: 2018-11-03 -->
+
+<table>
+<thead>
+<tr>
+<th>Project Framework</th>
+<th>Horizon 2020 Marie Skłodowska-Curie Actions Individual Fellowship</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project Call</td>
+<td>H2020-<span class="caps">MSCA</span>-<span class="caps">IF</span>-2016</td>
+</tr>
+<tr>
+<td>Project title</td>
+<td>ProsoDeep : Deep understanding and modelling of the hierarchical structure of Prosody</td>
+</tr>
+<tr>
+<td>Supervisor</td>
+<td>Gérard Bailly</td>
+</tr>
+<tr>
+<td>Researcher</td>
+<td>Brаnislаv Gеrаzоv</td>
+</tr>
+</tbody>
+</table>
+<h3>Objectives</h3>
+<p>The prime objective of the ProsoDeep project is to gain a deeper understanding of the language of prosody through the analysis of all the levels in the production hierarchy of prosody. In particular, it will exploit the benefits of the top-down and bottom-up approaches through their incorporation within a deep prosody model (<span class="caps">DPM</span>).</p>
+<p>The <span class="caps">DPM</span> will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (<span class="caps">TTS</span>) systems, and its analysis, e.g. speech recognition and speech emotion recognition (<span class="caps">SER</span>). To reach this objective the project will draw on a variety of scientific fields, including signal processing, physiology of prosody production and biomechanics, linguistics, and machine learning, and will also be augmented with respiratory&nbsp;measurements.</p>
+<h3>The&nbsp;problem</h3>
+<p>Prosody is a multidimensional phenomenon comprising intonation, energy, and rhythm. It is the carrier of both linguistic information, e.g. sentence structure, focus and contrast, lexical stress; as well as paralinguistic information, e.g. gender, age, personality, and emotions. In recent years, prosodic research has considerably enlarged the spectrum of properties and functions. In contrast, prosodic models able to map signals to functions or vice-versa are rare: comprehensive models of rhythm and intonation have difficulties coping with this expanding dimensionality, and machine learning techniques still have difficulties with offering structuring&nbsp;principles.</p>
+<h3>State of the&nbsp;art</h3>
+<p>The importance of prosody in <span class="caps">TTS</span> systems has been the driving force in the development of prosody models, with a special focus on intonation. Most of these models follow a bottom-up approach, i.e. from signals to functions. A number of intonation models following this approach also incorporate physiological constrains. Only a few models seek to model prosody taking a top-down function that starts with the linguistic functions&nbsp;themselves.</p>
+<h4><a name="sfc"></a> <span class="caps">SFC</span></h4>
+<p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours <a href="./refs">[1]</a>. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The <span class="caps">SFC</span> has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the <span class="caps">SFC</span> model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the <span class="caps">SFC</span> approach is the many-to-many ill-posed problem of determining the shape of the function specific&nbsp;contours.</p>
+<p>The <span class="caps">SFC</span> model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. <span class="caps">NNCG</span> training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each&nbsp;syllable.</p>
+<p>The <span class="caps">SFC</span> has been implemented in Python and called <a href=".//pysfc">PySFC</a>. The code has been released as free software on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
+<h4><span class="caps">GCR</span></h4>
+<p>One representative bottom-up model with physiological constraints is the Generalized Command Response (<span class="caps">GCR</span>) model that describes the intonation contour using atoms that correspond to elementary muscle activations <a href="./refs">[2]</a>. The parameters of the <span class="caps">GCR</span> model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This was experimentally confirmed for English, French and German. The <span class="caps">GCR</span> atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise&nbsp;emphasis.</p>
+<p>The implementation of the <span class="caps">GCR</span> parameter extraction algorithm called Weighted Correlation based Atom Decomposition (<span class="caps">WCAD</span>) is free software and is available on GitHub at: <a href="https://github.com/dipteam/wcad">https://github.com/dipteam/wcad</a></p>
+<p>The main problem with the bottom-up approach is that it is difficult to establish the linguistic significance of the extracted model&nbsp;parameters.</p>
+<h4>Goal</h4>
+<p>The <span class="caps">DPM</span> will seek to merge the strengths of these two opposing paradigms. Specifically, we will expand further on the methodology developed in the <span class="caps">SFC</span> while incorporating <span class="caps">GCR</span>&#8217;s physiological&nbsp;constraints.</p>
+    </div>
+    <!-- End Main Content -->
+
+</div> <!-- End Main Content and Sidebar -->
+
+
+<!-- Footer -->
+<footer class="row">
+    <div class="large-12 columns">
+        <hr />
+        <div class="row">
+            <div class="large-12 columns">
+                <small>
+                    <p>
+                        <a href="/">ProsoDeep</a> by
+                        <a href="https://github.com/bgerazov">bgerazov</a>.
+                <!-- </p> -->
+                <!-- <p> -->
+                        Powered by <a href="http://getpelican.com/">Pelican</a>
+                        and based on <a href="https://github.com/getpelican/pelican-themes/tree/master/tuxlite_zf">TuxLite ZF Theme</a>.
+                    </p>
+                    <p>
+                        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>  The content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons BY-NC 4.0 License</a>.
+                    </p>
+                </small>
+            </div>
+            </div>
+    </div>
+</footer>
