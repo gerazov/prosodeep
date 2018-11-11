@@ -28,9 +28,9 @@ TYPOGRIFY = True
 TAGS_SAVE_AS = ''
 TAG_SAVE_AS = ''
 
-# GitHub
-GITHUB_URL = 'https://github.com/bgerazov/prosodeep'
-GITHUB_POSITION = 'left'
+# GitHub  - fix this?
+# GITHUB_URL = 'https://github.com/bgerazov/prosodeep'
+# GITHUB_POSITION = 'left'
 
 # class PAGE:
 #     def __init__(self, title, url):
