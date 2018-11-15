@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width" />
 
     <title>
-        <!--  -->
 Project&nbsp;outline</title>
 
     <link rel="stylesheet" href="./theme/css/normalize.css" />
@@ -13,24 +12,58 @@ Project&nbsp;outline</title>
     <link rel="stylesheet" href="./theme/css/style.css" />
     <link rel="stylesheet" href="./theme/css/pygments.css" />
     <script src="./theme/js/custom.modernizr.js"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="./theme/images/icons/favicon.png">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="./favicon.png"> -->
 </head>
 
 <body>
 
-<!-- Nav Bar -->
+<!-- Title Bar -->
 <nav>
-<div class="top-bar">
-<div class="row">
-    <div class="large-9 large-centered columns">
-	    <h1><a href=".">ProsoDeep</a></h1>
-    </div>
+    <div class="top-bar">
+    <div class="row">
+    <div class="large-12 large-centered columns">
+        <!-- <div class="large-9 large-centered columns"> -->
+            <img style="
+            /* position: absolute;  */
+            top: 0em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            src="images/latent_circ.png"
+            alt="" />
+        <!-- </div> -->
+        <!-- <div class="large-6 left columns"> -->
+            <h1><a
+                style="float:left; margin-left: .3em;"
+                href=".">ProsoDeep</a></h1>
+            <img style="float: right; margin-right: 2em; border: 0; height:3em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+
+
+        <!-- </div> -->
+</div>
 </div>
 </div>
 
+
 <!-- Show menu items and pages -->
+<!-- style="position: sticky" -->
 <div class="row">
-<div class="large-9 columns">
-    <ul class="button-group navigation">
+<div class="large-12 large-centered columns" >
+    <ul class="hor-nav">
+    <!-- <ul class="button-group navigation"> -->
+    <!-- <li><a href="/" class="button secondary small">Home</a></li> -->
+    <li><a href="/">Home</a></li>
+    <!-- <li><a href="/project" class="button secondary small">Project</a></li> -->
+    <li><a href="/project">Project</a></li>
+    <!-- <li><a href="/pysfc" class="button secondary small">PySFC</a></li> -->
+    <li><a href="/pysfc">PySFC</a></li>
+    <!-- <li><a href="/wsfc" class="button secondary small">WSFC</a></li> -->
+    <li><a href="/wsfc">WSFC</a></li>
+    <!-- <li><a href="/vpm" class="button secondary small">VPM</a></li> -->
+    <li><a href="/vpm">VPM</a></li>
+    <!-- <li><a href="/vrpm" class="button secondary small">VRPM</a></li> -->
+    <li><a href="/vrpm">VRPM</a></li>
+    <!-- <li><a href="/refs" class="button secondary small">References</a></li> -->
+    <li><a href="/refs">References</a></li>
 
     </ul>
 </div>
@@ -71,16 +104,17 @@ Project&nbsp;outline</title>
                 <!-- class="button primary large" -->
             </ul>
 
-            <h5 class="sidebar-title">   </h5>
-            <!-- <h5 class="sidebar-title">Links</h5> -->
+            <!--             <h5 class="sidebar-title">   </h5>
+            <h5 class="sidebar-title">Links</h5>
             <ul class="side-nav">
                 <li><a href="https://github.com/bgerazov/prosodeep">Code on GitHub</a></li>
-            </ul>
+            </ul> -->
+            <!--  -->
 
         </aside> <!-- End Sidebar -->
 
     <!-- Main Blog Content -->
-    <div class="large-9 columns">
+    <div class="large-10 columns">
         
     <h3>Project&nbsp;outline</h3>
     
@@ -122,7 +156,7 @@ Project&nbsp;outline</title>
 <h4><a name="sfc"></a> <span class="caps">SFC</span></h4>
 <p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours <a href="./refs">[1]</a>. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The <span class="caps">SFC</span> has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the <span class="caps">SFC</span> model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the <span class="caps">SFC</span> approach is the many-to-many ill-posed problem of determining the shape of the function specific&nbsp;contours.</p>
 <p>The <span class="caps">SFC</span> model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. <span class="caps">NNCG</span> training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each&nbsp;syllable.</p>
-<p>The <span class="caps">SFC</span> has been implemented in Python and called <a href=".//pysfc">PySFC</a>. The code has been released as free software on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
+<p>The <span class="caps">SFC</span> has been implemented in Python and called <a href="./pysfc">PySFC</a>. The code has been released as free software on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
 <h4><span class="caps">GCR</span></h4>
 <p>One representative bottom-up model with physiological constraints is the Generalized Command Response (<span class="caps">GCR</span>) model that describes the intonation contour using atoms that correspond to elementary muscle activations <a href="./refs">[2]</a>. The parameters of the <span class="caps">GCR</span> model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This was experimentally confirmed for English, French and German. The <span class="caps">GCR</span> atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise&nbsp;emphasis.</p>
 <p>The implementation of the <span class="caps">GCR</span> parameter extraction algorithm called Weighted Correlation based Atom Decomposition (<span class="caps">WCAD</span>) is free software and is available on GitHub at: <a href="https://github.com/dipteam/wcad">https://github.com/dipteam/wcad</a></p>
