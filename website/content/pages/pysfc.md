@@ -2,7 +2,7 @@ title: PySFC
 author: bgerazov
 date: 2018-11-03
 save_as: pysfc.html
-url: /pysfc
+url: pysfc
 
 PySFC is a Python implementation of the [SFC model]({filename}project.md#sfc) that was created with two goals: *i*) to make the SFC more accessible to the scientific community, and *ii*) to serve as a foundation for future improvements of the prosody model.
 The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully functional.

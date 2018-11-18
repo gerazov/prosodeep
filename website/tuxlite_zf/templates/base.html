@@ -4,7 +4,6 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
 
-    <!-- {% include "github.html" %} -->
     <title>
         {% block title %}
         {{ SITENAME }}
@@ -15,34 +14,42 @@
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css" />
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/pygments.css" />
     <script src="{{ SITEURL }}/theme/js/custom.modernizr.js"></script>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="{{ SITEURL }}/theme/images/icons/favicon.png">
+    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.png"> -->
 </head>
 
 <body>
 
-<!-- Nav Bar -->
+<!-- Title Bar -->
 <nav>
-<div class="top-bar">
-<div class="row">
-    <div class="large-9 large-centered columns">
-	    <h1><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
-    </div>
+    <div class="top-bar">
+    <div class="row">
+        <div class="large-12 large-centered columns">
+            <img style="
+            /* position: absolute;  */
+            top: 5em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            src="images/latent_circ.png"
+            alt="" />
+            <h1><a
+                style="float:left; margin-left: .3em;"
+                href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+            <img style="float: right; margin-right: 2em; border: 0; height:3em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+
+        </div>
 </div>
 </div>
+
 
 <!-- Show menu items and pages -->
+<!-- style="position: sticky" -->
 <div class="row">
-<div class="large-9 columns">
-    <ul class="button-group navigation">
-	{% for title, link in MENUITEMS %}
-    <li><a href="{{ link }}" class="button secondary small">{{ title }}</a></li>
-    {% endfor %}
-
-    {% if DISPLAY_PAGES_ON_MENU %}
-        {% for page in pages %}
-            <li><a href="{{ SITEURL }}/{{ page.url }}" class="button secondary small">{{ page.title }}</a></li>
+    <ul class="hor-nav">
+        {% for title, link in PAGES %}
+        <li><a href="{{ SITEURL }} {{ link }}">{{ title }}</a></li>
         {% endfor %}
-    {% endif %}
     </ul>
+<div class="large-12 large-centered columns" >
 </div>
 </div>
 </nav>
@@ -53,27 +60,27 @@
 <div class="row">
 
     <!-- Sidebar -->
-    <aside class="large-2 columns">
+    <aside class="large-3 columns">
         <h5 class="sidebar-title">   </h5>
         <ul class="side-nav">
             <!-- <li><a href="{{ SITEURL }}/archives.html">Archives</a> -->
             <!-- <li><a href="{{ SITEURL }}/tags.html">Tags</a> -->
-            {% for title, url in PAGES %}
-            <li><a href="{{ SITEURL }}/{{ url }}"
+            {% for title, url in LINKS %}
+            <li><a href="{{ SITEURL }} {{ url }}"
                 >{{ title }}</a></li>
                 <!-- class="button primary large" -->
                 {% endfor %}
             </ul>
 
-            {% if LINKS %}
+            <!-- {% if LINKS %}
             <h5 class="sidebar-title">   </h5>
-            <!-- <h5 class="sidebar-title">Links</h5> -->
+            <h5 class="sidebar-title">Links</h5>
             <ul class="side-nav">
                 {% for name, link in LINKS %}
                 <li><a href="{{ link }}">{{ name }}</a></li>
                 {% endfor %}
-            </ul>
-            {% endif %}
+            </ul> -->
+            <!-- {% endif %} -->
 
         </aside> <!-- End Sidebar -->
 

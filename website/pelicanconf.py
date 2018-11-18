@@ -29,8 +29,8 @@ TAGS_SAVE_AS = ''
 TAG_SAVE_AS = ''
 
 # GitHub  - fix this?
-# GITHUB_URL = 'https://github.com/bgerazov/prosodeep'
-# GITHUB_POSITION = 'left'
+GITHUB_URL = 'https://github.com/bgerazov/prosodeep'
+GITHUB_POSITION = 'right'
 
 # class PAGE:
 #     def __init__(self, title, url):
@@ -38,25 +38,27 @@ TAG_SAVE_AS = ''
 #         self.url = url
 
 PAGES = (
-    ('Home', '/'),
-    ('Project', '/project'),
-    ('PySFC', '/pysfc'),
-    ('WSFC', '/wsfc'),
-    ('VPM', '/vpm'),
-    ('VRPM', '/vrpm'),
-    ('References', '/refs'),
+    ('Home', ''),
+    ('Project', 'project'),
+    ('PySFC', 'pysfc'),
+    ('WSFC', 'wsfc'),
+    ('VPM', 'vpm'),
+    ('VRPM', 'vrpm'),
+    ('References', 'refs'),
+    # ('Code on GitHub', 'https://github.com/bgerazov/prosodeep'),
 )
 LINKS = (
 ('Code on GitHub', 'https://github.com/bgerazov/prosodeep'),
 )
 # MENUITEMS = (
-#     ('Home', '/'),
-#     ('Project', '/project'),
-#     ('PySFC', '/pysfc'),
-#     ('WSFC', '/wsfc'),
-#     ('VPM', '/vpm'),
-#     ('VRPM', '/vrpm'),
-#     ('References', '/refs'),
+#     ('Home', ''),
+#     ('Project', 'project'),
+#     ('PySFC', 'pysfc'),
+#     ('WSFC', 'wsfc'),
+#     ('VPM', 'vpm'),
+#     ('VRPM', 'vrpm'),
+#     ('References', 'refs'),
+#     # ('Code on GitHub', 'https://github.com/bgerazov/prosodeep'),
 # )
 
 # THEME = 'simple'
