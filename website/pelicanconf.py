@@ -48,7 +48,7 @@ PAGES = (
     # ('Code on GitHub', 'https://github.com/bgerazov/prosodeep'),
 )
 LINKS = (
-('Code on GitHub', 'https://github.com/bgerazov/prosodeep'),
+('Code', 'https://github.com/bgerazov/prosodeep'),
 )
 # MENUITEMS = (
 #     ('Home', ''),
