@@ -1,4 +1,8 @@
 /* Misc */
+:root {
+    /* --myblue: #2BA6E3; */
+    --myblue: dodgerblue;
+}
 body { word-wrap:break-word; }
 
 ol li ul, ol li ol {
@@ -10,12 +14,12 @@ article { padding-left:1em; }
 
 /* Base.html - top navigation */
 .top-bar {
-background: #2BA6E3; /* Header color */
+background: var(--myblue); /* Header color */
 height: 100%;
 margin-bottom: 0em;
 /* margin-bottom: 2em; */
 /* position: sticky; /* Make it stick, even on scroll*/ */
-top: 0;
+/* top: 0; */
 /* width: 100%; */
 }
 
@@ -45,7 +49,7 @@ ul.hor-nav {
     border-right: none;
 } */
 .hor-nav li a {
-    color: #2BA6E3;
+    color: var(--myblue);
     /* margin-top: 1em; */
     display: block;
     padding-top: .3em;
@@ -58,15 +62,15 @@ ul.hor-nav {
     height: 100%;
 }
 /* .side-nav li a.active {
-background-color: #2BA6E3;
+background-color: var(--myblue);
 padding-top: .3em;
-border-left: 4px solid #2BA6E3;
+border-left: 4px solid var(--myblue);
 background-color: gray;
 color: white;
 } */
 .hor-nav li a:hover:not(.active) {
     background-color: #f5f5f5;
-    color: #2BA6E3;
+    color: var(--myblue);
     /* margin-top: 1em; */
     /* margin-bottom: 10em; */
     display: block;
@@ -74,7 +78,7 @@ color: white;
     padding-bottom: .1em;
     padding-left: .4em;
     padding-right: 1em;
-    border-left: 4px solid #2BA6E3;
+    border-left: 4px solid var(--myblue);
     /* width: 100%; */
     height: 100%;
 }
@@ -99,7 +103,7 @@ font-weight: bold;
    /* overflow: auto; /* Enable scrolling if the sidenav has too much content */
 }
 .side-nav li a {
-    color: #2BA6E3;
+    color: var(--myblue);
     /* margin-top: 1em; */
     display: block;
     padding-top: .3em;
@@ -108,19 +112,19 @@ font-weight: bold;
     height: 100%;
 }
 /* .side-nav li a.active {
-    background-color: #2BA6E3;
+    background-color: var(--myblue);
     padding-top: .3em;
-    border-left: 4px solid #2BA6E3;
+    border-left: 4px solid var(--myblue);
     background-color: gray;
     color: white;
 } */
 .side-nav li a:hover:not(.active) {
     background-color: white;
-    color: #2BA6E3;
+    color: var(--myblue);
     padding-top: .3em;
     padding-left: .5em;
-    border-left: 4px solid #2BA6E3;
-    border-color: #2BA6E3;
+    border-left: 4px solid var(--myblue);
+    border-color: var(--myblue);
     border:
 }
 
