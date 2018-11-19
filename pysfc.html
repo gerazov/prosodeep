@@ -14,7 +14,6 @@ PySFC</title>
     <script src="./theme/js/custom.modernizr.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="./theme/images/icons/favicon.png">
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="./favicon.png"> -->
 </head>
 
 <body>
@@ -62,15 +61,44 @@ PySFC</title>
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <h5 class="sidebar-title">   </h5>
+        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-          <!-- <li> <a> pysfc.html </a></li> -->
-            <!--  -->
-            <!--             <li><a href="https://github.com/bgerazov/prosodeep"
-                >Code</a></li>
- -->
-            </ul>
-        </aside> <!-- End Sidebar -->
+              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a><ul><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#example plots" title="Example&nbsp;Plots">Example&nbsp;Plots</a></li></ul></li></ul></div>
+        </ul>
+        <ul class="logos">
+<li>
+  <a href="http://ec.europa.eu" />
+  <img
+    title="European Commission"
+    src="images/logo_ec.png"
+    alt="European Commission"
+  />
+</li>
+<li>
+  <a href="http://ec.europa.eu/research/mariecurieactions/" />
+  <img
+  title="Marie Skłodowska-Curie Actions"
+  src="images/logo_msca.png"
+  alt="Marie Skłodowska-Curie Actions"
+  />
+</li>
+  <a href="http://www.gipsa-lab.fr" />
+  <!-- style="height:5em; float:left;" -->
+  <img
+  title="GIPSA-lab"
+  src="images/logo_gipsa.png"
+  alt="GIPSA-lab"
+  />
+</li>
+<li>
+  <a href="http://www.feit.ukim.edu.mk" />
+  <img
+  title="Faculty of Electrical Engineering and Information Technologies"
+  src="images/logo_feeit.png"
+  alt="Faculty of Electrical Engineering and Information Technologies"
+  />
+</li>        </ul>
+    </aside> <!-- End Sidebar -->
 
     <!-- Main Content -->
     <div class="large-9 columns">
@@ -83,7 +111,7 @@ PySFC</title>
 The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully&nbsp;functional.</p>
 <p>Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. It is based on <a href="http://www.numpy.org/">NumPy</a> within the <a href="https://www.scipy.org/">SciPy</a> ecosystem. The neural networks and their training have been facilitated through the use of the Multi Layer Perceptron (<span class="caps">MLP</span>) regressor in the powerful <a href="http://scikit-learn.org/stable/index.html">scikit-learn</a> module.
 Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in <a href="https://pythonhosted.org/spyder/">Spyder</a> cells for rapid prototyping. Finally, the whole implementation has been licensed as <a href="http://fsf.org/">free software</a> with a <a href="http://www.gnu.org/licenses/"><span class="caps">GNU</span> General Public License v3</a>. The code can be found on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
-<h4 id="pysfc modules">PySFC&nbsp;Modules</h4>
+<h2 id="modules">Modules</h2>
 <p>PySFC comprises the following&nbsp;modules:</p>
 <ul>
 <li><code>sfc.py</code> - main module that controls the application of the <span class="caps">SFC</span> model to a chosen&nbsp;dataset.</li>
@@ -101,7 +129,7 @@ Great attention was put on code readability, which is also one of the features o
 </ul>
 <p>Currently, PySFC supports the proprietary <span class="caps">SFC</span> <code>fpro</code> file format as well as standard Praat <code>TextGrid</code> annotations. Pitch is calculated based on Praat <code>PointProcess</code> pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future.
 PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance&nbsp;analysis.</p>
-<h4 id="pysfc example plots">PySFC Example&nbsp;Plots</h4>
+<h2 id="example plots">Example&nbsp;Plots</h2>
 <p>Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the <code>examples/</code> directory.</p>
 <p><img alt="alt text" src="./images/r1_DC_393.png"/>
 <strong>Figure 1.</strong> Example PySFC intonation decomposition for the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).</p>
@@ -124,19 +152,17 @@ c&eacute;ng n&aacute; zhē shu&iacute; guǒ n&aacute;i fěn q&ugrave; t&agrave;n
         <hr />
         <div class="row">
             <div class="large-12 columns">
-                <small>
-                    <p>
-                        <a href="/">ProsoDeep</a> by
-                        <a href="https://github.com/bgerazov">gerazov</a>.
-                <!-- </p> -->
-                <!-- <p> -->
-                        Powered by <a href="http://getpelican.com/">Pelican</a>
-                        and based on <a href="https://github.com/getpelican/pelican-themes/tree/master/tuxlite_zf">TuxLite ZF</a>  theme.
-                    </p>
-                    <p>
-                        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>  The content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons BY-NC 4.0 License</a>.
-                    </p>
-                </small>
+                <p>
+                    <a href="/">ProsoDeep</a> by
+                    <a href="https://github.com/bgerazov">gerazov</a>.
+            <!-- </p> -->
+            <!-- <p> -->
+                    Powered by <a href="http://getpelican.com/">Pelican</a>
+                    and based on <a href="https://github.com/getpelican/pelican-themes/tree/master/tuxlite_zf">TuxLite ZF</a>  theme.
+                </p>
+                <p>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>  The content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons BY-NC 4.0 License</a>.
+                </p>
             </div>
             </div>
     </div>
