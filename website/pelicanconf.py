@@ -85,7 +85,7 @@ THEME = 'my_tuxlite_zf'
 PLUGIN_PATHS = [PELICAN_FOLDER + 'pelican-plugins']
 PLUGINS = ['pelican-toc']
 TOC = {
-    'TOC_HEADERS'       : '^h[1-6]', # What headers should be included in
+    'TOC_HEADERS'       : 'h[1-6]', # What headers should be included in
                                      # the generated toc
                                      # Expected format is a regular expression
 

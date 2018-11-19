@@ -2,7 +2,7 @@
 :root {
     /* --myblue: #2BA6E3; */
     /* --myblue: dodgerblue; */
-    --myblue: rgb(0, 174, 255);
+    --myblue: rgb(0, 157, 230);
     /* --bckgblue: rgb(230, 247, 255); */
     --bckgblue: rgb(240, 250, 255);
 }
@@ -15,7 +15,11 @@ margin-bottom: 1.25em;
 article { padding-left:1em; }
 
 h1 {font-size: 150%}
-
+h2 {font-size: 130%}
+h3 {font-size: 110%}
+ul {
+  padding-left: 1em;
+}
 /* Base.html - top navigation */
 .top-bar {
 background: var(--myblue); /* Header color */
@@ -115,13 +119,43 @@ font-weight: bold;
 
 /* .side-nav li a { color: #222} */
 .side-nav {
+    margin-top: 1em;
+    border-top: 0.1em solid #eeeeee;
     padding: 0.5em 0.5em;
+    padding-top: 1em;
     list-style-type: none;
     /* margin: 0; */
     /* width: 200px; */
     background-color: white;
     /* position: fixed; /* Make it stick, even on scroll */
    /* overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+.side-nav ul {
+    list-style-type: none;
+    padding-left: 0.5em;
+    background-color: white;
+}
+.logos{
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 0.1em solid #eeeeee;
+}
+.logos ul {
+    list-style-type: none;
+    padding-left: 0.5em;
+    background-color: white;
+}
+.logos li:not(:last-child){
+    list-style-type: none;
+    background-color: white;
+}
+.logos img{
+  margin-bottom: 1em;
+  padding-left: .5em;
+  height: 5em;
+}
+.logos a{
+
 }
 .side-nav li a {
     color: var(--myblue);
@@ -147,6 +181,15 @@ font-weight: bold;
     border-left: 4px solid var(--myblue);
     border-color: var(--myblue);
     border:
+}
+
+img {
+  padding-right: 3em;
+  padding-left: 1em;
+}
+
+footer {
+  font-size: 80%;
 }
 
 /* Archives.html */

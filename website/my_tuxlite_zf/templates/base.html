@@ -16,7 +16,6 @@
     <script src="{{ SITEURL }}/theme/js/custom.modernizr.js"></script>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="{{ SITEURL }}/theme/images/icons/favicon.png">
-    <!-- <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/favicon.png"> -->
 </head>
 
 <body>
@@ -66,23 +65,20 @@
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <h5 class="sidebar-title">   </h5>
+        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-          <!-- <li> <a> {{output_file}} </a></li> -->
           {% for page in pages %}
-            {% if page.url == output_file %}
-              <li><a>{{ page.toc }}</a></li>
+            {% if (page.url + ".html" == output_file or
+              (page.url == "" and output_file == "index.html"))
+            %}
+              {{ page.toc }}
             {% endif %}
           {% endfor %}
-            <!-- {% if output_file.toc %}
-                {{output_file.toc}}
-            {% endif %} -->
-            <!-- {% for title, url in LINKS %}
-            <li><a href="{{ url }}"
-                >{{ title }}</a></li>
-                {% endfor %} -->
-            </ul>
-        </aside> <!-- End Sidebar -->
+        </ul>
+        <ul class="logos">
+          {% include "logos.html" %}
+        </ul>
+    </aside> <!-- End Sidebar -->
 
     <!-- Main Content -->
     <div class="large-9 columns">
@@ -99,19 +95,17 @@
         <hr />
         <div class="row">
             <div class="large-12 columns">
-                <small>
-                    <p>
-                        <a href="/">{{ SITENAME }}</a> by
-                        <a href="https://github.com/bgerazov">{{ AUTHOR }}</a>.
-                <!-- </p> -->
-                <!-- <p> -->
-                        Powered by <a href="http://getpelican.com/">Pelican</a>
-                        and based on <a href="https://github.com/getpelican/pelican-themes/tree/master/tuxlite_zf">TuxLite ZF</a>  theme.
-                    </p>
-                    <p>
-                        <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>  The content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons BY-NC 4.0 License</a>.
-                    </p>
-                </small>
+                <p>
+                    <a href="/">{{ SITENAME }}</a> by
+                    <a href="https://github.com/bgerazov">{{ AUTHOR }}</a>.
+            <!-- </p> -->
+            <!-- <p> -->
+                    Powered by <a href="http://getpelican.com/">Pelican</a>
+                    and based on <a href="https://github.com/getpelican/pelican-themes/tree/master/tuxlite_zf">TuxLite ZF</a>  theme.
+                </p>
+                <p>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a>  The content is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons BY-NC 4.0 License</a>.
+                </p>
             </div>
             </div>
     </div>
