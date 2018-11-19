@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <title>
-ProsoDeep</title>
+<span class="caps">VPM</span></title>
 
     <link rel="stylesheet" href="./theme/css/normalize.css" />
     <link rel="stylesheet" href="./theme/css/foundation.min.css" />
@@ -42,11 +42,11 @@ ProsoDeep</title>
 <!-- Show menu items and pages -->
 <div class="row">
     <ul class="hor-nav">
-        <li><a class="light" href="./">Home</a></li>
+        <li><a href="./"> Home</a></li>
         <li><a href="./project"> Project</a></li>
         <li><a href="./pysfc"> PySFC</a></li>
         <li><a href="./wsfc"> WSFC</a></li>
-        <li><a href="./vpm"> VPM</a></li>
+        <li><a class="light" href="./vpm">VPM</a></li>
         <li><a href="./vrpm"> VRPM</a></li>
         <li><a href="./pubs"> Publications</a></li>
         <li><a href="https://github.com/bgerazov/prosodeep">Code</a></li>
@@ -63,7 +63,7 @@ ProsoDeep</title>
     <aside class="large-3 columns">
         <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#prosodeep" title="ProsoDeep">ProsoDeep</a></li><li><a class="toc-href" href="#the models" title="The&nbsp;models">The&nbsp;models</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#acknowledgement" title="Acknowledgement">Acknowledgement</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#vpm" title="VPM">VPM</a></li></ul></div>
         </ul>
         <ul class="logos">
 <li>
@@ -101,27 +101,13 @@ ProsoDeep</title>
 
     <!-- Main Content -->
     <div class="large-9 columns">
-    <!-- <h3>ProsoDeep</h3> -->
+    <!-- <h3><span class="caps">VPM</span></h3> -->
     <!--  -->
     <!--  -->
     <!--  -->
-    <h1 id="prosodeep">ProsoDeep</h1>
-<p><strong>Deep understanding and modelling of the hierarchical structure of&nbsp;Prosody</strong></p>
-<p>The <a href="./project">ProsoDeep project</a>
-seeks to gain a deeper understanding of the hierarchical structure of the language of prosody through the utilisation of deep models.
-The results will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (<span class="caps">TTS</span>) systems, and its analysis, e.g. speech recognition and speech emotion recognition (<span class="caps">SER</span>).</p>
-<h1 id="the models">The&nbsp;models</h1>
-<p>The different models developed within the ProsoDeep project are based on the <a href="./project#sfc">Superposition of Functional Contours (<span class="caps">SFC</span>) model</a>, which is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours, named also <em>prosodic prototypes</em> or <em>clich&eacute;s</em> <a href="./pubs">[1]</a>. They include&nbsp;the:</p>
-<ul>
-<li><a href="./pysfc">PySFC</a> model &mdash; a <a href="https://www.python.org/">Python</a> implementation of the original <span class="caps">SFC</span>&nbsp;model,</li>
-<li><a href="./wsfc">Weighted <span class="caps">SFC</span> (<span class="caps">WSFC</span>)</a> model &mdash; that incorporates the modelling of prominence of the extracted prosodic&nbsp;prototypes,</li>
-<li><a href="./vpm">Variational Prosody Model (<span class="caps">VPM</span>)</a> &mdash; that models the linguistic conext specific variability of the prosodic prototypes,&nbsp;and</li>
-<li><a href="./vrpm">Variational Recurrent Prosody Model (<span class="caps">VRPM</span>)</a> &mdash; that decouples the context specific variability from function&nbsp;scope.</li>
-</ul>
-<h1 id="code">Code</h1>
-<p>The code implementation for all of the models is available as free software under a <a href="http://www.gnu.org/licenses/"><span class="caps">GNU</span> General Public License v3</a> on GitHub <a href="https://github.com/gerazov/prosodeep">https://github.com/gerazov/prosodeep</a>. The PySFC implementation can be found at <a href="https://github.com/gerazov/pysfc">https://github.com/gerazov/pysfc</a>.</p>
-<h1 id="acknowledgement">Acknowledgement</h1>
-<p>This project has received funding from the European Union&rsquo;s Horizon 2020 research and innovation programme under the <a href="http://ec.europa.eu/research/mariecurieactions/">Marie Skłodowska-Curie Actions (<span class="caps">MSCA</span>)</a> grant agreement No 745802: &ldquo;ProsoDeep: Deep under-standing and modelling of the hierarchical structure of&nbsp;Prosody&rdquo;.</p>
+    <h1 id="vpm"><span class="caps">VPM</span></h1>
+<p>To Variational Prosody Model (<span class="caps">VPM</span>) is able to capture a part of the prosodic prototype variance. Its variational CGs (VCGs) use the linguistic context input to map out a prosodic latent space for each contour. This two-dimensional latent space can then be used to visualise the captured context-specific variation. Since the VCGs are still based on synthesising the contours based on rhythmic unit position input, the mapped prosodic latent space is amenable for exploration only for short contours, such as Chinese tones or clitics.
+ <!-- shown in Fig.~\ref{fig:vpm}.  --></p>
     </div>
     <!-- End Main Content -->
 

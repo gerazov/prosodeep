@@ -3,7 +3,7 @@
 
 The [ProsoDeep project](https://gerazov.github.io/prosodeep/)
 seeks to gain a deeper understanding of the hierarchical structure of the language of prosody through the utilisation of deep models.
-The results will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (TTS) systems, and its analysis, e.g. speech recognition and speech emotion recognition (SER).
+The models will facilitate the advanced exploration of prosodic phenomena in lingustics, as well as advancements in speech technologies that rely both on the synthesis of prosody, e.g. expressive text-to-speech (TTS) systems, and its analysis, e.g. speech recognition and speech emotion recognition (SER).
 
 ## The models
 

@@ -52,7 +52,7 @@ PAGES = (
     ('WSFC', 'wsfc', 'wsfc'),
     ('VPM', 'vpm', 'vpm'),
     ('VRPM', 'vrpm', 'vrpm'),
-    ('References', 'refs', 'refs'),
+    ('Publications', 'pubs', 'pubs'),
 )
 LINKS = (
 ('Code', 'https://github.com/bgerazov/prosodeep'),

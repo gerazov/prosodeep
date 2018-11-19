@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <title>
-ProsoDeep</title>
+Publications</title>
 
     <link rel="stylesheet" href="./theme/css/normalize.css" />
     <link rel="stylesheet" href="./theme/css/foundation.min.css" />
@@ -42,13 +42,13 @@ ProsoDeep</title>
 <!-- Show menu items and pages -->
 <div class="row">
     <ul class="hor-nav">
-        <li><a class="light" href="./">Home</a></li>
+        <li><a href="./"> Home</a></li>
         <li><a href="./project"> Project</a></li>
         <li><a href="./pysfc"> PySFC</a></li>
         <li><a href="./wsfc"> WSFC</a></li>
         <li><a href="./vpm"> VPM</a></li>
         <li><a href="./vrpm"> VRPM</a></li>
-        <li><a href="./pubs"> Publications</a></li>
+        <li><a class="light" href="./pubs">Publications</a></li>
         <li><a href="https://github.com/bgerazov/prosodeep">Code</a></li>
     </ul>
 <div class="large-12 large-centered columns" >
@@ -63,7 +63,7 @@ ProsoDeep</title>
     <aside class="large-3 columns">
         <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#prosodeep" title="ProsoDeep">ProsoDeep</a></li><li><a class="toc-href" href="#the models" title="The&nbsp;models">The&nbsp;models</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#acknowledgement" title="Acknowledgement">Acknowledgement</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#prosodeep" title="ProsoDeep">ProsoDeep</a></li><li><a class="toc-href" href="#state-of-the-art" title="State-of-the-art">State-of-the-art</a></li></ul></div>
         </ul>
         <ul class="logos">
 <li>
@@ -101,27 +101,23 @@ ProsoDeep</title>
 
     <!-- Main Content -->
     <div class="large-9 columns">
-    <!-- <h3>ProsoDeep</h3> -->
+    <!-- <h3>Publications</h3> -->
     <!--  -->
     <!--  -->
     <!--  -->
     <h1 id="prosodeep">ProsoDeep</h1>
-<p><strong>Deep understanding and modelling of the hierarchical structure of&nbsp;Prosody</strong></p>
-<p>The <a href="./project">ProsoDeep project</a>
-seeks to gain a deeper understanding of the hierarchical structure of the language of prosody through the utilisation of deep models.
-The results will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (<span class="caps">TTS</span>) systems, and its analysis, e.g. speech recognition and speech emotion recognition (<span class="caps">SER</span>).</p>
-<h1 id="the models">The&nbsp;models</h1>
-<p>The different models developed within the ProsoDeep project are based on the <a href="./project#sfc">Superposition of Functional Contours (<span class="caps">SFC</span>) model</a>, which is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours, named also <em>prosodic prototypes</em> or <em>clich&eacute;s</em> <a href="./pubs">[1]</a>. They include&nbsp;the:</p>
 <ul>
-<li><a href="./pysfc">PySFC</a> model &mdash; a <a href="https://www.python.org/">Python</a> implementation of the original <span class="caps">SFC</span>&nbsp;model,</li>
-<li><a href="./wsfc">Weighted <span class="caps">SFC</span> (<span class="caps">WSFC</span>)</a> model &mdash; that incorporates the modelling of prominence of the extracted prosodic&nbsp;prototypes,</li>
-<li><a href="./vpm">Variational Prosody Model (<span class="caps">VPM</span>)</a> &mdash; that models the linguistic conext specific variability of the prosodic prototypes,&nbsp;and</li>
-<li><a href="./vrpm">Variational Recurrent Prosody Model (<span class="caps">VRPM</span>)</a> &mdash; that decouples the context specific variability from function&nbsp;scope.</li>
+<li><code>[vrpm]</code> Gerazov B., G. Bailly, O. Mohammed, Y. Xu, and P. Garner, &ldquo;Embedding Context-Dependent Variations of Prosodic Contours using Variational Encoding for Decomposing the Structure of Speech Prosody,&rdquo; Workshop on Prosody and Meaning: Information Structure and Beyond, Aix-en-Provence, France, 8 November&nbsp;2018.</li>
+<li><code>[vpm]</code> Gerazov B., G. Bailly, O. Mohammed, Y. Xu, and P. Garner, &ldquo;A Variational Prosody Model for the decomposition and synthesis of speech prosody,&rdquo; In ArXiv e-prints, 22 June 2018. <a href="https://arxiv.org/abs/1806.08685">https://arxiv.org/abs/1806.08685</a></li>
+<li><code>[wsfc]</code> Gerazov B., G. Bailly, and Y. Xu, &ldquo;A Weighted Superposition of Functional Contours model for modelling contextual prominence of elementary prosodic contours,&rdquo; in <span class="caps">INTERSPEECH</span>, 02 &ndash; 07 Sep,&nbsp;2018.</li>
+<li><code>[pysfc-tones]</code> Gerazov B., G. Bailly, and Y. Xu, &ldquo;The significance of scope in modelling tones in Chinese,&rdquo; in Tonal Aspects of Languages, Berlin, Germany, 18 &ndash; 20 Jun,&nbsp;2018.</li>
+<li><code>[pysfc]</code> Gerazov B. and G. Bailly, &ldquo;PySFC &ndash; A System for Prosody Analysis based on the Superposition of Functional Contours Prosody Model,&rdquo; in Speech Prosody, Poznan, Poland, 13 &ndash; 16 Jun,&nbsp;2018.</li>
 </ul>
-<h1 id="code">Code</h1>
-<p>The code implementation for all of the models is available as free software under a <a href="http://www.gnu.org/licenses/"><span class="caps">GNU</span> General Public License v3</a> on GitHub <a href="https://github.com/gerazov/prosodeep">https://github.com/gerazov/prosodeep</a>. The PySFC implementation can be found at <a href="https://github.com/gerazov/pysfc">https://github.com/gerazov/pysfc</a>.</p>
-<h1 id="acknowledgement">Acknowledgement</h1>
-<p>This project has received funding from the European Union&rsquo;s Horizon 2020 research and innovation programme under the <a href="http://ec.europa.eu/research/mariecurieactions/">Marie Skłodowska-Curie Actions (<span class="caps">MSCA</span>)</a> grant agreement No 745802: &ldquo;ProsoDeep: Deep under-standing and modelling of the hierarchical structure of&nbsp;Prosody&rdquo;.</p>
+<h1 id="state-of-the-art">State-of-the-art</h1>
+<ul>
+<li><code>[sfc]</code> Bailly, G&eacute;rard, and Bleicke Holm. &ldquo;<span class="caps">SFC</span>: a trainable prosodic model.&rdquo; Speech communication 46, no. 3 (2005):&nbsp;348-364.</li>
+<li><code>[gcr]</code> Pierre-Edouard Honnet, Branislav Gerazov, Aleksandar Gjoreski, and Philip N. Garner. Intonation modelling using a muscle model and perceptually weighted matching pursuit. Speech Communication, 97:81&mdash;93, March&nbsp;2018.</li>
+</ul>
     </div>
     <!-- End Main Content -->
 

@@ -48,7 +48,7 @@ PySFC</title>
         <li><a href="./wsfc"> WSFC</a></li>
         <li><a href="./vpm"> VPM</a></li>
         <li><a href="./vrpm"> VRPM</a></li>
-        <li><a href="./refs"> References</a></li>
+        <li><a href="./pubs"> Publications</a></li>
         <li><a href="https://github.com/bgerazov/prosodeep">Code</a></li>
     </ul>
 <div class="large-12 large-centered columns" >
@@ -63,40 +63,39 @@ PySFC</title>
     <aside class="large-3 columns">
         <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a><ul><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#example plots" title="Example&nbsp;Plots">Example&nbsp;Plots</a></li></ul></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#example plots" title="Example&nbsp;Plots">Example&nbsp;Plots</a></li></ul></div>
         </ul>
         <ul class="logos">
 <li>
-  <a href="http://ec.europa.eu" />
+  <a href="http://ec.europa.eu/commission/index_en">
   <img
     title="European Commission"
     src="images/logo_ec.png"
     alt="European Commission"
-  />
+  ></img></a>
 </li>
 <li>
-  <a href="http://ec.europa.eu/research/mariecurieactions/" />
+  <a href="http://ec.europa.eu/research/mariecurieactions/">
   <img
   title="Marie Skłodowska-Curie Actions"
   src="images/logo_msca.png"
   alt="Marie Skłodowska-Curie Actions"
-  />
+  ></img></a>
 </li>
-  <a href="http://www.gipsa-lab.fr" />
-  <!-- style="height:5em; float:left;" -->
+  <a href="http://www.gipsa-lab.fr">
   <img
   title="GIPSA-lab"
   src="images/logo_gipsa.png"
   alt="GIPSA-lab"
-  />
+  ></img></a>
 </li>
 <li>
-  <a href="http://www.feit.ukim.edu.mk" />
+  <a href="http://www.feit.ukim.edu.mk">
   <img
   title="Faculty of Electrical Engineering and Information Technologies"
   src="images/logo_feeit.png"
   alt="Faculty of Electrical Engineering and Information Technologies"
-  />
+  ></img></a>
 </li>        </ul>
     </aside> <!-- End Sidebar -->
 
@@ -107,11 +106,11 @@ PySFC</title>
     <!--  -->
     <!--  -->
     <h1 id="pysfc">PySFC</h1>
-<p>PySFC is a Python implementation of the <a href="./project#sfc"><span class="caps">SFC</span> model</a> that was created with two goals: <em>i</em>) to make the <span class="caps">SFC</span> more accessible to the scientific community, and <em>ii</em>) to serve as a foundation for future improvements of the prosody model.
+<p>PySFC is a <a href="https://www.python.org/">Python</a> implementation of the <a href="./project#sfc"><span class="caps">SFC</span> model</a> that was created with two goals: <em>i</em>) to make the <span class="caps">SFC</span> more accessible to the scientific community, and <em>ii</em>) to serve as a foundation for future improvements of the prosody model.
 The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully&nbsp;functional.</p>
 <p>Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. It is based on <a href="http://www.numpy.org/">NumPy</a> within the <a href="https://www.scipy.org/">SciPy</a> ecosystem. The neural networks and their training have been facilitated through the use of the Multi Layer Perceptron (<span class="caps">MLP</span>) regressor in the powerful <a href="http://scikit-learn.org/stable/index.html">scikit-learn</a> module.
 Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in <a href="https://pythonhosted.org/spyder/">Spyder</a> cells for rapid prototyping. Finally, the whole implementation has been licensed as <a href="http://fsf.org/">free software</a> with a <a href="http://www.gnu.org/licenses/"><span class="caps">GNU</span> General Public License v3</a>. The code can be found on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
-<h2 id="modules">Modules</h2>
+<h1 id="modules">Modules</h1>
 <p>PySFC comprises the following&nbsp;modules:</p>
 <ul>
 <li><code>sfc.py</code> - main module that controls the application of the <span class="caps">SFC</span> model to a chosen&nbsp;dataset.</li>
@@ -129,7 +128,7 @@ Great attention was put on code readability, which is also one of the features o
 </ul>
 <p>Currently, PySFC supports the proprietary <span class="caps">SFC</span> <code>fpro</code> file format as well as standard Praat <code>TextGrid</code> annotations. Pitch is calculated based on Praat <code>PointProcess</code> pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future.
 PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance&nbsp;analysis.</p>
-<h2 id="example plots">Example&nbsp;Plots</h2>
+<h1 id="example plots">Example&nbsp;Plots</h1>
 <p>Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the <code>examples/</code> directory.</p>
 <p><img alt="alt text" src="./images/r1_DC_393.png"/>
 <strong>Figure 1.</strong> Example PySFC intonation decomposition for the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).</p>
@@ -154,7 +153,7 @@ c&eacute;ng n&aacute; zhē shu&iacute; guǒ n&aacute;i fěn q&ugrave; t&agrave;n
             <div class="large-12 columns">
                 <p>
                     <a href="/">ProsoDeep</a> by
-                    <a href="https://github.com/bgerazov">gerazov</a>.
+                    <a href="https://github.com/gerazov">gerazov</a>.
             <!-- </p> -->
             <!-- <p> -->
                     Powered by <a href="http://getpelican.com/">Pelican</a>

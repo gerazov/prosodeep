@@ -6,13 +6,13 @@ url: pysfc
 
 # PySFC
 
-PySFC is a Python implementation of the [SFC model]({filename}project.md#sfc) that was created with two goals: *i*) to make the SFC more accessible to the scientific community, and *ii*) to serve as a foundation for future improvements of the prosody model.
+PySFC is a [Python](https://www.python.org/) implementation of the [SFC model]({filename}project.md#sfc) that was created with two goals: *i*) to make the SFC more accessible to the scientific community, and *ii*) to serve as a foundation for future improvements of the prosody model.
 The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully functional.
 
 Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. It is based on [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural networks and their training have been facilitated through the use of the Multi Layer Perceptron (MLP) regressor in the powerful [scikit-learn](http://scikit-learn.org/stable/index.html) module.
 Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping. Finally, the whole implementation has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found on GitHub: <https://github.com/bgerazov/PySFC>
 
-## Modules
+# Modules
 
 PySFC comprises the following modules:
 
@@ -30,7 +30,7 @@ PySFC comprises the following modules:
 Currently, PySFC supports the proprietary SFC `fpro` file format as well as standard Praat `TextGrid` annotations. Pitch is calculated based on Praat `PointProcess` pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future.
 PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance analysis.
 
-## Example Plots
+# Example Plots
 
 Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the `examples/` directory.
 
