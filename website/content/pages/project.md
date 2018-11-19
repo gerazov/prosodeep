@@ -1,8 +1,9 @@
 title: Project outline
-author: bgerazov
+author: gerazov
 save_as: project.html
 url: project
-<!-- date: 2018-11-03 -->
+
+# ProsoDeep project outline
 
 Project Framework |	Horizon 2020 Marie Skłodowska-Curie Actions Individual Fellowship
 ---|---
@@ -11,21 +12,21 @@ Project title 	| ProsoDeep : Deep understanding and modelling of the hierarchica
 Supervisor 	| Gérard Bailly
 Researcher 	| Brаnislаv Gеrаzоv
 
-### Objectives
+# Objectives
 
 The prime objective of the ProsoDeep project is to gain a deeper understanding of the language of prosody through the analysis of all the levels in the production hierarchy of prosody. In particular, it will exploit the benefits of the top-down and bottom-up approaches through their incorporation within a deep prosody model (DPM).
 
 The DPM will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (TTS) systems, and its analysis, e.g. speech recognition and speech emotion recognition (SER). To reach this objective the project will draw on a variety of scientific fields, including signal processing, physiology of prosody production and biomechanics, linguistics, and machine learning, and will also be augmented with respiratory measurements.
 
-### The problem
+# The problem
 
 Prosody is a multidimensional phenomenon comprising intonation, energy, and rhythm. It is the carrier of both linguistic information, e.g. sentence structure, focus and contrast, lexical stress; as well as paralinguistic information, e.g. gender, age, personality, and emotions. In recent years, prosodic research has considerably enlarged the spectrum of properties and functions. In contrast, prosodic models able to map signals to functions or vice-versa are rare: comprehensive models of rhythm and intonation have difficulties coping with this expanding dimensionality, and machine learning techniques still have difficulties with offering structuring principles.
 
-### State of the art
+# State of the art
 
 The importance of prosody in TTS systems has been the driving force in the development of prosody models, with a special focus on intonation. Most of these models follow a bottom-up approach, i.e. from signals to functions. A number of intonation models following this approach also incorporate physiological constrains. Only a few models seek to model prosody taking a top-down function that starts with the linguistic functions themselves.
 
-#### <a name="sfc"></a> SFC
+## <a name="sfc"></a> SFC
 
 The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [\[1\]]({filename}refs.md). It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the SFC approach is the many-to-many ill-posed problem of determining the shape of the function specific contours.
 

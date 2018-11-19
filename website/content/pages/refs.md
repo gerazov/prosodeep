@@ -1,5 +1,5 @@
 title: References
-author: bgerazov
+author: gerazov
 date: 2018-11-03
 save_as: refs.html
 url: refs
