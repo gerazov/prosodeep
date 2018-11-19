@@ -1,0 +1,165 @@
+/* Misc */
+:root {
+    /* --myblue: #2BA6E3; */
+    /* --myblue: dodgerblue; */
+    --myblue: rgb(0, 174, 255);
+    /* --bckgblue: rgb(230, 247, 255); */
+    --bckgblue: rgb(240, 250, 255);
+}
+body { word-wrap:break-word; }
+
+ol li ul, ol li ol {
+margin-bottom: 1.25em;
+}
+
+article { padding-left:1em; }
+
+h1 {font-size: 150%}
+
+/* Base.html - top navigation */
+.top-bar {
+background: var(--myblue); /* Header color */
+height: 100%;
+padding-bottom: .5em;
+margin-bottom: 0em;
+/* margin-bottom: 2em; */
+/* position: sticky; /* Make it stick, even on scroll*/ */
+/* top: 0; */
+/* width: 100%; */
+}
+
+.top-bar a { color: white;
+  font-size: 160% } /* Sitename color */
+ul.button-group.navigation {
+    margin-bottom: 1em;
+}
+ul.hor-nav {
+    margin-bottom: 1em;
+    /* padding: 0.5em 0.5em; */
+    list-style-type: none;
+    /* margin: 0; */
+    width: 100%;
+    background-color: white;
+    /* position:-webkit-sticky; */
+    /* position: sticky; */
+    top: 0;
+    overflow: hidden;
+}
+.hor-nav li {
+    /* display: inline; */
+    float: left;
+}    /* border-right: 1px solid #bbb;
+}
+
+.hor-nav li:last-child {
+    border-right: none;
+} */
+.hor-nav li a {
+    color: var(--myblue);
+    /* margin-top: 1em; */
+    display: block;
+    padding-top: .3em;
+    padding-bottom: .1em;
+    padding-left: .4em;
+    padding-right: 1em;
+    border-left: 4px solid white;
+    /* outline-left: 2px solid white; */
+    /* width: 100%; */
+    height: 100%;
+}
+/* .side-nav li a.active {
+background-color: var(--myblue);
+padding-top: .3em;
+border-left: 4px solid var(--myblue);
+background-color: gray;
+color: white;
+} */
+/* .hor-nav li a:hover:not(.active) { */
+.hor-nav li a:hover  {
+    background-color: var(--bckgblue);
+    color: var(--myblue);
+    /* margin-top: 1em; */
+    /* margin-bottom: 10em; */
+    display: block;
+    padding-top: .3em;
+    padding-bottom: .1em;
+    padding-left: .4em;
+    padding-right: 1em;
+    border-left: 4px solid var(--myblue);
+    /* width: 100%; */
+    height: 100%;
+}
+.hor-nav .light  {
+    background-color: var(--bckgblue);
+    color: var(--myblue);
+    /* margin-top: 1em; */
+    /* margin-bottom: 10em; */
+    display: block;
+    padding-top: .3em;
+    padding-bottom: .1em;
+    padding-left: .4em;
+    padding-right: 1em;
+    border-left: 4px solid var(--myblue);
+    /* width: 100%; */
+    height: 100%;
+}
+
+
+/* Base.html sidebar */
+h5.sidebar-title {
+border-bottom: 0.1em solid #eeeeee;
+margin-top: 1em;
+font-weight: bold;
+/* text-transform: uppercase; */
+}
+
+/* .side-nav li a { color: #222} */
+.side-nav {
+    padding: 0.5em 0.5em;
+    list-style-type: none;
+    /* margin: 0; */
+    /* width: 200px; */
+    background-color: white;
+    /* position: fixed; /* Make it stick, even on scroll */
+   /* overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+.side-nav li a {
+    color: var(--myblue);
+    /* margin-top: 1em; */
+    display: block;
+    padding-top: .3em;
+    padding-left: .5em;
+    border-left: 4px solid white;
+    height: 100%;
+}
+/* .side-nav li a.active {
+    background-color: var(--myblue);
+    padding-top: .3em;
+    border-left: 4px solid var(--myblue);
+    background-color: gray;
+    color: white;
+} */
+.side-nav li a:hover:not(.active) {
+    background-color: white;
+    color: var(--myblue);
+    padding-top: .3em;
+    padding-left: .5em;
+    border-left: 4px solid var(--myblue);
+    border-color: var(--myblue);
+    border:
+}
+
+/* Archives.html */
+.table-archive { border: none; }
+
+/* Syntax Highlighting */
+.highlight > pre {
+word-wrap: normal;
+white-space: pre;
+margin-top: 1em;
+margin-bottom: 1em;
+border: 1px solid #ccc;
+background: #073642;
+padding: 1em;
+overflow: auto;
+}
