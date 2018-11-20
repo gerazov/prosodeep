@@ -25,17 +25,18 @@
     <div class="top-bar">
     <div class="row">
         <div class="large-12 large-centered columns">
-            <img style="
-            /* position: absolute;  */
-            top: 5em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            <a>
+            <img class="top-bar img"
+            style="float:left; left:0em; top:0em; margin-left: 2em; border: 0; height:2.5em; float:left;"
             src="images/latent_circ.png"
             alt="" />
+            </a>
             <h1><a
                 style="float:left; margin-left: .3em;"
                 href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
             <a href="{{ GITHUB_URL }}">
-                <img
-                style="float: right; margin-right: 2em; border: 0; height:2em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+                <img class="top-bar img"
+                style="float: right; margin-right: 2em; border: 0; height:2.5em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
             </a>
         </div>
 </div>
@@ -65,7 +66,6 @@
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
           {% for page in pages %}
             {% if (page.url + ".html" == output_file or
@@ -76,7 +76,12 @@
           {% endfor %}
         </ul>
         <ul class="logos">
+          <h5 class="sidebar-title">Partners</h5>
           {% include "logos.html" %}
+        </ul>
+        <ul class="logos">
+          <h5 class="sidebar-title">Funded by</h5>
+          {% include "logos_funded.html" %}
         </ul>
     </aside> <!-- End Sidebar -->
 

@@ -12,12 +12,12 @@ The results will facilitate the advancement of speech technologies that rely bot
 
 # The models
 
-The different models developed within the ProsoDeep project are based on the [Superposition of Functional Contours (SFC) model]({filename}project.md#sfc), which is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours, named also *prosodic prototypes* or *clichés* [\[1\]]({filename}refs.md). They include the:
+The different models developed within the ProsoDeep project are based on the [Superposition of Functional Contours (SFC) model]({filename}project.md#sfc), which is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours, named also *prosodic prototypes* or *clichés* \[[sfc]({filename}refs.md)\]. They include the:
 
-  - [PySFC]({filename}pysfc.md) model -- a [Python](https://www.python.org/) implementation of the original SFC model,
-  - [Weighted SFC (WSFC)]({filename}wsfc.md) model -- that incorporates the modelling of prominence of the extracted prosodic prototypes,
-  - [Variational Prosody Model (VPM)]({filename}vpm.md) -- that models the linguistic conext specific variability of the prosodic prototypes, and
-  - [Variational Recurrent Prosody Model (VRPM)]({filename}vrpm.md) -- that decouples the context specific variability from function scope.
+  - [PySFC]({filename}pysfc.md) model -- a [Python](https://www.python.org/) implementation of the original SFC model \[[pysfc]({filename}refs.md)\],
+  - [Weighted SFC (WSFC)]({filename}wsfc.md) model -- that incorporates the modelling of prominence of the extracted prosodic prototypes \[[wsfc]({filename}refs.md)\],
+  - [Variational Prosody Model (VPM)]({filename}vpm.md) -- that models the linguistic conext specific variability of the prosodic prototypes \[[vpm]({filename}refs.md)\], and
+  - [Variational Recurrent Prosody Model (VRPM)]({filename}vrpm.md) -- that decouples the context specific variability from function scope \[[vrpm]({filename}refs.md)\].
 
 # Code
 

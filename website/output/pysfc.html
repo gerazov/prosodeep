@@ -23,17 +23,18 @@ PySFC</title>
     <div class="top-bar">
     <div class="row">
         <div class="large-12 large-centered columns">
-            <img style="
-            /* position: absolute;  */
-            top: 5em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            <a>
+            <img class="top-bar img"
+            style="float:left; left:0em; top:0em; margin-left: 2em; border: 0; height:2.5em; float:left;"
             src="images/latent_circ.png"
             alt="" />
+            </a>
             <h1><a
                 style="float:left; margin-left: .3em;"
                 href=".">ProsoDeep</a></h1>
             <a href="https://github.com/bgerazov/prosodeep">
-                <img
-                style="float: right; margin-right: 2em; border: 0; height:2em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+                <img class="top-bar img"
+                style="float: right; margin-right: 2em; border: 0; height:2.5em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
             </a>
         </div>
 </div>
@@ -61,11 +62,47 @@ PySFC</title>
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#example plots" title="Example&nbsp;Plots">Example&nbsp;Plots</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#example plots" title="Example&nbsp;Plots">Example&nbsp;Plots</a></li><li><a class="toc-href" href="#tone function scope" title="Tone function&nbsp;scope">Tone function&nbsp;scope</a></li></ul></div>
         </ul>
         <ul class="logos">
+          <h5 class="sidebar-title">Partners</h5>
+<li>
+  <a href="http://www.gipsa-lab.fr">
+  <img
+  title="GIPSA-lab"
+  src="images/logo_gipsa.png"
+  alt="GIPSA-lab"
+  ></img></a>
+</li>
+<li>
+  <a href="http://www.feit.ukim.edu.mk">
+  <img
+  title="Faculty of Electrical Engineering and Information Technologies"
+  src="images/logo_feeit.png"
+  alt="Faculty of Electrical Engineering and Information Technologies"
+  ></img></a>
+</li>
+<li>
+  <a href="https://www.ucl.ac.uk/">
+    <img
+    style="height:4em;"
+    title="University College London"
+    src="images/logo_ucl.png"
+    alt="University College London, UK"
+    ></img></a>
+  </li>
+<li>
+  <a href="http://www.idiap.ch">
+  <img
+  style="height:3em;"
+  title="Idiap Research Institute"
+  src="images/logo_idiap.png"
+  alt="Idiap Research Institute"
+  ></img></a>
+</li>        </ul>
+        <ul class="logos">
+          <h5 class="sidebar-title">Funded by</h5>
 <li>
   <a href="http://ec.europa.eu/commission/index_en">
   <img
@@ -80,21 +117,6 @@ PySFC</title>
   title="Marie Skłodowska-Curie Actions"
   src="images/logo_msca.png"
   alt="Marie Skłodowska-Curie Actions"
-  ></img></a>
-</li>
-  <a href="http://www.gipsa-lab.fr">
-  <img
-  title="GIPSA-lab"
-  src="images/logo_gipsa.png"
-  alt="GIPSA-lab"
-  ></img></a>
-</li>
-<li>
-  <a href="http://www.feit.ukim.edu.mk">
-  <img
-  title="Faculty of Electrical Engineering and Information Technologies"
-  src="images/logo_feeit.png"
-  alt="Faculty of Electrical Engineering and Information Technologies"
   ></img></a>
 </li>        </ul>
     </aside> <!-- End Sidebar -->
@@ -129,16 +151,94 @@ Great attention was put on code readability, which is also one of the features o
 <p>Currently, PySFC supports the proprietary <span class="caps">SFC</span> <code>fpro</code> file format as well as standard Praat <code>TextGrid</code> annotations. Pitch is calculated based on Praat <code>PointProcess</code> pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future.
 PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance&nbsp;analysis.</p>
 <h1 id="example plots">Example&nbsp;Plots</h1>
-<p>Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the <code>examples/</code> directory.</p>
-<p><img alt="alt text" src="./images/r1_DC_393.png"/>
-<strong>Figure 1.</strong> Example PySFC intonation decomposition for the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).</p>
-<p><img alt="alt text" src="./images/r1_chinese_003.png"/>
-<strong>Figure 2.</strong> Example PySFC intonation decomposition for the Chinese utterance: <em>Tā men c&eacute;ng z&agrave;i jī cāng n&egrave;i g&eacute;i lǔ k&egrave; diǎn gē h&egrave; shēng r&igrave;,
-c&eacute;ng n&aacute; zhē shu&iacute; guǒ n&aacute;i fěn q&ugrave; t&agrave;n w&agrave;ng y&oacute;u tā men zhuǎn s&ograve;ng q&ugrave; yī yu&agrave;n de lǔ k&egrave; chǎn f&ugrave;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), tones (C0-4), word boundaries (<span class="caps">WB</span>), and independence (<span class="caps">ID</span>).</p>
-<p><img alt="alt text" src="./images/r1_expansion_DD.png"/>
-<strong>Figure 3.</strong> Example PySFC expansion in left and right context for the dependency to the right (<span class="caps">DD</span>) functional contour, numbers next to the plots show the number of occurences of that scope in the&nbsp;data.</p>
-<p><img alt="alt text" src="./images/r1_losses_DC.png"/></p>
-<p><strong>Figure 4.</strong> Example PySFC plots of <code>f_0</code> reconstruction losses for all NNCGs for attitude <span class="caps">DC</span> per iteration for&nbsp;French.</p>
+<p>Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the <code>examples/</code> directory. All of them are taken from our PySFC paper [<a href="./pubs">pysfc</a>].</p>
+<p><img class="center" src="/images/pysfc_morlec_dc_393.png" style="width: 80%;"/>
+<p class="caption">
+<strong>Fig. 1</strong> &mdash; Example PySFC intonation decomposition for the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).
+</p>
+<img class="center" src="/images/pysfc_chen_003.png" style="width: 100%;"/>
+<p class="caption">
+<strong>Fig. 2</strong> &mdash; Example PySFC intonation decomposition for the Chinese utterance: <em>Tā men c&eacute;ng z&agrave;i jī cāng n&egrave;i g&eacute;i lǔ k&egrave; diǎn gē h&egrave; shēng r&igrave;,
+c&eacute;ng n&aacute; zhē shu&iacute; guǒ n&aacute;i fěn q&ugrave; t&agrave;n w&agrave;ng y&oacute;u tā men zhuǎn s&ograve;ng q&ugrave; yī yu&agrave;n de lǔ k&egrave; chǎn f&ugrave;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), tones (C0-4), word boundaries (<span class="caps">WB</span>), and independence (<span class="caps">ID</span>).
+</p>
+<img class="center" src="/images/pysfc_morlec_attitudes.png" style="width: 100%;"/>
+<p class="caption">
+<strong>Fig. 3</strong> &mdash; Example PySFC expansion for (left to right): the assertion (<span class="caps">DC</span>), question (<span class="caps">QS</span>), incredulous question (<span class="caps">DI</span>), and obviousness (<span class="caps">EV</span>) attitudes
+contours, numbers next to the plots show the number of occurences of that scope in the&nbsp;data.
+</p>
+<img class="center" src="/images/pysfc_expansion_morlec_dg.png" style="width: 75%;"/>
+<p class="caption">
+<strong>Fig. 4</strong> &mdash; Example PySFC expansion in left and right context
+for the dependency to the left (<span class="caps">DG</span>) functional contour, numbers
+next to the plots show the number of occurences of that scope in
+the&nbsp;data.
+</p>
+<img class="center" src="/images/pysfc_losses_morlec_dc.png" style="width: 80%;"/>
+<p class="caption">
+<strong>Fig. 5</strong> &mdash; Example PySFC plots of <span class="math">\(f_0\)</span> reconstruction losses for all NNCGs for attitude <span class="caps">DC</span> per iteration for&nbsp;French.
+</p></p>
+<h1 id="tone function scope">Tone function&nbsp;scope</h1>
+<p>We validated the usability of the PySFC through confirming the established carry-over phenomenon present in Chinese tones [<a href="./pubs">pysfc-tones</a>]. We observed that including the succeeding rhythmic unit within the tonal function scope, makes a statistically significant impact on modelling performance. On the other hand, including the preceding unit, does not. The carry-over effect can clearly be seen in the juxtaposition of the four tonal function contours in Fig.&nbsp;6.</p>
+<p><img class="center" src="/images/pysfc-tones.png" style="width: 70%;"/>
+<p class="caption">
+<strong>Fig. 6</strong> &mdash; A superposition plot of the <span class="math">\(f_0\)</span> contours generated by
+the four tone CGs using the double scope with both neighbouring syllables. Taken from [<a href="./pubs">pysfc-tones</a>]
+</p></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div>
     <!-- End Main Content -->
 

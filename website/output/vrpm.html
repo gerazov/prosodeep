@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <title>
-<span class="caps">VRPM</span></title>
+VRPM</title>
 
     <link rel="stylesheet" href="./theme/css/normalize.css" />
     <link rel="stylesheet" href="./theme/css/foundation.min.css" />
@@ -23,17 +23,18 @@
     <div class="top-bar">
     <div class="row">
         <div class="large-12 large-centered columns">
-            <img style="
-            /* position: absolute;  */
-            top: 5em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            <a>
+            <img class="top-bar img"
+            style="float:left; left:0em; top:0em; margin-left: 2em; border: 0; height:2.5em; float:left;"
             src="images/latent_circ.png"
             alt="" />
+            </a>
             <h1><a
                 style="float:left; margin-left: .3em;"
                 href=".">ProsoDeep</a></h1>
             <a href="https://github.com/bgerazov/prosodeep">
-                <img
-                style="float: right; margin-right: 2em; border: 0; height:2em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+                <img class="top-bar img"
+                style="float: right; margin-right: 2em; border: 0; height:2.5em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
             </a>
         </div>
 </div>
@@ -61,11 +62,47 @@
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
               <div id="toc"><ul><li><a class="toc-href" href="#vrpm" title="VRPM">VRPM</a></li></ul></div>
         </ul>
         <ul class="logos">
+          <h5 class="sidebar-title">Partners</h5>
+<li>
+  <a href="http://www.gipsa-lab.fr">
+  <img
+  title="GIPSA-lab"
+  src="images/logo_gipsa.png"
+  alt="GIPSA-lab"
+  ></img></a>
+</li>
+<li>
+  <a href="http://www.feit.ukim.edu.mk">
+  <img
+  title="Faculty of Electrical Engineering and Information Technologies"
+  src="images/logo_feeit.png"
+  alt="Faculty of Electrical Engineering and Information Technologies"
+  ></img></a>
+</li>
+<li>
+  <a href="https://www.ucl.ac.uk/">
+    <img
+    style="height:4em;"
+    title="University College London"
+    src="images/logo_ucl.png"
+    alt="University College London, UK"
+    ></img></a>
+  </li>
+<li>
+  <a href="http://www.idiap.ch">
+  <img
+  style="height:3em;"
+  title="Idiap Research Institute"
+  src="images/logo_idiap.png"
+  alt="Idiap Research Institute"
+  ></img></a>
+</li>        </ul>
+        <ul class="logos">
+          <h5 class="sidebar-title">Funded by</h5>
 <li>
   <a href="http://ec.europa.eu/commission/index_en">
   <img
@@ -81,21 +118,6 @@
   src="images/logo_msca.png"
   alt="Marie Skłodowska-Curie Actions"
   ></img></a>
-</li>
-  <a href="http://www.gipsa-lab.fr">
-  <img
-  title="GIPSA-lab"
-  src="images/logo_gipsa.png"
-  alt="GIPSA-lab"
-  ></img></a>
-</li>
-<li>
-  <a href="http://www.feit.ukim.edu.mk">
-  <img
-  title="Faculty of Electrical Engineering and Information Technologies"
-  src="images/logo_feeit.png"
-  alt="Faculty of Electrical Engineering and Information Technologies"
-  ></img></a>
 </li>        </ul>
     </aside> <!-- End Sidebar -->
 
@@ -106,7 +128,7 @@
     <!--  -->
     <!--  -->
     <h1 id="vrpm"><span class="caps">VRPM</span></h1>
-<p>The Variational Recurrent Prosody Model (<span class="caps">VRPM</span>) is an extension of the <span class="caps">VPM</span> that is built upon variance embedding and recurrent neural network based contour generators (VRCGs). We use a variational encoder to embed the context-dependent variance in a latent space that is used to initialise a long short term memory (<span class="caps">LSTM</span>) recurrent network. The <span class="caps">LSTM</span> then uses rhythmic unit positions to generate the prosodic contour. This approach decouples the <em>prosodic latent space</em> from the length of the contour&rsquo;s scope, thus it can now be readily explored even for longer&nbsp;contours.</p>
+<p>The Variational Recurrent Prosody Model (<span class="caps">VRPM</span>) is an extension of the <span class="caps">VPM</span> that is built upon variance embedding and recurrent neural network based contour generators (VRCGs) [<a href="./pubs">vrpm</a>]. We use a variational encoder to embed the context-dependent variance in a latent space that is used to initialise a long short term memory (<span class="caps">LSTM</span>) recurrent network. The <span class="caps">LSTM</span> then uses rhythmic unit positions to generate the prosodic contour. This approach decouples the <em>prosodic latent space</em> from the length of the contour&rsquo;s scope, thus it can now be readily explored even for longer&nbsp;contours.</p>
 <!-- Fig.~\ref{fig:dg} shows the embedded variance in the prosodic latent space of the left-dependency contour solicited in 6 different attitudes. We can clearly see that the declaration and especially exclamation attitudes give a full contour realisation, while the other induce its suppression.  -->
     </div>
     <!-- End Main Content -->

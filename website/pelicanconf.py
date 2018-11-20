@@ -83,7 +83,7 @@ THEME = 'my_tuxlite_zf'
 
 # plugins
 PLUGIN_PATHS = [PELICAN_FOLDER + 'pelican-plugins']
-PLUGINS = ['pelican-toc']
+PLUGINS = ['pelican-toc', 'render_math']
 TOC = {
     'TOC_HEADERS'       : 'h[1-6]', # What headers should be included in
                                      # the generated toc

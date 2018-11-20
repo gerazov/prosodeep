@@ -23,17 +23,18 @@ ProsoDeep</title>
     <div class="top-bar">
     <div class="row">
         <div class="large-12 large-centered columns">
-            <img style="
-            /* position: absolute;  */
-            top: 5em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            <a>
+            <img class="top-bar img"
+            style="float:left; left:0em; top:0em; margin-left: 2em; border: 0; height:2.5em; float:left;"
             src="images/latent_circ.png"
             alt="" />
+            </a>
             <h1><a
                 style="float:left; margin-left: .3em;"
                 href=".">ProsoDeep</a></h1>
             <a href="https://github.com/bgerazov/prosodeep">
-                <img
-                style="float: right; margin-right: 2em; border: 0; height:2em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+                <img class="top-bar img"
+                style="float: right; margin-right: 2em; border: 0; height:2.5em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
             </a>
         </div>
 </div>
@@ -61,11 +62,47 @@ ProsoDeep</title>
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
               <div id="toc"><ul><li><a class="toc-href" href="#prosodeep" title="ProsoDeep">ProsoDeep</a></li><li><a class="toc-href" href="#the models" title="The&nbsp;models">The&nbsp;models</a></li><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#acknowledgement" title="Acknowledgement">Acknowledgement</a></li></ul></div>
         </ul>
         <ul class="logos">
+          <h5 class="sidebar-title">Partners</h5>
+<li>
+  <a href="http://www.gipsa-lab.fr">
+  <img
+  title="GIPSA-lab"
+  src="images/logo_gipsa.png"
+  alt="GIPSA-lab"
+  ></img></a>
+</li>
+<li>
+  <a href="http://www.feit.ukim.edu.mk">
+  <img
+  title="Faculty of Electrical Engineering and Information Technologies"
+  src="images/logo_feeit.png"
+  alt="Faculty of Electrical Engineering and Information Technologies"
+  ></img></a>
+</li>
+<li>
+  <a href="https://www.ucl.ac.uk/">
+    <img
+    style="height:4em;"
+    title="University College London"
+    src="images/logo_ucl.png"
+    alt="University College London, UK"
+    ></img></a>
+  </li>
+<li>
+  <a href="http://www.idiap.ch">
+  <img
+  style="height:3em;"
+  title="Idiap Research Institute"
+  src="images/logo_idiap.png"
+  alt="Idiap Research Institute"
+  ></img></a>
+</li>        </ul>
+        <ul class="logos">
+          <h5 class="sidebar-title">Funded by</h5>
 <li>
   <a href="http://ec.europa.eu/commission/index_en">
   <img
@@ -80,21 +117,6 @@ ProsoDeep</title>
   title="Marie Skłodowska-Curie Actions"
   src="images/logo_msca.png"
   alt="Marie Skłodowska-Curie Actions"
-  ></img></a>
-</li>
-  <a href="http://www.gipsa-lab.fr">
-  <img
-  title="GIPSA-lab"
-  src="images/logo_gipsa.png"
-  alt="GIPSA-lab"
-  ></img></a>
-</li>
-<li>
-  <a href="http://www.feit.ukim.edu.mk">
-  <img
-  title="Faculty of Electrical Engineering and Information Technologies"
-  src="images/logo_feeit.png"
-  alt="Faculty of Electrical Engineering and Information Technologies"
   ></img></a>
 </li>        </ul>
     </aside> <!-- End Sidebar -->
@@ -111,12 +133,12 @@ ProsoDeep</title>
 seeks to gain a deeper understanding of the hierarchical structure of the language of prosody through the utilisation of deep models.
 The results will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (<span class="caps">TTS</span>) systems, and its analysis, e.g. speech recognition and speech emotion recognition (<span class="caps">SER</span>).</p>
 <h1 id="the models">The&nbsp;models</h1>
-<p>The different models developed within the ProsoDeep project are based on the <a href="./project#sfc">Superposition of Functional Contours (<span class="caps">SFC</span>) model</a>, which is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours, named also <em>prosodic prototypes</em> or <em>clich&eacute;s</em> <a href="./pubs">[1]</a>. They include&nbsp;the:</p>
+<p>The different models developed within the ProsoDeep project are based on the <a href="./project#sfc">Superposition of Functional Contours (<span class="caps">SFC</span>) model</a>, which is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours, named also <em>prosodic prototypes</em> or <em>clich&eacute;s</em> [<a href="./pubs">sfc</a>]. They include&nbsp;the:</p>
 <ul>
-<li><a href="./pysfc">PySFC</a> model &mdash; a <a href="https://www.python.org/">Python</a> implementation of the original <span class="caps">SFC</span>&nbsp;model,</li>
-<li><a href="./wsfc">Weighted <span class="caps">SFC</span> (<span class="caps">WSFC</span>)</a> model &mdash; that incorporates the modelling of prominence of the extracted prosodic&nbsp;prototypes,</li>
-<li><a href="./vpm">Variational Prosody Model (<span class="caps">VPM</span>)</a> &mdash; that models the linguistic conext specific variability of the prosodic prototypes,&nbsp;and</li>
-<li><a href="./vrpm">Variational Recurrent Prosody Model (<span class="caps">VRPM</span>)</a> &mdash; that decouples the context specific variability from function&nbsp;scope.</li>
+<li><a href="./pysfc">PySFC</a> model &mdash; a <a href="https://www.python.org/">Python</a> implementation of the original <span class="caps">SFC</span> model [<a href="./pubs">pysfc</a>],</li>
+<li><a href="./wsfc">Weighted <span class="caps">SFC</span> (<span class="caps">WSFC</span>)</a> model &mdash; that incorporates the modelling of prominence of the extracted prosodic prototypes [<a href="./pubs">wsfc</a>],</li>
+<li><a href="./vpm">Variational Prosody Model (<span class="caps">VPM</span>)</a> &mdash; that models the linguistic conext specific variability of the prosodic prototypes [<a href="./pubs">vpm</a>],&nbsp;and</li>
+<li><a href="./vrpm">Variational Recurrent Prosody Model (<span class="caps">VRPM</span>)</a> &mdash; that decouples the context specific variability from function scope [<a href="./pubs">vrpm</a>].</li>
 </ul>
 <h1 id="code">Code</h1>
 <p>The code implementation for all of the models is available as free software under a <a href="http://www.gnu.org/licenses/"><span class="caps">GNU</span> General Public License v3</a> on GitHub <a href="https://github.com/gerazov/prosodeep">https://github.com/gerazov/prosodeep</a>. The PySFC implementation can be found at <a href="https://github.com/gerazov/pysfc">https://github.com/gerazov/pysfc</a>.</p>

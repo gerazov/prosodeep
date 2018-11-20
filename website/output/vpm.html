@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <title>
-<span class="caps">VPM</span></title>
+VPM</title>
 
     <link rel="stylesheet" href="./theme/css/normalize.css" />
     <link rel="stylesheet" href="./theme/css/foundation.min.css" />
@@ -23,17 +23,18 @@
     <div class="top-bar">
     <div class="row">
         <div class="large-12 large-centered columns">
-            <img style="
-            /* position: absolute;  */
-            top: 5em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            <a>
+            <img class="top-bar img"
+            style="float:left; left:0em; top:0em; margin-left: 2em; border: 0; height:2.5em; float:left;"
             src="images/latent_circ.png"
             alt="" />
+            </a>
             <h1><a
                 style="float:left; margin-left: .3em;"
                 href=".">ProsoDeep</a></h1>
             <a href="https://github.com/bgerazov/prosodeep">
-                <img
-                style="float: right; margin-right: 2em; border: 0; height:2em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+                <img class="top-bar img"
+                style="float: right; margin-right: 2em; border: 0; height:2.5em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
             </a>
         </div>
 </div>
@@ -61,11 +62,47 @@
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#vpm" title="VPM">VPM</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#vpm" title="VPM">VPM</a></li><li><a class="toc-href" href="#prosodic latent space" title="Prosodic latent&nbsp;space">Prosodic latent&nbsp;space</a></li></ul></div>
         </ul>
         <ul class="logos">
+          <h5 class="sidebar-title">Partners</h5>
+<li>
+  <a href="http://www.gipsa-lab.fr">
+  <img
+  title="GIPSA-lab"
+  src="images/logo_gipsa.png"
+  alt="GIPSA-lab"
+  ></img></a>
+</li>
+<li>
+  <a href="http://www.feit.ukim.edu.mk">
+  <img
+  title="Faculty of Electrical Engineering and Information Technologies"
+  src="images/logo_feeit.png"
+  alt="Faculty of Electrical Engineering and Information Technologies"
+  ></img></a>
+</li>
+<li>
+  <a href="https://www.ucl.ac.uk/">
+    <img
+    style="height:4em;"
+    title="University College London"
+    src="images/logo_ucl.png"
+    alt="University College London, UK"
+    ></img></a>
+  </li>
+<li>
+  <a href="http://www.idiap.ch">
+  <img
+  style="height:3em;"
+  title="Idiap Research Institute"
+  src="images/logo_idiap.png"
+  alt="Idiap Research Institute"
+  ></img></a>
+</li>        </ul>
+        <ul class="logos">
+          <h5 class="sidebar-title">Funded by</h5>
 <li>
   <a href="http://ec.europa.eu/commission/index_en">
   <img
@@ -81,21 +118,6 @@
   src="images/logo_msca.png"
   alt="Marie Skłodowska-Curie Actions"
   ></img></a>
-</li>
-  <a href="http://www.gipsa-lab.fr">
-  <img
-  title="GIPSA-lab"
-  src="images/logo_gipsa.png"
-  alt="GIPSA-lab"
-  ></img></a>
-</li>
-<li>
-  <a href="http://www.feit.ukim.edu.mk">
-  <img
-  title="Faculty of Electrical Engineering and Information Technologies"
-  src="images/logo_feeit.png"
-  alt="Faculty of Electrical Engineering and Information Technologies"
-  ></img></a>
 </li>        </ul>
     </aside> <!-- End Sidebar -->
 
@@ -106,8 +128,23 @@
     <!--  -->
     <!--  -->
     <h1 id="vpm"><span class="caps">VPM</span></h1>
-<p>To Variational Prosody Model (<span class="caps">VPM</span>) is able to capture a part of the prosodic prototype variance. Its variational CGs (VCGs) use the linguistic context input to map out a prosodic latent space for each contour. This two-dimensional latent space can then be used to visualise the captured context-specific variation. Since the VCGs are still based on synthesising the contours based on rhythmic unit position input, the mapped prosodic latent space is amenable for exploration only for short contours, such as Chinese tones or clitics.
- <!-- shown in Fig.~\ref{fig:vpm}.  --></p>
+<p>To Variational Prosody Model (<span class="caps">VPM</span>) is able to capture a part of the prosodic prototype variance [<a href="./pubs">vpm</a>]. Its variational CGs (VCGs) shown in Fig. 1 (all figures taken from [<a href="./pubs">vpm</a>]), use the linguistic context input to map out a <em>prosodic latent</em> space for each&nbsp;contour.</p>
+<p><img class="center" src="/images/vpm_vcg.png" style="width: 25%;"/>
+<p class="caption">
+<strong>Fig. 1</strong> &mdash; Variational contour generator introduced in the <span class="caps">VPM</span>
+that features a variational encoding mapping function context and rhythmic unit position into a prosodic latent&nbsp;space. </p></p>
+<p>Unlike the <a href="./project#sfc"><span class="caps">SFC</span></a>, which uses analysis-by-synthesis, the <span class="caps">VPM</span> integrates all the VCGs within a single network architecture shown in Fig. 2, and trains them jointly using backpropagation. This eliminates the ad hoc distribution of errors and leads to better modelling&nbsp;performance.</p>
+<p><img class="center" src="/images/vpm_arch.png" style="width: 45%;"/>
+<p class="caption">
+<strong>Fig. 2</strong> &mdash; <span class="caps">VPM</span> architecture comprising VCGs for each function and allowing their joint&nbsp;training. </p></p>
+<h1 id="prosodic latent space">Prosodic latent&nbsp;space</h1>
+<p>The mapped two-dimensional latent space can be used to visualise the captured context-specific variation, shown in Figs. 3 and 4. Since the VCGs are still based on synthesising the contours based on rhythmic unit position input, the mapped prosodic latent space is amenable for exploration only for short contours, such as Chinese tones or&nbsp;clitics.</p>
+<p><img class="center" src="/images/vpm_lat_xx.png" style="width: 55%;"/>
+<p class="caption">
+<strong>Fig. 3</strong> &mdash; The prosodic latent space of the clitic functional contour (<span class="caps">XX</span>) demonstrates that a full blown contour is only generated in context of the declaration (<span class="caps">DC</span>) and exclamation (<span class="caps">EX</span>) attitudes, while it is largely diminished for the&nbsp;rest. </p>
+<img class="center" src="/images/vpm_lat_t3.png" style="width: 56%;"/>
+<p class="caption">
+<strong>Fig. 4</strong> &mdash; Prosodic latent space of the tone 3 functional contour in context of no-, pre-, on- and post-emphasis (None, EMp, <span class="caps">EM</span>, and EMc), as extracted by the <span class="caps">VPM</span>. </p></p>
     </div>
     <!-- End Main Content -->
 

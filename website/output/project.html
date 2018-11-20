@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <title>
-Project&nbsp;outline</title>
+Project outline</title>
 
     <link rel="stylesheet" href="./theme/css/normalize.css" />
     <link rel="stylesheet" href="./theme/css/foundation.min.css" />
@@ -23,17 +23,18 @@ Project&nbsp;outline</title>
     <div class="top-bar">
     <div class="row">
         <div class="large-12 large-centered columns">
-            <img style="
-            /* position: absolute;  */
-            top: 5em; left:5em; margin-left: 2em; border: 0; height:3em; float:left;"
+            <a>
+            <img class="top-bar img"
+            style="float:left; left:0em; top:0em; margin-left: 2em; border: 0; height:2.5em; float:left;"
             src="images/latent_circ.png"
             alt="" />
+            </a>
             <h1><a
                 style="float:left; margin-left: .3em;"
                 href=".">ProsoDeep</a></h1>
             <a href="https://github.com/bgerazov/prosodeep">
-                <img
-                style="float: right; margin-right: 2em; border: 0; height:2em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
+                <img class="top-bar img"
+                style="float: right; margin-right: 2em; border: 0; height:2.5em" src="images/icon_github-logo-30.png" alt="Code on GitHub" />
             </a>
         </div>
 </div>
@@ -61,11 +62,47 @@ Project&nbsp;outline</title>
 <div class="row">
     <!-- Sidebar -->
     <aside class="large-3 columns">
-        <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
               <div id="toc"><ul><li><a class="toc-href" href="#details" title="Details">Details</a></li><li><a class="toc-href" href="#objectives" title="Objectives">Objectives</a></li><li><a class="toc-href" href="#the problem" title="The&nbsp;problem">The&nbsp;problem</a></li><li><a class="toc-href" href="#state-of-the-art" title="State-of-the-art">State-of-the-art</a><ul><li><a class="toc-href" href="#sfc" title=" SFC"> SFC</a></li><li><a class="toc-href" href="#gcr" title="GCR">GCR</a></li></ul></li><li><a class="toc-href" href="#goal_1" title="Goal">Goal</a></li></ul></div>
         </ul>
         <ul class="logos">
+          <h5 class="sidebar-title">Partners</h5>
+<li>
+  <a href="http://www.gipsa-lab.fr">
+  <img
+  title="GIPSA-lab"
+  src="images/logo_gipsa.png"
+  alt="GIPSA-lab"
+  ></img></a>
+</li>
+<li>
+  <a href="http://www.feit.ukim.edu.mk">
+  <img
+  title="Faculty of Electrical Engineering and Information Technologies"
+  src="images/logo_feeit.png"
+  alt="Faculty of Electrical Engineering and Information Technologies"
+  ></img></a>
+</li>
+<li>
+  <a href="https://www.ucl.ac.uk/">
+    <img
+    style="height:4em;"
+    title="University College London"
+    src="images/logo_ucl.png"
+    alt="University College London, UK"
+    ></img></a>
+  </li>
+<li>
+  <a href="http://www.idiap.ch">
+  <img
+  style="height:3em;"
+  title="Idiap Research Institute"
+  src="images/logo_idiap.png"
+  alt="Idiap Research Institute"
+  ></img></a>
+</li>        </ul>
+        <ul class="logos">
+          <h5 class="sidebar-title">Funded by</h5>
 <li>
   <a href="http://ec.europa.eu/commission/index_en">
   <img
@@ -80,21 +117,6 @@ Project&nbsp;outline</title>
   title="Marie Skłodowska-Curie Actions"
   src="images/logo_msca.png"
   alt="Marie Skłodowska-Curie Actions"
-  ></img></a>
-</li>
-  <a href="http://www.gipsa-lab.fr">
-  <img
-  title="GIPSA-lab"
-  src="images/logo_gipsa.png"
-  alt="GIPSA-lab"
-  ></img></a>
-</li>
-<li>
-  <a href="http://www.feit.ukim.edu.mk">
-  <img
-  title="Faculty of Electrical Engineering and Information Technologies"
-  src="images/logo_feeit.png"
-  alt="Faculty of Electrical Engineering and Information Technologies"
   ></img></a>
 </li>        </ul>
     </aside> <!-- End Sidebar -->
@@ -140,15 +162,86 @@ Project&nbsp;outline</title>
 <h1 id="state-of-the-art">State-of-the-art</h1>
 <p>The importance of prosody in <span class="caps">TTS</span> systems has been the driving force in the development of prosody models, with a special focus on intonation. Most of these models follow a bottom-up approach, i.e. from signals to functions. A number of intonation models following this approach also incorporate physiological constrains. Only a few models seek to model prosody taking a top-down function that starts with the linguistic functions&nbsp;themselves.</p>
 <h2 id="sfc"><a name="sfc"></a> <span class="caps">SFC</span></h2>
-<p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours <a href="./pubs">[1]</a>. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The <span class="caps">SFC</span> has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the <span class="caps">SFC</span> model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the <span class="caps">SFC</span> approach is the many-to-many ill-posed problem of determining the shape of the function specific&nbsp;contours.</p>
-<p>The <span class="caps">SFC</span> model is based on neural network contour generators (NNCGs) each responsible for encoding one linguistic function on a given scope. The prosody contour is then obtained by overlapping and adding these elementary contours. <span class="caps">NNCG</span> training is done using an analysis-by-synthesis loop that distributes the error and usual backpropagation training at each iteration. Four syllable position ramps are used by the NNCGs to generate pitch and duration coefficients for each&nbsp;syllable.</p>
-<p>The <span class="caps">SFC</span> has been implemented in Python and called <a href="./pysfc">PySFC</a>. The code has been released as free software on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
+<p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [<a href="./pubs">sfc</a>]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The <span class="caps">SFC</span> has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the <span class="caps">SFC</span> model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion. One problem with the <span class="caps">SFC</span> approach is the many-to-many ill-posed problem of determining the shape of the function specific&nbsp;contours.</p>
+<p>The <span class="caps">SFC</span> model is based on neural network contour generators (CGs), each responsible for encoding one linguistic function. Four rhythmic unit (<span class="caps">RU</span>) position ramps are used by the CGs to generate the prosodic contour for each <span class="caps">RU</span> within its scope, as shown in Fig.&nbsp;1.</p>
+<p><img align="middle" class="center" src="/images/sfc_cg_action.png" style="width: 50%;"/>
+<p class="caption">
+<strong>Fig. 1</strong> &mdash; The <span class="caps">SFC</span> contour generators generate the prosodic contours (here three <span class="math">\(f_0\)</span> targets for the  and one duration coefficient) one rhythmic unit at a time based on its position within the function&rsquo;s&nbsp;scope.
+</p></p>
+<p>The prosody contour of the utterance is then obtained by overlapping and adding these elementary contours (see example plots in <a href="./pysfc">PySFC</a>). CGs are trained using an analysis-by-synthesis loop that distributes the error  at each iteration, shown in Fig.&nbsp;2.</p>
+<p><img class="center" src="/images/sfc_anbysyn.png" style="width: 40%;"/>
+<p class="caption">
+<strong>Fig. 2</strong> &mdash; The <span class="caps">SFC</span> analysis-by-synthesis loop used to train the contour generators by redistributing the error for each <span class="caps">RU</span> among the contributing CGs. Taken from [<a href="./pubs">sfc</a>].
+</p></p>
+<p>Within the ProsoDeep project, The <span class="caps">SFC</span> has been implemented in Python and called <a href="./pysfc">PySFC</a>. The code has been released as free software on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
+<p>The main problem with the <span class="caps">SFC</span> is that it only extracts the average contour for each function&nbsp;prototype.</p>
 <h2 id="gcr"><span class="caps">GCR</span></h2>
-<p>One representative bottom-up model with physiological constraints is the Generalized Command Response (<span class="caps">GCR</span>) model that describes the intonation contour using atoms that correspond to elementary muscle activations <a href="./pubs">[2]</a>. The parameters of the <span class="caps">GCR</span> model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This was experimentally confirmed for English, French and German. The <span class="caps">GCR</span> atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise&nbsp;emphasis.</p>
+<p>One representative bottom-up model with physiological constraints is the Generalized Command Response (<span class="caps">GCR</span>) model [<a href="./pubs">gcr</a>] that decomposes the intonation contour using <span class="math">\(f_0\)</span> atoms that correspond to elementary muscle activations, as shown in Fig. 3. The parameters of the <span class="caps">GCR</span> model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This is experimentally confirmed for English, French and German. The <span class="caps">GCR</span> atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise&nbsp;emphasis.</p>
+<p><img class="center" src="/images/gcr.png" style="width: 100%;"/>
+<p class="caption">
+<strong>Fig. 3</strong> &mdash; Results obtained with the <span class="caps">WCAD</span> algorithm for the sentence &ldquo;<em>L&rsquo;importance de sa situation lui rendit plus ais&eacute; de le prendre.</em>&rdquo;
+by a French male speaker, showing the: original <span class="math">\(f_0\)</span> colored blue to green according the probability of voicing (<span class="caps">POV</span>) &mdash; green is higher, extracted phrase atom and reconstructed <span class="math">\(f_0\)</span> (top), extracted
+elementary accent atoms (middle), and the energy, the <span class="caps">POV</span> and the weighting function (bottom). Taken from [<a href="./pubs">wcad</a>]
+</p></p>
 <p>The implementation of the <span class="caps">GCR</span> parameter extraction algorithm called Weighted Correlation based Atom Decomposition (<span class="caps">WCAD</span>) is free software and is available on GitHub at: <a href="https://github.com/dipteam/wcad">https://github.com/dipteam/wcad</a></p>
 <p>The main problem with the bottom-up approach is that it is difficult to establish the linguistic significance of the extracted model&nbsp;parameters.</p>
 <h1 id="goal_1">Goal</h1>
 <p>The <span class="caps">DPM</span> will seek to merge the strengths of these two opposing paradigms. Specifically, we will expand further on the methodology developed in the <span class="caps">SFC</span> while incorporating <span class="caps">GCR</span>&rsquo;s physiological&nbsp;constraints.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div>
     <!-- End Main Content -->
 
