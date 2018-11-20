@@ -63,7 +63,7 @@ PySFC</title>
     <aside class="large-3 columns">
         <!-- <h5 class="sidebar-title">   </h5> -->
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#example plots" title="Example&nbsp;Plots">Example&nbsp;Plots</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#example plots" title="Example&nbsp;Plots">Example&nbsp;Plots</a></li><li><a class="toc-href" href="#_1" title=""></a></li></ul></div>
         </ul>
         <ul class="logos">
 <li>
@@ -129,16 +129,82 @@ Great attention was put on code readability, which is also one of the features o
 <p>Currently, PySFC supports the proprietary <span class="caps">SFC</span> <code>fpro</code> file format as well as standard Praat <code>TextGrid</code> annotations. Pitch is calculated based on Praat <code>PointProcess</code> pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future.
 PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance&nbsp;analysis.</p>
 <h1 id="example plots">Example&nbsp;Plots</h1>
-<p>Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the <code>examples/</code> directory.</p>
-<p><img alt="alt text" src="./images/r1_DC_393.png"/>
+<p>Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the <code>examples/</code> directory. All of them are taken from our PySFC paper [<a href="./pubs">pysfc</a>].</p>
+<!-- ![alt text]({static}../images/pysfc_morlec_dc_393.png) -->
+<p><img src="/images/pysfc_morlec_dc_393.png" style="padding-right: 6em;padding-left: 1em;"/>
 <strong>Figure 1.</strong> Example PySFC intonation decomposition for the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).</p>
-<p><img alt="alt text" src="./images/r1_chinese_003.png"/>
+<!-- ![alt text]({static}../images/pysfc_chen_003.png) -->
+<p><img src="/images/pysfc_chen_003.png" style="padding-right: 0em;padding-left: 0em;"/>
 <strong>Figure 2.</strong> Example PySFC intonation decomposition for the Chinese utterance: <em>Tā men c&eacute;ng z&agrave;i jī cāng n&egrave;i g&eacute;i lǔ k&egrave; diǎn gē h&egrave; shēng r&igrave;,
 c&eacute;ng n&aacute; zhē shu&iacute; guǒ n&aacute;i fěn q&ugrave; t&agrave;n w&agrave;ng y&oacute;u tā men zhuǎn s&ograve;ng q&ugrave; yī yu&agrave;n de lǔ k&egrave; chǎn f&ugrave;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), tones (C0-4), word boundaries (<span class="caps">WB</span>), and independence (<span class="caps">ID</span>).</p>
-<p><img alt="alt text" src="./images/r1_expansion_DD.png"/>
-<strong>Figure 3.</strong> Example PySFC expansion in left and right context for the dependency to the right (<span class="caps">DD</span>) functional contour, numbers next to the plots show the number of occurences of that scope in the&nbsp;data.</p>
-<p><img alt="alt text" src="./images/r1_losses_DC.png"/></p>
-<p><strong>Figure 4.</strong> Example PySFC plots of <code>f_0</code> reconstruction losses for all NNCGs for attitude <span class="caps">DC</span> per iteration for&nbsp;French.</p>
+<!-- ![alt text]({static}../images/pysfc_morlec_attitudes.png) -->
+<p><img src="/images/pysfc_morlec_attitudes.png" style="padding-right: 0em;padding-left: 0em;"/>
+<strong>Figure 3.</strong> Example PySFC expansion for (left to right): the assertion (<span class="caps">DC</span>), question (<span class="caps">QS</span>), incredulous question (<span class="caps">DI</span>), and obviousness (<span class="caps">EV</span>) attitudes
+contours, numbers next to the plots show the number of occurences of that scope in the&nbsp;data.</p>
+<!-- ![alt text]({static}../images/pysfc_expansion_morlec_dg.png) -->
+<p><img src="/images/pysfc_expansion_morlec_dg.png" style="padding-right: 8em;padding-left: 2em;"/>
+<strong>Figure 4.</strong> Example PySFC expansion in left and right context
+for the dependency to the left (<span class="caps">DG</span>) functional contour, numbers
+next to the plots show the number of occurences of that scope in
+the&nbsp;data.</p>
+<p><img alt="alt text" src="./images/pysfc_losses_morlec_dc.png"/></p>
+<p><strong>Figure 5.</strong> Example PySFC plots of <span class="math">\(f_0\)</span> reconstruction losses for all NNCGs for attitude <span class="caps">DC</span> per iteration for&nbsp;French.</p>
+<h1 id="_1"></h1>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div>
     <!-- End Main Content -->
 
