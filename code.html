@@ -51,8 +51,8 @@ Code</title>
         <li><a href="./wsfc"> WSFC</a></li>
         <li><a href="./vpm"> VPM</a></li>
         <li><a href="./vrpm"> VRPM</a></li>
+        <li><a class="light" href="./code">Code</a></li>
         <li><a href="./pubs"> Publications</a></li>
-        <li><a href="https://github.com/bgerazov/prosodeep">Code</a></li>
     </ul>
 <!-- </div> -->
 </div>
@@ -64,7 +64,7 @@ Code</title>
     <!-- Sidebar -->
     <aside class="large-3 columns">
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#python ecosystem" title="Python&nbsp;ecosystem">Python&nbsp;ecosystem</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li></ul></div>
         </ul>
         <ul class="logos">
           <h5 class="sidebar-title">Partners</h5>
@@ -128,25 +128,111 @@ Code</title>
     <!--  -->
     <!--  -->
     <!--  -->
-    <h1 id="pysfc">PySFC</h1>
-<p>GitHub link: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
-<p>PySFC comprises the following&nbsp;modules:</p>
+    <h1 id="python ecosystem">Python&nbsp;ecosystem</h1>
+<p><a href="https://www.python.org/">Python</a> was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. The code is built upon <a href="http://www.numpy.org/">NumPy</a> within the <a href="https://www.scipy.org/">SciPy</a> ecosystem. The neural network models and their training were implemented in <a href="https://pytorch.org/">PyTorch</a>, which is a powerful deep learning platform centered on Python that allows for rapid model prototyping and easy debugging.
+Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in <a href="https://pythonhosted.org/spyder/">Spyder</a> cells for rapid prototyping.
+Other packages used in the code&nbsp;include:</p>
 <ul>
-<li><code>sfc.py</code> - main module that controls the application of the <span class="caps">SFC</span> model to a chosen&nbsp;dataset.</li>
-<li><code>sfc_params.py</code> - parameter setting module that includes:<ul>
-<li>data related parameters - type of input data, phrase level functional contours, local functional&nbsp;contours,</li>
-<li><span class="caps">SFC</span> hyperparameters - number of points to be sampled from the pitch, number of iterations for analysis-by-synthesis, as well as <span class="caps">NNCG</span>&nbsp;parameters,</li>
-<li><span class="caps">SFC</span> execution parameters - use of preprocessed data, use of trained models,&nbsp;plotting.</li>
+<li><a href="https://scikit-learn.org/">scikit-learn</a> &mdash; for machine learning utility&nbsp;functions,</li>
+<li><a href="http://pandas.pydata.org/">pandas</a> &mdash; for data structuring and&nbsp;manipulation,</li>
+<li><a href="http://matplotlib.org/">matplotlib</a> &mdash; for result plotting,&nbsp;and</li>
+<li><a href="http://seaborn.pydata.org/">seaborn</a> &mdash; for plotting&nbsp;histograms.</li>
+</ul>
+<p>Finally, the whole code has been licensed as <a href="http://fsf.org/">free software</a> with a <a href="http://www.gnu.org/licenses/"><span class="caps">GNU</span> General Public License v3</a>. The code can be found on GitHub: <a href="https://github.com/gerazov/prosodeep">https://github.com/gerazov/prosodeep</a></p>
+<h1 id="modules">Modules</h1>
+<p>All of the ProsoDeep prosody models are implemented within one code base package named <code>prosodeep</code>. The package comprises the following&nbsp;modules:</p>
+<ul>
+<li><code>prosodeep.py</code> &mdash; main module that controls the application of the chosen model to a chosen&nbsp;dataset.</li>
+<li><code>prosodeep_params.py</code> &mdash; parameter setting module that includes (this list is not exhaustive):<ul>
+<li>model selection &mdash; which type of contour generators to use, and what  training approach to use, i.e. joint backpropagation training or&nbsp;analysis-by-synthesis,</li>
+<li>model hyperparameters &mdash; number of points to be sampled from the pitch, number of training iterations, number of hidden units, layers, type of activation, learning rate, regularisation parameters, type of optimizer, early stopping, validation and test set&nbsp;ratios,</li>
+<li>data related parameters &mdash; type of input data, phrase level functional contours, local functional&nbsp;contours,</li>
+<li>general control parameters &mdash; use of preprocessed data, use of trained models, plotting,&nbsp;saving.</li>
 </ul>
 </li>
-<li><code>sfc_corpus.py</code> - holds all the functions that are used to consolidate and work with the corpus of data that is directly fed and output from the <span class="caps">SFC</span> model. The corpus is a <a href="http://pandas.pydata.org/">Pandas</a> data frame object, which allows easy data access and&nbsp;analysis.</li>
-<li><code>sfc_data.py</code> - comprises functions that read the input data files and calculate the <code>f_0</code> and duration&nbsp;coefficients,</li>
-<li><code>sfc_learn.py</code> - holds the <span class="caps">SFC</span> training function <code>analysis_by_synthesis()</code> and the function for <span class="caps">NNCG</span>&nbsp;initialisation,</li>
-<li><code>sfc_dsp.py</code> - holds <span class="caps">DSP</span> functions for smoothing the pitch contour based on&nbsp;SciPy,</li>
-<li><code>sfc_plot.py</code> - holds the plotting functions based on <a href="http://matplotlib.org/">matplotlib</a> and <a href="http://seaborn.pydata.org/">seaborn</a>.</li>
+<li><code>prosodeep_corpus.py</code> &mdash; holds all the functions that are used to consolidate and work with the corpus of data that is directly fed and output from the <span class="caps">SFC</span> model. The corpus is a Pandas data frame object, which allows easy data access and&nbsp;analysis.</li>
+<li><code>prosodeep_data.py</code> &mdash; comprises functions that read the input data files and calculate the <span class="math">\(f_0\)</span> and duration&nbsp;coefficients,</li>
+<li><code>prosodeep_learn.py</code> &mdash; holds the training functions for backpropagation and&nbsp;analysis_by_synthesis,</li>
+<li><code>prosodeep_model.py</code> &mdash; holds all of the neural network models used by the various prosody&nbsp;models,</li>
+<li><code>prosodeep_dsp.py</code> &mdash; holds <span class="caps">DSP</span> functions for smoothing the pitch contour based on&nbsp;SciPy,</li>
+<li><code>prosodeep_plot.py</code> &mdash; holds the plotting functions based on matplotlib and&nbsp;seaborn.</li>
 </ul>
-<p>Currently, PySFC supports the proprietary <span class="caps">SFC</span> <code>fpro</code> file format as well as standard Praat <code>TextGrid</code> annotations. Pitch is calculated based on Praat <code>PointProcess</code> pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future.
-PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance&nbsp;analysis.</p>
+<p>Currently, <code>prosodeep</code> supports the standard Praat <code>TextGrid</code> annotations, and calculates pitch based on Praat <code>PointProcess</code> pitch mark files. We plan to integrate state-of-the-art pitch extractors in the near future, e.g. the <a href="http://kaldi-asr.org/">Kaldi</a> pitch&nbsp;extractor.</p>
+<h1 id="pysfc">PySFC</h1>
+<p>Unlike the <code>prosodeep</code> package, the PySFC package, named <code>sfc</code> only offers the <span class="caps">SFC</span> modelling paradigm. Since it does not use deep learning it is entirely based on scikit-learn for the machine learning.
+The PySFC implementation is available as Free Software on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
+<p>The <code>sfc</code> package comprises the following&nbsp;modules:</p>
+<ul>
+<li><code>sfc.py</code> &mdash; main module that controls the application of the <span class="caps">SFC</span> model to a chosen&nbsp;dataset.</li>
+<li><code>sfc_params.py</code> &mdash; parameter setting module that includes:<ul>
+<li>data related parameters &mdash; type of input data, phrase level functional contours, local functional&nbsp;contours,</li>
+<li><span class="caps">SFC</span> hyperparameters &mdash; number of points to be sampled from the pitch, number of iterations for analysis-by-synthesis, as well as <span class="caps">NNCG</span>&nbsp;parameters,</li>
+<li><span class="caps">SFC</span> execution parameters &mdash; use of preprocessed data, use of trained models,&nbsp;plotting.</li>
+</ul>
+</li>
+<li><code>sfc_corpus.py</code> &mdash; holds all the functions that are used to consolidate and work with the corpus of data that is directly fed and output from the <span class="caps">SFC</span> model. The corpus is a Pandas data frame object, which allows easy data access and&nbsp;analysis.</li>
+<li><code>sfc_data.py</code> &mdash; comprises functions that read the input data files and calculate the <code>f_0</code> and duration&nbsp;coefficients,</li>
+<li><code>sfc_learn.py</code> &mdash; holds the <span class="caps">SFC</span> training function <code>analysis_by_synthesis()</code> and the function for <span class="caps">NNCG</span>&nbsp;initialisation,</li>
+<li><code>sfc_dsp.py</code> &mdash; holds <span class="caps">DSP</span> functions for smoothing the pitch contour based on&nbsp;SciPy,</li>
+<li><code>sfc_plot.py</code> &mdash; holds the plotting functions based on matplotlib and&nbsp;seaborn.</li>
+</ul>
+<p>The PySFC supports the proprietary <span class="caps">SFC</span> <code>fpro</code> file format in addition to the standard Praat <code>TextGrid</code> annotations. As in <code>prosodeep</code> pitch is calculated based on Praat <code>PointProcess</code> pitch mark&nbsp;files.</p>
+<p>PySFC also brings added value to the <span class="caps">SFC</span> by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance&nbsp;analysis.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     </div>
     <!-- End Main Content -->
 

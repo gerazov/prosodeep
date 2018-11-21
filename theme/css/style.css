@@ -209,8 +209,9 @@ text-align: left;
   margin-bottom: 2em;
 }
 
-.refs ul{
+ul.refs{
   margin-left: 1em;
+  /* list-style: none; */
 }
 .refs li{
 }
