@@ -13,8 +13,12 @@ url: pubs
 - [pysfc] Gerazov Branislav and Gérard Bailly, “PySFC – A System for Prosody Analysis based on the Superposition of Functional Contours Prosody Model,” in Speech Prosody, Poznan, Poland, 13 – 16 June, 2018. \[[pdf](https://hal.archives-ouvertes.fr/hal-01821214/document)\]
 
 # State-of-the-art
+## SFC
+- [sfc] Bailly, Gérard, and Bleicke Holm, “SFC: a trainable prosodic model,” Speech communication 46, no. 3: 348-364, 2005. \[[pdf](https://hal.archives-ouvertes.fr/hal-00416724/document)\]
+- [sfc-av] Barbulescu Adela, Rémi Ronfard, and Gérard Bailly, “Exercises in Speaking Style: A Generative Audiovisual Prosodic Model for Virtual Actors,” Computer Graphics Forum, 37-6:40-51, 2017.
+\[[pdf](https://hal.inria.fr/hal-01643334/document)\]
 
-- [sfc] Bailly, Gérard, and Bleicke Holm, “SFC: a trainable prosodic model,” Speech communication 46, no. 3 (2005): 348-364. \[[pdf](https://hal.archives-ouvertes.fr/hal-00416724/document)\]
+## GCR
 - [gcr] Honnet, Pierre-Edouard, Branislav Gerazov, Aleksandar Gjoreski, and Philip N. Garner, “Intonation modelling using a muscle model and perceptually weighted matching pursuit,” Speech Communication, 97:81--93, March 2018. \[[pdf](https://infoscience.epfl.ch/record/233571/files/Honnet_SPECOM_2018.pdf)\]
 - [wcad] Gerazov, Branislav, Pierre-Edouard Honnet, Aleksandar Gjoreski, Philip N. Garner, “Weighted correlation based atom decomposition intonation
 modelling,” in Proceedings of Interspeech, Dresden, Germany, 6 -- 10 September, 2015.

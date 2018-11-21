@@ -43,7 +43,9 @@
 </div>
 
 <!-- Show menu items and pages -->
+<!-- <div class="nav-bar"> -->
 <div class="row">
+  <!-- <div class="large-12 large-centered columns" > -->
     <ul class="hor-nav">
         {% for title, link, url in PAGES %}
         {% if url + ".html" == output_file %}
@@ -56,8 +58,7 @@
         <li><a href="{{ link }}">{{ title }}</a></li>
         {% endfor %}
     </ul>
-<div class="large-12 large-centered columns" >
-</div>
+<!-- </div> -->
 </div>
 </nav>
 <!-- End Nav -->

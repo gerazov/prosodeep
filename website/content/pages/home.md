@@ -21,8 +21,8 @@ The different models developed within the ProsoDeep project are based on the [Su
 
 # Code
 
-The code implementation for all of the models is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub <https://github.com/gerazov/prosodeep>. The PySFC implementation can be found at <https://github.com/gerazov/pysfc>.
+The [code]({filename}code.md) implementation for all of the models is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub <https://github.com/gerazov/prosodeep>. The PySFC implementation can be found at <https://github.com/gerazov/pysfc>.
 
 # Acknowledgement
 
-This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the [Marie Skłodowska-Curie Actions (MSCA)](http://ec.europa.eu/research/mariecurieactions/) grant agreement No 745802: “ProsoDeep: Deep under-standing and modelling of the hierarchical structure of Prosody”.
+This project has received funding from the European Union’s Horizon 2020 research and innovation programme under the [Marie Skłodowska-Curie Actions (MSCA)](http://ec.europa.eu/research/mariecurieactions/) grant agreement No 745802: “ProsoDeep: Deep understanding and modelling of the hierarchical structure of Prosody”.

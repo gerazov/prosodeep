@@ -13,7 +13,7 @@ To Variational Prosody Model (VPM) is able to capture a part of the prosodic pro
 **Fig. 1** -- Variational contour generator introduced in the VPM
 that features a variational encoding mapping function context and rhythmic unit position into a prosodic latent space. </p>
 
-Unlike the [SFC]({filename}project.md#sfc), which uses analysis-by-synthesis, the VPM integrates all the VCGs within a single network architecture shown in Fig. 2, and trains them jointly using backpropagation. This eliminates the ad hoc distribution of errors and leads to better modelling performance.
+Unlike the [SFC]({filename}pysfc.md), which uses analysis-by-synthesis, the VPM integrates all the VCGs within a single network architecture shown in Fig. 2, and trains them jointly using backpropagation. This eliminates the ad hoc distribution of errors and leads to better modelling performance.
 
 <img class="center" style="width: 45%;" src="/images/vpm_arch.png">
 <p class="caption">

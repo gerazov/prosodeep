@@ -4,68 +4,67 @@ date: 2018-11-03
 save_as: pysfc.html
 url: pysfc
 
+# SFC
+
+The Superposition of Functional Contours (SFC) model is based on neural network contour generators (CGs), each responsible for encoding one linguistic function. Four rhythmic unit (RU) position ramps are input to the CGs that describe the absolute and relative position of the current RU within the function's scope. The CGs then output the prosodic contour for that RU, as shown in Fig. 1. The prosody contour of the utterance is then obtained by overlapping and adding these elementary contours. CGs are trained using an analysis-by-synthesis loop that distributes the error  at each iteration, shown in Fig. 2.
+
+<img class="center" style="width: 50%;" align="middle" src="/images/sfc_cg_action.png">
+<p class="caption">
+**Fig. 1** -- The SFC contour generators generate the prosodic contours (here three $f_0$ targets for the  and one duration coefficient) one rhythmic unit at a time based on its position within the function's scope.
+</p>
+
+<img class="center" style="width: 40%;" src="/images/sfc_anbysyn.png">
+<p class="caption">
+**Fig. 2** -- The SFC analysis-by-synthesis loop used to train the contour generators by redistributing the error for each RU among the contributing CGs. Taken from \[[sfc]({filename}refs.md)\].
+</p>
+
 # PySFC
 
-PySFC is a [Python](https://www.python.org/) implementation of the [SFC model]({filename}project.md#sfc) that was created with two goals: *i*) to make the SFC more accessible to the scientific community, and *ii*) to serve as a foundation for future improvements of the prosody model.
-The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully functional.
+PySFC is a [Python](https://www.python.org/) implementation of the SFC model that was created with two goals: *i*) to make the SFC more accessible to the scientific community, and *ii*) to serve as a foundation for future improvements of the prosody model.
+The PySFC also implements a minimum set of tools necessary to make the system self-contained and fully functional \[[code]({filename}code.md)\].
 
 Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. It is based on [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural networks and their training have been facilitated through the use of the Multi Layer Perceptron (MLP) regressor in the powerful [scikit-learn](http://scikit-learn.org/stable/index.html) module.
 Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping. Finally, the whole implementation has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found on GitHub: <https://github.com/bgerazov/PySFC>
 
-# Modules
-
-PySFC comprises the following modules:
-
- * `sfc.py` - main module that controls the application of the SFC model to a chosen dataset.
- * `sfc_params.py` - parameter setting module that includes:
-      * data related parameters - type of input data, phrase level functional contours, local functional contours,
-      * SFC hyperparameters - number of points to be sampled from the pitch, number of iterations for analysis-by-synthesis, as well as NNCG parameters,
-      * SFC execution parameters - use of preprocessed data, use of trained models, plotting.
- * `sfc_corpus.py` - holds all the functions that are used to consolidate and work with the corpus of data that is directly fed and output from the SFC model. The corpus is a [Pandas](http://pandas.pydata.org/) data frame object, which allows easy data access and analysis.
- * `sfc_data.py` - comprises functions that read the input data files and calculate the `f_0` and duration coefficients,
- * `sfc_learn.py` - holds the SFC training function `analysis_by_synthesis()` and the function for NNCG initialisation,
- * `sfc_dsp.py` - holds DSP functions for smoothing the pitch contour based on SciPy,
- * `sfc_plot.py` - holds the plotting functions based on [matplotlib](http://matplotlib.org/) and [seaborn](http://seaborn.pydata.org/).
-
-Currently, PySFC supports the proprietary SFC `fpro` file format as well as standard Praat `TextGrid` annotations. Pitch is calculated based on Praat `PointProcess` pitch mark files, but integration of state-of-the-art pitch extractors is planned for the future.
-PySFC also brings added value, by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance analysis.
-
-# Example Plots
+# Examples
 
 Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the `examples/` directory. All of them are taken from our PySFC paper \[[pysfc]({filename}refs.md)\].
 
+<img class="center" style="padding-left: 5em; width: 90%;" src="/images/pysfc_morlec_dc_393_ann.png">
+
 <img class="center" style="width: 80%;" src="/images/pysfc_morlec_dc_393.png">
 <p class="caption">
-**Fig. 1** -- Example PySFC intonation decomposition for the French utterance: *Son bagou pourrait faciliter la communauté.* into constituent functional contours: declaration (DC), dependency to the left/right (DG/DD), and cliticisation (XX, DV).
+**Fig. 2** -- Example Praat annotation (top) of the functions withing the French utterance: *Son bagou pourrait faciliter la communauté.* and PySFC  decomposition into constituent functional contours (bottom): declaration (DC), dependency to the left/right (DG/DD), and cliticisation (XX, DV).
 </p>
+
 <img class="center" style="width: 100%;" src="/images/pysfc_chen_003.png">
 <p class="caption">
-**Fig. 2** -- Example PySFC intonation decomposition for the Chinese utterance: *Tā men céng zài jī cāng nèi géi lǔ kè diǎn gē hè shēng rì,
+**Fig. 3** -- Example PySFC intonation decomposition for the Chinese utterance: *Tā men céng zài jī cāng nèi géi lǔ kè diǎn gē hè shēng rì,
 céng ná zhē shuí guǒ nái fěn qù tàn wàng yóu tā men zhuǎn sòng qù yī yuàn de lǔ kè chǎn fù.* into constituent functional contours: declaration (DC), tones (C0-4), word boundaries (WB), and independence (ID).
 </p>
 <img class="center" style="width: 100%;" src="/images/pysfc_morlec_attitudes.png">
 <p class="caption">
-**Fig. 3** -- Example PySFC expansion for (left to right): the assertion (DC), question (QS), incredulous question (DI), and obviousness (EV) attitudes
+**Fig. 4** -- Example PySFC expansion for (left to right): the assertion (DC), question (QS), incredulous question (DI), and obviousness (EV) attitudes
 contours, numbers next to the plots show the number of occurences of that scope in the data.
 </p>
 <img class="center" style="width: 75%;" src="/images/pysfc_expansion_morlec_dg.png">
 <p class="caption">
-**Fig. 4** -- Example PySFC expansion in left and right context
+**Fig. 5** -- Example PySFC expansion in left and right context
 for the dependency to the left (DG) functional contour, numbers
 next to the plots show the number of occurences of that scope in
 the data.
 </p>
 <img class="center" style="width: 80%;" src="/images/pysfc_losses_morlec_dc.png">
 <p class="caption">
-**Fig. 5** -- Example PySFC plots of $f_0$ reconstruction losses for all NNCGs for attitude DC per iteration for French.
+**Fig. 6** -- Example PySFC plots of $f_0$ reconstruction losses for all NNCGs for attitude DC per iteration for French.
 </p>
 
 # Tone function scope
 
-We validated the usability of the PySFC through confirming the established carry-over phenomenon present in Chinese tones \[[pysfc-tones]({filename}refs.md)\]. We observed that including the succeeding rhythmic unit within the tonal function scope, makes a statistically significant impact on modelling performance. On the other hand, including the preceding unit, does not. The carry-over effect can clearly be seen in the juxtaposition of the four tonal function contours in Fig. 6.
+We validated the usability of the PySFC through confirming the established carry-over phenomenon present in Chinese tones \[[pysfc-tones]({filename}refs.md)\]. We observed that including the succeeding rhythmic unit within the tonal function scope, makes a statistically significant impact on modelling performance. On the other hand, including the preceding unit, does not. The carry-over effect can clearly be seen in the juxtaposition of the four tonal function contours in Fig. 7.
 
-<img class="center" style="width: 70%;" src="/images/pysfc-tones.png">
+<img class="center" style="width: 70%;" src="/images/pysfc_tones.png">
 <p class="caption">
-**Fig. 6** -- A superposition plot of the $f_0$ contours generated by
+**Fig. 7** -- A superposition plot of the $f_0$ contours generated by
 the four tone CGs using the double scope with both neighbouring syllables. Taken from \[[pysfc-tones]({filename}refs.md)\]
 </p>

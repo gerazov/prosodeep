@@ -41,7 +41,9 @@ VPM</title>
 </div>
 
 <!-- Show menu items and pages -->
+<!-- <div class="nav-bar"> -->
 <div class="row">
+  <!-- <div class="large-12 large-centered columns" > -->
     <ul class="hor-nav">
         <li><a href="./"> Home</a></li>
         <li><a href="./project"> Project</a></li>
@@ -52,8 +54,7 @@ VPM</title>
         <li><a href="./pubs"> Publications</a></li>
         <li><a href="https://github.com/bgerazov/prosodeep">Code</a></li>
     </ul>
-<div class="large-12 large-centered columns" >
-</div>
+<!-- </div> -->
 </div>
 </nav>
 <!-- End Nav -->
@@ -133,7 +134,7 @@ VPM</title>
 <p class="caption">
 <strong>Fig. 1</strong> &mdash; Variational contour generator introduced in the <span class="caps">VPM</span>
 that features a variational encoding mapping function context and rhythmic unit position into a prosodic latent&nbsp;space. </p></p>
-<p>Unlike the <a href="./project#sfc"><span class="caps">SFC</span></a>, which uses analysis-by-synthesis, the <span class="caps">VPM</span> integrates all the VCGs within a single network architecture shown in Fig. 2, and trains them jointly using backpropagation. This eliminates the ad hoc distribution of errors and leads to better modelling&nbsp;performance.</p>
+<p>Unlike the <a href="./pysfc"><span class="caps">SFC</span></a>, which uses analysis-by-synthesis, the <span class="caps">VPM</span> integrates all the VCGs within a single network architecture shown in Fig. 2, and trains them jointly using backpropagation. This eliminates the ad hoc distribution of errors and leads to better modelling&nbsp;performance.</p>
 <p><img class="center" src="/images/vpm_arch.png" style="width: 45%;"/>
 <p class="caption">
 <strong>Fig. 2</strong> &mdash; <span class="caps">VPM</span> architecture comprising VCGs for each function and allowing their joint&nbsp;training. </p></p>
