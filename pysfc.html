@@ -130,11 +130,11 @@ PySFC</title>
     <!--  -->
     <h1 id="sfc"><span class="caps">SFC</span></h1>
 <p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is based on neural network contour generators (CGs), each responsible for encoding one linguistic function. Four rhythmic unit (<span class="caps">RU</span>) position ramps are input to the CGs that describe the absolute and relative position of the current <span class="caps">RU</span> within the function&rsquo;s scope. The CGs then output the prosodic contour for that <span class="caps">RU</span>, as shown in Fig. 1. The prosody contour of the utterance is then obtained by overlapping and adding these elementary contours. CGs are trained using an analysis-by-synthesis loop that distributes the error  at each iteration, shown in Fig.&nbsp;2.</p>
-<p><img align="middle" class="center" src="/images/sfc_cg_action.png" style="width: 50%;"/>
+<p><img align="middle" class="center" src="images/sfc_cg_action.png" style="width: 50%;"/>
 <p class="caption">
 <strong>Fig. 1</strong> &mdash; The <span class="caps">SFC</span> contour generators generate the prosodic contours (here three <span class="math">\(f_0\)</span> targets for the  and one duration coefficient) one rhythmic unit at a time based on its position within the function&rsquo;s&nbsp;scope.
 </p></p>
-<p><img class="center" src="/images/sfc_anbysyn.png" style="width: 40%;"/>
+<p><img class="center" src="images/sfc_anbysyn.png" style="width: 40%;"/>
 <p class="caption">
 <strong>Fig. 2</strong> &mdash; The <span class="caps">SFC</span> analysis-by-synthesis loop used to train the contour generators by redistributing the error for each <span class="caps">RU</span> among the contributing CGs. Taken from [<a href="./pubs">sfc</a>].
 </p></p>
@@ -145,35 +145,35 @@ The PySFC also implements a minimum set of tools necessary to make the system se
 Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in <a href="https://pythonhosted.org/spyder/">Spyder</a> cells for rapid prototyping. Finally, the whole implementation has been licensed as <a href="http://fsf.org/">free software</a> with a <a href="http://www.gnu.org/licenses/"><span class="caps">GNU</span> General Public License v3</a>. The code can be found on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
 <h1 id="examples">Examples</h1>
 <p>Here are a few example plots with PySFC just to show case what it can do. The plotted files are included as examples in the <code>examples/</code> directory. All of them are taken from our PySFC paper [<a href="./pubs">pysfc</a>].</p>
-<p><img class="center" src="/images/pysfc_morlec_dc_393_ann.png" style="padding-left: 5em; width: 90%;"/></p>
-<p><img class="center" src="/images/pysfc_morlec_dc_393.png" style="width: 80%;"/>
+<p><img class="center" src="images/pysfc_morlec_dc_393_ann.png" style="padding-left: 5em; width: 90%;"/></p>
+<p><img class="center" src="images/pysfc_morlec_dc_393.png" style="width: 80%;"/>
 <p class="caption">
 <strong>Fig. 2</strong> &mdash; Example Praat annotation (top) of the functions withing the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> and PySFC  decomposition into constituent functional contours (bottom): declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).
 </p></p>
-<p><img class="center" src="/images/pysfc_chen_003.png" style="width: 100%;"/>
+<p><img class="center" src="images/pysfc_chen_003.png" style="width: 100%;"/>
 <p class="caption">
 <strong>Fig. 3</strong> &mdash; Example PySFC intonation decomposition for the Chinese utterance: <em>Tā men c&eacute;ng z&agrave;i jī cāng n&egrave;i g&eacute;i lǔ k&egrave; diǎn gē h&egrave; shēng r&igrave;,
 c&eacute;ng n&aacute; zhē shu&iacute; guǒ n&aacute;i fěn q&ugrave; t&agrave;n w&agrave;ng y&oacute;u tā men zhuǎn s&ograve;ng q&ugrave; yī yu&agrave;n de lǔ k&egrave; chǎn f&ugrave;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), tones (C0-4), word boundaries (<span class="caps">WB</span>), and independence (<span class="caps">ID</span>).
 </p>
-<img class="center" src="/images/pysfc_morlec_attitudes.png" style="width: 100%;"/>
+<img class="center" src="images/pysfc_morlec_attitudes.png" style="width: 100%;"/>
 <p class="caption">
 <strong>Fig. 4</strong> &mdash; Example PySFC expansion for (left to right): the assertion (<span class="caps">DC</span>), question (<span class="caps">QS</span>), incredulous question (<span class="caps">DI</span>), and obviousness (<span class="caps">EV</span>) attitudes
 contours, numbers next to the plots show the number of occurences of that scope in the&nbsp;data.
 </p>
-<img class="center" src="/images/pysfc_expansion_morlec_dg.png" style="width: 75%;"/>
+<img class="center" src="images/pysfc_expansion_morlec_dg.png" style="width: 75%;"/>
 <p class="caption">
 <strong>Fig. 5</strong> &mdash; Example PySFC expansion in left and right context
 for the dependency to the left (<span class="caps">DG</span>) functional contour, numbers
 next to the plots show the number of occurences of that scope in
 the&nbsp;data.
 </p>
-<img class="center" src="/images/pysfc_losses_morlec_dc.png" style="width: 80%;"/>
+<img class="center" src="images/pysfc_losses_morlec_dc.png" style="width: 80%;"/>
 <p class="caption">
 <strong>Fig. 6</strong> &mdash; Example PySFC plots of <span class="math">\(f_0\)</span> reconstruction losses for all NNCGs for attitude <span class="caps">DC</span> per iteration for&nbsp;French.
 </p></p>
 <h1 id="tone function scope">Tone function&nbsp;scope</h1>
 <p>We validated the usability of the PySFC through confirming the established carry-over phenomenon present in Chinese tones [<a href="./pubs">pysfc-tones</a>]. We observed that including the succeeding rhythmic unit within the tonal function scope, makes a statistically significant impact on modelling performance. On the other hand, including the preceding unit, does not. The carry-over effect can clearly be seen in the juxtaposition of the four tonal function contours in Fig.&nbsp;7.</p>
-<p><img class="center" src="/images/pysfc_tones.png" style="width: 70%;"/>
+<p><img class="center" src="images/pysfc_tones.png" style="width: 70%;"/>
 <p class="caption">
 <strong>Fig. 7</strong> &mdash; A superposition plot of the <span class="math">\(f_0\)</span> contours generated by
 the four tone CGs using the double scope with both neighbouring syllables. Taken from [<a href="./pubs">pysfc-tones</a>]

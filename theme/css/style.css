@@ -209,6 +209,12 @@ text-align: left;
   margin-bottom: 2em;
 }
 
+.refs ul{
+  margin-left: 1em;
+}
+.refs li{
+}
+
 footer {
   font-size: 80%;
 }
