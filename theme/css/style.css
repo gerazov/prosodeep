@@ -15,7 +15,8 @@ margin-bottom: 1.25em;
 article { padding-left:1em; }
 
 h1 {font-size: 150%}
-h2 {font-size: 130%}
+h2 {font-size: 130%;
+padding-left:1em;}
 h3 {font-size: 110%}
 ul {
   padding-left: 1em;
@@ -34,27 +35,27 @@ margin-bottom: 0em;
 
 .top-bar a { color: white;
   font-size: 160% } /* Sitename color */
-ul.button-group.navigation {
-    margin-bottom: 1em;
+.nav-bar a {
+  background-color: white;
+  /* position: -webkit-sticky; /* Safari */ */
+  /* position: sticky; */
 }
 ul.hor-nav {
-    margin-bottom: 1em;
-    /* padding: 0.5em 0.5em; */
     list-style-type: none;
-    /* margin: 0; */
+    margin-bottom: 1em;
+    margin-left: 3em;
+    padding: 0;
+    overflow: hidden;
     width: 100%;
     background-color: white;
-    /* position:-webkit-sticky; */
-    /* position: sticky; */
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
     top: 0;
-    overflow: hidden;
 }
 .hor-nav li {
-    /* display: inline; */
-    float: left;topbar
-}    /* border-right: 1px solid #bbb;
+    float: left;
 }
-
+ /* border-right: 1px solid #bbb;
 .hor-nav li:last-child {
     border-right: none;
 } */
@@ -111,8 +112,8 @@ color: white;
 h5.sidebar-title {
 border-bottom: 0.1em solid #eeeeee;
 color: #777;
-margin-top: 1em;
-margin-bottom: 2em;
+margin-top: 0em;
+margin-bottom: 1em;
 text-transform:uppercase;
 font-size: 80%;
 font-weight: bold;
@@ -181,7 +182,7 @@ text-align: left;
     background-color: white;
 }
 .logos img{
-  margin-bottom: 1em;
+  margin-bottom: .5em;
   padding-left: .5em;
   height: 5em;
 }
