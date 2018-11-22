@@ -36,8 +36,6 @@ Finally, the whole code has been licensed as [free software](http://fsf.org/) wi
 ## Modules
 
  The `prosodeep` package comprises the following modules:
-
- *
  * `prosodeep_params.py` -- parameter setting module that includes (this list is not exhaustive):
       * model selection -- which type of contour generators to use, and what  training approach to use, i.e. joint backpropagation training or analysis-by-synthesis,
       * model hyperparameters -- number of points to be sampled from the pitch, number of training iterations, number of hidden units, layers, type of activation, learning rate, regularisation parameters, type of optimizer, early stopping, validation and test set ratios,
