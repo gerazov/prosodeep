@@ -52,11 +52,12 @@ PAGES = (
     ('WSFC', 'wsfc', 'wsfc'),
     ('VPM', 'vpm', 'vpm'),
     ('VRPM', 'vrpm', 'vrpm'),
+    ('Code', 'code', 'code'),
     ('Publications', 'pubs', 'pubs'),
 )
-LINKS = (
-('Code', 'https://github.com/bgerazov/prosodeep'),
-)
+# LINKS = (
+# ('Code', 'https://github.com/bgerazov/prosodeep'),
+# )
 
 # global metadata to all the contents
 DEFAULT_METADATA = {'Acknowledgement': 'Horizon 2020 Marie Skłodowska-Curie grant agreement No 745802'}

@@ -21,7 +21,9 @@ The different models developed within the ProsoDeep project are based on the [Su
 
 # Code
 
-The [code]({filename}code.md) implementation for all of the models is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub <https://github.com/gerazov/prosodeep>. The PySFC implementation can be found at <https://github.com/gerazov/pysfc>.
+The [code]({filename}code.md) implementation for all of the models is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub <https://github.com/gerazov/prosodeep>
+
+The PySFC implementation can be found at <https://github.com/gerazov/pysfc>
 
 # Acknowledgement
 

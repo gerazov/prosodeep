@@ -51,8 +51,8 @@ Project outline</title>
         <li><a href="./wsfc"> WSFC</a></li>
         <li><a href="./vpm"> VPM</a></li>
         <li><a href="./vrpm"> VRPM</a></li>
+        <li><a href="./code"> Code</a></li>
         <li><a href="./pubs"> Publications</a></li>
-        <li><a href="https://github.com/bgerazov/prosodeep">Code</a></li>
     </ul>
 <!-- </div> -->
 </div>
@@ -163,8 +163,8 @@ Project outline</title>
 <h1 id="state-of-the-art">State-of-the-art</h1>
 <p>The importance of prosody in <span class="caps">TTS</span> systems has been the driving force in the development of prosody models, with a special focus on intonation. Most of these models follow a bottom-up approach, i.e. from signals to functions. A number of intonation models following this approach also incorporate physiological constrains. Only a few models seek to model prosody taking a top-down function that starts with the linguistic functions&nbsp;themselves.</p>
 <h2 id="sfc"><span class="caps">SFC</span></h2>
-<p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [<a href="./pubs">sfc</a>]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The <span class="caps">SFC</span> has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the <span class="caps">SFC</span> model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion [<a href="./pubs">sfc-av</a>. An example decomposition of an intonation contour into its functional prototypes is shown in Fig.&nbsp;1.</p>
-<p><img class="center" src="/images/pysfc_morlec_dc_393.png" style="width: 80%;"/>
+<p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours [<a href="./pubs">sfc</a>]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The <span class="caps">SFC</span> has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the <span class="caps">SFC</span> model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion [<a href="./pubs">sfc-av</a>]. An example decomposition of an intonation contour into its functional prototypes is shown in Fig.&nbsp;1.</p>
+<p><img class="center" src="images/pysfc_morlec_dc_393.png" style="width: 80%;"/>
 <p class="caption">
 <strong>Fig. 1</strong> &mdash; Example PySFC intonation decomposition for the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).
 </p></p>
@@ -172,11 +172,11 @@ Project outline</title>
 <p><span class="caps">SFC</span> tries to solve the many-to-many ill-posed problem of determining the shape of the function specific contours. A major limitation of the <span class="caps">SFC</span> is that it only extracts the average contour for each function&nbsp;prototype.</p>
 <h2 id="gcr"><span class="caps">GCR</span></h2>
 <p>One representative bottom-up model with physiological constraints is the Generalized Command Response (<span class="caps">GCR</span>) model [<a href="./pubs">gcr</a>] that decomposes the intonation contour using <span class="math">\(f_0\)</span> atoms that correspond to elementary muscle activations, as shown in Fig. 2. The parameters of the <span class="caps">GCR</span> model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This is experimentally confirmed for English, French and German. The <span class="caps">GCR</span> atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise&nbsp;emphasis.</p>
-<p><img class="center" src="/images/gcr.png" style="width: 100%;"/>
+<p><img class="center" src="images/gcr.png" style="width: 100%;"/>
 <p class="caption">
 <strong>Fig. 2</strong> &mdash; Results obtained with the <span class="caps">WCAD</span> algorithm for the sentence &ldquo;<em>L&rsquo;importance de sa situation lui rendit plus ais&eacute; de le prendre.</em>&rdquo;
 by a French male speaker, showing the: original <span class="math">\(f_0\)</span> colored blue to green according the probability of voicing (<span class="caps">POV</span>) &mdash; green is higher, extracted phrase atom and reconstructed <span class="math">\(f_0\)</span> (top), extracted
-elementary accent atoms (middle), and the energy, the <span class="caps">POV</span> and the weighting function (bottom). Taken from [<a href="./pubs">wcad</a>]
+elementary accent atoms (middle), and the energy, the <span class="caps">POV</span> and the weighting function (bottom). Taken from [<a href="./pubs">gcr-wcad</a>]
 </p></p>
 <p>The implementation of the <span class="caps">GCR</span> parameter extraction algorithm called Weighted Correlation based Atom Decomposition (<span class="caps">WCAD</span>) is free software and is available on GitHub at: <a href="https://github.com/dipteam/wcad">https://github.com/dipteam/wcad</a></p>
 <p>The main problem with the bottom-up approach is that it is difficult to establish the linguistic significance of the extracted model&nbsp;parameters.</p>

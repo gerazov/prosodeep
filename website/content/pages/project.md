@@ -28,9 +28,9 @@ The importance of prosody in TTS systems has been the driving force in the devel
 
 ## SFC
 
-The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours \[[sfc]({filename}refs.md)\]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion \[[sfc-av]({filename}refs.md)\. An example decomposition of an intonation contour into its functional prototypes is shown in Fig. 1.
+The Superposition of Functional Contours (SFC) model is a top-down approach based on the decomposition of prosodic contours into functionally relevant elementary contours \[[sfc]({filename}refs.md)\]. It proposes a generative mechanism for encoding socio-communicative functions, such as syntactic structure and attitudes, through the use of prosody. The SFC has been successfully used to model different linguistic levels, including: attitudes, dependency relations of word groups, word focus, tones in Mandarin, etc. It has been used for a number of languages including: French, Galician, German and Chinese. Recently, the SFC model has been extended into the visual prosody domain through modelling facial expressions and head and gaze motion \[[sfc-av]({filename}refs.md)\]. An example decomposition of an intonation contour into its functional prototypes is shown in Fig. 1.
 
-<img class="center" style="width: 80%;" src="/images/pysfc_morlec_dc_393.png">
+<img class="center" style="width: 80%;" src="images/pysfc_morlec_dc_393.png">
 <p class="caption">
 **Fig. 1** -- Example PySFC intonation decomposition for the French utterance: *Son bagou pourrait faciliter la communauté.* into constituent functional contours: declaration (DC), dependency to the left/right (DG/DD), and cliticisation (XX, DV).
 </p>
@@ -44,11 +44,11 @@ SFC tries to solve the many-to-many ill-posed problem of determining the shape o
 One representative bottom-up model with physiological constraints is the Generalized Command Response (GCR) model \[[gcr]({filename}refs.md)\] that decomposes the intonation contour using $f_0$ atoms that correspond to elementary muscle activations, as shown in Fig. 2. The parameters of the GCR model can be trained completely automatically using a matching pursuit algorithm with the perceptually relevant weighted correlation as a cost function. As it is based on the physiology of intonation production, the model is inherently speaker and language independent. This is experimentally confirmed for English, French and German. The GCR atoms were also shown to have linguistic significance when compared to ToBI events, and can be used to help extract and synthesise emphasis.
 
 
-<img class="center" style="width: 100%;" src="/images/gcr.png">
+<img class="center" style="width: 100%;" src="images/gcr.png">
 <p class="caption">
 **Fig. 2** -- Results obtained with the WCAD algorithm for the sentence “*L’importance de sa situation lui rendit plus aisé de le prendre.*”
 by a French male speaker, showing the: original $f_0$ colored blue to green according the probability of voicing (POV) -- green is higher, extracted phrase atom and reconstructed $f_0$ (top), extracted
-elementary accent atoms (middle), and the energy, the POV and the weighting function (bottom). Taken from \[[wcad]({filename}refs.md)\]
+elementary accent atoms (middle), and the energy, the POV and the weighting function (bottom). Taken from \[[gcr-wcad]({filename}refs.md)\]
 </p>
 
 The implementation of the GCR parameter extraction algorithm called Weighted Correlation based Atom Decomposition (WCAD) is free software and is available on GitHub at: <https://github.com/dipteam/wcad>

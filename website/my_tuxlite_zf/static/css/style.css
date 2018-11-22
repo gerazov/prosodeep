@@ -209,6 +209,13 @@ text-align: left;
   margin-bottom: 2em;
 }
 
+ul.refs{
+  margin-left: 1em;
+  /* list-style: none; */
+}
+.refs li{
+}
+
 footer {
   font-size: 80%;
 }
