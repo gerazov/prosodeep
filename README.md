@@ -7,7 +7,6 @@ The models are designed to facilitate the advanced exploration of prosodic pheno
 
 # The models
 
-
 The different models developed within the ProsoDeep project are based on the [Superposition of Functional Contours (SFC) model](https://gerazov.github.io/prosodeep/project#sfc), which is a top-down approach that aims to decompose prosodic contours into their constituent functionally relevant elementary contours, named also *prosodic prototypes* or *clichés*  \[[sfc](#References)\]. They include the:
 
   - [PySFC](https://gerazov.github.io/prosodeep/pysfc) model -- a [Python](https://www.python.org/) implementation of the original SFC model \[[pysfc](#References)\],
