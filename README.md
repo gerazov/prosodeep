@@ -7,6 +7,7 @@ The models are designed to facilitate the advanced exploration of prosodic pheno
 
 # The models
 
+
 The different models developed within the ProsoDeep project are based on the [Superposition of Functional Contours (SFC) model](https://gerazov.github.io/prosodeep/project#sfc), which is a top-down approach that aims to decompose prosodic contours into their constituent functionally relevant elementary contours, named also *prosodic prototypes* or *clichés*  \[[sfc](#References)\]. They include the:
 
   - [PySFC](https://gerazov.github.io/prosodeep/pysfc) model -- a [Python](https://www.python.org/) implementation of the original SFC model \[[pysfc](#References)\],
@@ -18,20 +19,7 @@ The different models developed within the ProsoDeep project are based on the [Su
 
 The code implementation for all of the models is written in [Python](https://www.python.org/) and is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/).
 
-The code includes a code base package named `prosodeep` and a main execution script `prosodeep.py`. The script controls the execution flow and carries out data loading, model initialisation, training and evaluation. 
-
-## Python ecosystem
-
-Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. The code is built upon [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural network models and their training were implemented in [PyTorch](https://pytorch.org/), which is a powerful deep learning platform centered on Python that allows for rapid model prototyping and easy debugging.
-Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping.
-Other packages used in the code include:
-
-- [scikit-learn](https://scikit-learn.org/) -- for machine learning utility functions,
-- [pandas](http://pandas.pydata.org/) -- for data structuring and manipulation,
-- [matplotlib](http://matplotlib.org/) -- for result plotting, and
-- [seaborn](http://seaborn.pydata.org/) -- for plotting histograms.
-
-Finally, the whole code has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found on GitHub: <https://github.com/gerazov/prosodeep>
+The code includes a code base package named `prosodeep` and a main execution script `prosodeep.py`. The script controls the execution flow and carries out data loading, model initialisation, training and evaluation. Instructions on its use and the various parameters will be made available soon on
 
 ## Modules
 
@@ -51,6 +39,20 @@ Finally, the whole code has been licensed as [free software](http://fsf.org/) wi
 Currently, `prosodeep` supports the standard Praat `TextGrid` annotations, and calculates pitch based on Praat `PointProcess` pitch mark files. We plan to integrate state-of-the-art pitch extractors in the near future, e.g. the [Kaldi](http://kaldi-asr.org/) pitch extractor.
 
 The PySFC implementation can be found at <https://github.com/gerazov/pysfc>
+
+
+## Python ecosystem
+
+Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. The code is built upon [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural network models and their training were implemented in [PyTorch](https://pytorch.org/), which is a powerful deep learning platform centered on Python that allows for rapid model prototyping and easy debugging.
+Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping.
+Other packages used in the code include:
+
+- [scikit-learn](https://scikit-learn.org/) -- for machine learning utility functions,
+- [pandas](http://pandas.pydata.org/) -- for data structuring and manipulation,
+- [matplotlib](http://matplotlib.org/) -- for result plotting, and
+- [seaborn](http://seaborn.pydata.org/) -- for plotting histograms.
+
+Finally, the whole code has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found on GitHub: <https://github.com/gerazov/prosodeep>
 
 # Acknowledgement
 
