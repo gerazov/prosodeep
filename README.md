@@ -16,13 +16,13 @@ The different models developed within the ProsoDeep project are based on the [Su
 
 # Code
 
-The [code](https://gerazov.github.io/prosodeep/code.md) implementation for all of the models is written in [Python](https://www.python.org/) and is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/).
+The code implementation for all of the models is written in [Python](https://www.python.org/) and is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/).
 
-The code includes a code base package named `prosodeep` and a main execution script `prosodeep.py`. The script controls the execution flow and carries out data loading, model initialisation, training and evaluation.
+The code includes a code base package named `prosodeep` and a main execution script `prosodeep.py`. The script controls the execution flow and carries out data loading, model initialisation, training and evaluation. 
 
 ## Python ecosystem
 
-[Python](https://www.python.org/) was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. The code is built upon [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural network models and their training were implemented in [PyTorch](https://pytorch.org/), which is a powerful deep learning platform centered on Python that allows for rapid model prototyping and easy debugging.
+Python was chosen as an implementation language because of the powerful scientific computing environment that is completely based on free software. The code is built upon [NumPy](http://www.numpy.org/) within the [SciPy](https://www.scipy.org/) ecosystem. The neural network models and their training were implemented in [PyTorch](https://pytorch.org/), which is a powerful deep learning platform centered on Python that allows for rapid model prototyping and easy debugging.
 Great attention was put on code readability, which is also one of the features of good Python, augmented with detailed functions docstrings, and comments. The code is segmented in [Spyder](https://pythonhosted.org/spyder/) cells for rapid prototyping.
 Other packages used in the code include:
 
@@ -65,14 +65,4 @@ This project has received funding from the European Union’s Horizon 2020 resea
 - `[wsfc]` Gerazov Branislav, Gérard Bailly, and Yi Xu, “A Weighted Superposition of Functional Contours model for modelling contextual prominence of elementary prosodic contours,” in Proceedings of Interspeech, Hyderabad, India, 02 – 07 Sep, 2018. \[[pdf](https://www.isca-speech.org/archive/Interspeech_2018/pdfs/1286.pdf)\]
 - `[pysfc-tones]` Gerazov Branislav, Gérard Bailly, and Yi Xu, “The significance of scope in modelling tones in Chinese,” in Tonal Aspects of Languages, Berlin, Germany, 18 – 20 Jun, 2018. \[[pdf](http://public.beuth-hochschule.de/~mixdorff/tal2018/180620_poster_session/TAL_2018_paper_10.pdf)\]
 - `[pysfc]` Gerazov Branislav and Gérard Bailly, “PySFC – A System for Prosody Analysis based on the Superposition of Functional Contours Prosody Model,” in Speech Prosody, Poznan, Poland, 13 – 16 June, 2018. \[[pdf](https://hal.archives-ouvertes.fr/hal-01821214/document)\]
-
-## SFC
 - `[sfc]` Bailly, Gérard, and Bleicke Holm, “SFC: a trainable prosodic model,” Speech communication 46, no. 3: 348-364, 2005. \[[pdf](https://hal.archives-ouvertes.fr/hal-00416724/document)\]
-- `[sfc-av]` Barbulescu Adela, Rémi Ronfard, and Gérard Bailly, “Exercises in Speaking Style: A Generative Audiovisual Prosodic Model for Virtual Actors,” Computer Graphics Forum, 37-6:40-51, 2017.
-\[[pdf](https://hal.inria.fr/hal-01643334/document)\]
-
-## GCR
-- `[gcr]` Honnet, Pierre-Edouard, Branislav Gerazov, Aleksandar Gjoreski, and Philip N. Garner, “Intonation modelling using a muscle model and perceptually weighted matching pursuit,” Speech Communication, 97:81--93, March 2018. \[[pdf](https://infoscience.epfl.ch/record/233571/files/Honnet_SPECOM_2018.pdf)\]
-- `[gcr-wcad]` Gerazov, Branislav, Pierre-Edouard Honnet, Aleksandar Gjoreski, Philip N. Garner, “Weighted correlation based atom decomposition intonation
-modelling,” in Proceedings of Interspeech, Dresden, Germany, 6 -- 10 September, 2015.
-\[[pdf](https://www.isca-speech.org/archive/interspeech_2015/papers/i15_1601.pdf)\]

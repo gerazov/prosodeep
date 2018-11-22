@@ -5,12 +5,14 @@ url: project
 
 # Details
 
-Project Framework |	Horizon 2020 Marie Skłodowska-Curie Actions Individual Fellowship
+Project Framework |	Horizon 2020 [Marie Skłodowska-Curie Actions](http://ec.europa.eu/research/mariecurieactions/) Individual Fellowship
 ---|---
 Project Call 	| H2020-MSCA-IF-2016
 Project title 	| ProsoDeep : Deep understanding and modelling of the hierarchical structure of Prosody
-Supervisor 	| Gérard Bailly
-Researcher 	| Brаnislаv Gеrаzоv
+Supervisor 	| [Gérard Bailly](http://www.gipsa-lab.grenoble-inp.fr/~gerard.bailly/), [GIPSA-lab](http://www.gipsa-lab.fr), [Grenoble Institute of Technology](http://www.grenoble-inp.fr/), Grenoble, France
+Researcher 	| Brаnislаv Gеrаzоv, [FEEIT](http://www.feit.ukim.edu.mk), [Ss Cyril and Methodius University in Skopje](http://www.ukim.edu.mk/), Macedonia
+Project partners 	| [Yi Xu](http://www.homepages.ucl.ac.uk/~uclyyix/), [University College London](https://www.ucl.ac.uk/), London, United Kingdom
+ 	| [Philip Garner](https://pgarner.github.io/), [Idiap Research Institute](http://www.idiap.ch), Martigny, Switzerland
 
 # Objectives
 

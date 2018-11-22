@@ -4,6 +4,11 @@ date: 2018-11-03
 save_as: code.html
 url: code
 
+# Code
+
+The code implementation for all of the ProsoDeep models is written in [Python](https://www.python.org/) and is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub: <https://github.com/gerazov/prosodeep>
+
+The code includes a code base package named `prosodeep` and a main execution script `prosodeep.py`. The script controls the execution flow and carries out data loading, model initialisation, training and evaluation. Instructions on its use and the various parameters will be made available soon on
 
 # Python ecosystem
 
@@ -16,7 +21,7 @@ Other packages used in the code include:
 - [matplotlib](http://matplotlib.org/) -- for result plotting, and
 - [seaborn](http://seaborn.pydata.org/) -- for plotting histograms.
 
-Finally, the whole code has been licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found on GitHub: <https://github.com/gerazov/prosodeep>
+Finally, the whole code is licensed as [free software](http://fsf.org/) with a [GNU General Public License v3](http://www.gnu.org/licenses/). The code can be found
 
 # Modules
 
