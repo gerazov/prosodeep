@@ -7,16 +7,16 @@ The models are designed to facilitate the advanced exploration of prosodic pheno
 
 # The models
 
-The different models developed within the ProsoDeep project are based on the [Superposition of Functional Contours (SFC) model](https://gerazov.github.io/prosodeep/project#sfc), which is a top-down approach that aims to decompose prosodic contours into their constituent functionally relevant elementary contours, named also *prosodic prototypes* or *clichés* \[[sfc](#SFC)\]. They include the:
+The different models developed within the ProsoDeep project are based on the [Superposition of Functional Contours (SFC) model](https://gerazov.github.io/prosodeep/project#sfc), which is a top-down approach that aims to decompose prosodic contours into their constituent functionally relevant elementary contours, named also *prosodic prototypes* or *clichés*  \[[sfc](#References)\]. They include the:
 
-  - [PySFC]({filename}pysfc.md) model -- a [Python](https://www.python.org/) implementation of the original SFC model \[[pysfc]({filename}refs.md)\],
-  - [Weighted SFC (WSFC)]({filename}wsfc.md) model -- that incorporates the modelling of prominence of the extracted prosodic prototypes \[[wsfc]({filename}refs.md)\],
-  - [Variational Prosody Model (VPM)]({filename}vpm.md) -- that models the linguistic conext specific variability of the prosodic prototypes \[[vpm]({filename}refs.md)\], and
-  - [Variational Recurrent Prosody Model (VRPM)]({filename}vrpm.md) -- that decouples the context specific variability from function scope \[[vrpm]({filename}refs.md)\].
+  - [PySFC](https://gerazov.github.io/prosodeep/pysfc) model -- a [Python](https://www.python.org/) implementation of the original SFC model \[[pysfc](#References)\],
+  - [Weighted SFC (WSFC)](https://gerazov.github.io/prosodeep/wsfc) model -- that incorporates the modelling of prominence of the extracted prosodic prototypes \[[wsfc](#References)\],
+  - [Variational Prosody Model (VPM)](https://gerazov.github.io/prosodeep/vpm) -- that models the linguistic conext specific variability of the prosodic prototypes \[[vpm](#References)\], and
+  - [Variational Recurrent Prosody Model (VRPM)](https://gerazov.github.io/prosodeep/vrpm) -- that decouples the context specific variability from function scope \[[vrpm](#References)\].
 
 # Code
 
-The [code]({filename}code.md) implementation for all of the models is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub <https://github.com/gerazov/prosodeep>
+The [code](https://gerazov.github.io/prosodeep/code.md) implementation for all of the models is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub <https://github.com/gerazov/prosodeep>
 
 The PySFC implementation can be found at <https://github.com/gerazov/pysfc>
 
