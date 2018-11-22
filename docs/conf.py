@@ -15,8 +15,7 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-from pathlib import Path
-
+#
 # -- Project information -----------------------------------------------------
 
 project = 'ProsoDeep'
@@ -78,7 +77,6 @@ pygments_style = None
 #
 # html_theme = 'alabaster'
 html_theme = "my_rtd_theme"
-HOME = str(Path.home())
 html_theme_path = ["./", ]
 # html_theme_path = [HOME + "/_pelican/pelican-themes/sphinx_rtd_theme", ]
 # Theme options are theme-specific and customize the look and feel of a theme
