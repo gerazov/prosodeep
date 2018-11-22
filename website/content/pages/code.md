@@ -8,7 +8,7 @@ url: code
 
 The code implementation for all of the ProsoDeep models is written in [Python](https://www.python.org/) and is available as free software under a [GNU General Public License v3](http://www.gnu.org/licenses/) on GitHub: <https://github.com/gerazov/prosodeep>
 
-The code includes a code base package named `prosodeep` and a main execution script `prosodeep.py`. The script controls the execution flow and carries out data loading, model initialisation, training and evaluation. Instructions on its use and the various parameters will be made available soon on
+The code includes a code base package named `prosodeep` and a main execution script `prosodeep.py`. The script controls the execution flow and carries out data loading, model initialisation, training and evaluation. Instructions on its use and the various parameters will be made available soon on [Read the Docs](https://docs.readthedocs.io) at https://prosodeep.readthedocs.io/
 
 # Python ecosystem
 
