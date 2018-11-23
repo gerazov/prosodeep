@@ -64,7 +64,7 @@ Code</title>
     <!-- Sidebar -->
     <aside class="large-3 columns">
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#python ecosystem" title="Python&nbsp;ecosystem">Python&nbsp;ecosystem</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#code" title="Code">Code</a></li><li><a class="toc-href" href="#python ecosystem" title="Python&nbsp;ecosystem">Python&nbsp;ecosystem</a></li><li><a class="toc-href" href="#modules" title="Modules">Modules</a></li><li><a class="toc-href" href="#line count" title="Line&nbsp;count">Line&nbsp;count</a></li><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#pysfc line count" title="PySFC line&nbsp;count">PySFC line&nbsp;count</a></li></ul></div>
         </ul>
         <ul class="logos">
           <h5 class="sidebar-title">Partners</h5>
@@ -161,6 +161,12 @@ Other packages used in the code&nbsp;include:</p>
 <li><code>prosodeep_plot.py</code> &mdash; holds the plotting functions based on matplotlib and&nbsp;seaborn.</li>
 </ul>
 <p>Currently, <code>prosodeep</code> supports the standard Praat <code>TextGrid</code> annotations, and calculates pitch based on Praat <code>PointProcess</code> pitch mark files. We plan to integrate state-of-the-art pitch extractors in the near future, e.g. the <a href="http://kaldi-asr.org/">Kaldi</a> pitch&nbsp;extractor.</p>
+<h1 id="line count">Line&nbsp;count</h1>
+<p>The total line count of the ProsoDeep code is 9,128 and is distributed among the modules as shown in Fig.&nbsp;1.</p>
+<p><img align="middle" class="center" src="images/prosodeep_lines.png" style="width: 50%;"/>
+<p class="caption">
+<strong>Fig. 1</strong> &mdash; Bar plot of the line count for the main script and modules of the <code>prosodeep</code> package. Total line count is&nbsp;9,128.
+</p></p>
 <h1 id="pysfc">PySFC</h1>
 <p>Unlike the <code>prosodeep</code> package, the PySFC package, named <code>sfc</code> only offers the <span class="caps">SFC</span> modelling paradigm. Since it does not use deep learning it is entirely based on scikit-learn for the machine learning.
 The PySFC implementation is available as Free Software on GitHub: <a href="https://github.com/bgerazov/PySFC">https://github.com/bgerazov/PySFC</a></p>
@@ -181,6 +187,12 @@ The PySFC implementation is available as Free Software on GitHub: <a href="https
 </ul>
 <p>The PySFC supports the proprietary <span class="caps">SFC</span> <code>fpro</code> file format in addition to the standard Praat <code>TextGrid</code> annotations. As in <code>prosodeep</code> pitch is calculated based on Praat <code>PointProcess</code> pitch mark&nbsp;files.</p>
 <p>PySFC also brings added value to the <span class="caps">SFC</span> by adding the possibility to adjust the number of samples to be taken from the pitch contour at each rhythmical unit vowel nucleus, and with its extended plotting capabilities for data and performance&nbsp;analysis.</p>
+<h1 id="pysfc line count">PySFC line&nbsp;count</h1>
+<p>The total line count of the PySFC code is 3,026 and is distributed among the modules as shown in Fig.&nbsp;2.</p>
+<p><img align="middle" class="center" src="images/prosodeep_lines.png" style="width: 50%;"/>
+<p class="caption">
+<strong>Fig. 2</strong> &mdash; Bar plot of the line count for the main script and modules of the PySFC code. Total line count is 3,026. The same axis is used as in Fig.&nbsp;1.
+</p></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
         indent = "0em",
