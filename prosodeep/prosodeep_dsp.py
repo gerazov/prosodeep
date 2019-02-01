@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-PySFC - functions for signal processing.
+ProsoDeep - functions for signal processing.
 
 @authors:
     Branislav Gerazov Nov 2017
 
-Copyright 2017 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -187,13 +187,21 @@ def get_energy(fs, sig, win_size, hop_size, win, extract='energy'):
 
     return t_frames, energy
 
-def normalise_min_max(corpus, params, feats_min=None, feats_max=None):
-    feats = corpus.loc[:, 'ramp1' : 'ramp4'].values
+def normalise_min_max(corpus, params, input_feats=False,
+                      feats_min=None, feats_max=None):
+    if input_feats:
+        feats = corpus
+    else:
+        feats = corpus.loc[:, 'ramp1' : 'ramp4'].values
     if feats_min is None:
         feats_min = feats.min(axis=0)
         feats_max = feats.max(axis=0)
     feats_0to1 = (feats - feats_min) / (feats_max - feats_min)
     feats_norm = feats_0to1 * (params.feat_max - params.feat_min)
     feats_norm = feats_norm + params.feat_min
-    corpus.loc[:, 'ramp1' : 'ramp4'] = feats_norm
-    return corpus, feats_min, feats_max
+
+    if input_feats:
+        return feats_norm, feats_min, feats_max
+    else:
+        corpus.loc[:, 'ramp1' : 'ramp4'] = feats_norm
+        return corpus, feats_min, feats_max

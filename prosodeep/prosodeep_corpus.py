@@ -5,7 +5,7 @@ ProsoDeep - corpus related utility functions.
 @authors:
     Branislav Gerazov Nov 2017
 
-Copyright 2017. 2018 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -178,7 +178,7 @@ def build_corpus(params):
         assert ru_coefs.size == rus.size, \
             log.error('{} - error ru_coefs.size != rus.size'.format(filename))
 
-#% check phrase contour
+        #% check phrase contour
         if 'FF' not in phrase[1]:
             log.error('{} Start of phrase is not in first segment - skipping!'.format(filename))
             continue
@@ -207,7 +207,7 @@ def build_corpus(params):
                           columns)
             corpus = corpus.append([row], ignore_index=True)
 
-#% do the rest of the contours
+        #% do the rest of the contours
         landmarks = phrase_types + function_types
         if levels.size > 0:
             for level in levels[:,1:]:  # without the initial silence
@@ -549,7 +549,7 @@ def scale_and_expand_corpus(corpus, params):
     log.info('Expanding initial columns ...')
     new_columns = target_columns.copy()
 
-    if any(x in model_type for x in ['deep','baseline']) \
+    if any(x in model_type for x in ['deep','rnn','baseline']) \
             and use_only_last_iteration:
         pred_columns = [column + '_it{:03}'.format(iterations-1) for column in orig_columns]
         new_columns += pred_columns
@@ -730,16 +730,22 @@ def add_context(corpus, params):
             contour_type = corpus.loc[start].contourtype
 
             # attitudes have no context by default
-            if contour_type in params.all_phrase_types:
+            if 'onehot' not in params.context_type \
+                    and contour_type in params.all_phrase_types:
                 continue
 
-            if 'tone' in params.context_type and (
-                    contour_type not in params.tones):  # skip
+            if 'tone' in params.context_type \
+                    and contour_type not in params.tones:  # skip
                 continue
 
             contours_in_context = []  # accumulate contexts
 
-            if 'att' in params.context_type:  # add phrase
+            if 'onehot' in params.context_type:
+                contours_in_context.append(contour_type)
+                if 'att' in params.context_type:  # add phrase
+                    contours_in_context.append(corpus.loc[start].phrasetype)
+
+            elif 'att' in params.context_type:  # add phrase
                 contours_in_context.append(corpus.loc[start].phrasetype)
 
             elif 'all' in params.context_type:  # add all
@@ -782,17 +788,19 @@ def add_context(corpus, params):
                                     contours_in_context.append('EMp')
 
                         if corpus[mask_file].loc[mark2].n_unit == n_unit:
-                                if 'EM' not in contours_in_context:  # might be there from mark
+                                if 'EM' not in contours_in_context:
+                                # might be there from mark
                                     contours_in_context.append('EM')
 
                         # add post emphasis to all
                         for i in range(corpus[mask_file].loc[mark2].n_unit + 1,
-                                       corpus[mask_file].loc[end_inds[0]].n_unit + 1):  # till the end of phrase
+                                       corpus[mask_file].loc[end_inds[0]].n_unit + 1):
+                                       # till the end of phrase
                             if i == n_unit:
                                 assert contour not in contours_in_context  # should not be
                                 contours_in_context.append('EMc')
 
-            for contour in contours_in_context:
+            for contour in contours_in_context:  # this works with duplicate contours
                 corpus.loc[start : end, contour] = 1
     return corpus
 

@@ -6,7 +6,7 @@ ProsoDeep - class used to set all parameters.
 @authors:
     Branislav Gerazov Nov 2017
 
-Copyright 2017 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -25,11 +25,16 @@ def create_parser(parser):
                         choices=['morlec', 'chen','liu'],
                         default='chen', dest='database',
                         help='database used')
+    parser.add_argument("--tone",
+                        choices=['right', 'no', 'left', 'both'],
+                        default='right', dest='tone_scope',
+                        help='scope of tone functions')
     parser.add_argument("-m", "--model",
                         choices=['baseline','baseline_rnn',
-                                 'baseline_context','baseline_rnn_context',
                                  'anbysyn', 'deep', 'deep_vae',
-                                 'deep_rnn', 'deep_rnn_vae'],
+                                 'deep_rnn', 'deep_rnn_vae',
+                                 'unified_rnn_vae', 'unified_rnn_vae_atts',
+                                 ],
                         default='deep_vae', dest='model_type',
                         help='model arhitecture')
     parser.add_argument("--rnn",
@@ -38,11 +43,14 @@ def create_parser(parser):
                         help='recurrent arhitecture')
     parser.add_argument("--act",
                         choices=['tanh', 'relu'],
-                        default='tanh', dest='activation',
+                        default='relu', dest='activation',
                         help='activation of hidden units for MLP,'
                         ' for VE and RNN it is set to tanh')
 
     # training parameters
+    parser.add_argument("--norm", choices=['minmax'],
+                        default=None, dest='normalisation_type',
+                        help='normalisation type for input features')
     parser.add_argument("-l", "--lr", type=float,
                         default=0.001, dest='learn_rate',
                         help='learning rate')
@@ -55,7 +63,7 @@ def create_parser(parser):
                         help='maximum iterations of contour generator training '
                         'in anbysyn')
     parser.add_argument("-r", "--reg", type=float,
-                        default=1e-5, dest='l2',
+                        default=0.0001, dest='l2',
                         help='l2 regularisation')
     parser.add_argument("-b", "--batch",
                         default='256', dest='batch_size',
@@ -63,7 +71,7 @@ def create_parser(parser):
                         help='batch size')
     # hidden
     parser.add_argument("--hidden", type=int,
-                        nargs='+', default=[17], dest='hidden_units',
+                        nargs='+', default=[32], dest='hidden_units',
                         help='list of hidden layer sizes of contour generator')
     parser.add_argument("--hidden_c", type=int,
                         nargs='+', default=[10], dest='n_hidden_context',
@@ -100,11 +108,6 @@ def create_parser(parser):
                         action='store_true',
                         default=False, dest='freeze_pretrained_models',
                         help='freeze pretrained models')
-    # tonescope
-    parser.add_argument("--tone",
-                        choices=['right', 'no', 'left', 'both'],
-                        default='right', dest='tone_scope',
-                        help='scope of tone functions')
     # optimizer
     parser.add_argument("--optim", choices=['adam', 'adadelta', 'adagrad',
                                             'sparseadam',
@@ -119,23 +122,24 @@ def create_parser(parser):
                         help='input to the VCGs: _ separated '
                         'context, mmd, or kld')
     parser.add_argument("--regvae", type=float,
-                        default=0.3, dest='reg_vae',
+                        default=1, dest='reg_vae',
                         help='regularisation coefficient of VCG loss (KLD, MMD)')
     parser.add_argument("--latdim", type=int,
                         default=2, dest='n_latent',
                         help='latent space dimension')
     parser.add_argument("--vae_as_input",
                         action='store_true',
-                        default=False, dest='vae_as_input',
+                        default=True, dest='vae_as_input',
                         help='use latent space sample as SOS in deep_rnn_vae')
     parser.add_argument("--vae_as_hidden",
                         action='store_true',
                         default=False, dest='vae_as_input_hidd',
                         help='use latent space as SOS input AND hidden init')
-
     parser.add_argument("--device", type=int,
                         default=0, dest='device',
-                        help='cuda device to select if multiple available')
+                        help='cuda device to select if multiple available, '
+                        'if -1 use cpu'
+                        )
 
     return parser
 
@@ -147,7 +151,7 @@ class Params:
         #############
 
         self.load_corpus = True  # load pickled corpus
-        self.load_processed_corpus = True
+        self.load_processed_corpus = False
         self.load_eval_corpus = False  # load evaluation data
         self.remove_folders = False  # remove folders if they exist
 
@@ -155,7 +159,7 @@ class Params:
 #%%     Prosody model params
         #####################
 
-        self.database = 'chen'  # morlec, chen, liu
+        self.database = 'morlec'  # morlec, chen, liu
         if args is not None and not args.ignore:
             self.database = args.database
 
@@ -180,12 +184,15 @@ class Params:
         self.vowel_pts = len(self.vowel_marks)
 
         # normalisation
-        self.normalisation_type = 'minmax'
+        self.normalisation_type = None
+        # self.normalisation_type = 'minmax'
         self.feat_min = 0.01  # from Merlin
         self.feat_max = 0.99
+        self.feat_min_train = None  # for storing the training data min and max
+        self.feat_max_train = None
 
         #% contour generators params
-        self.model_type = 'baseline_rnn'  # model architecture:
+        self.model_type = 'unified_rnn_vae_atts'  # model architecture:
         # baseline - a baseline dnn that we feed with the input features
         # baseline_context - context used as part of input features
         # baseline_rnn - a baseline rnn that we feed with the input features
@@ -196,6 +203,8 @@ class Params:
         # deep_vae - one big graph using masking with VAEs
         # deep_rnn - one big graph with rnns
         # deep_rnn_vae - one big graph with vae initialised rnns
+        # unified_rnn_vae - one single CG conditioned on the contour using onehot
+        # unified_rnn_vae_atts - one single CG for all attitudes
         self.rnn_model = 'lstm'  # rnn, gru, lstm
 #        self.use_layer = True  # use layers in rnn instead of cells
         # always use layers - they're more efficient
@@ -205,6 +214,7 @@ class Params:
         # but all the layers have n_hidden_rnn[0] hidden units
 
         self.n_hidden_vae = [10]
+        # for RNN:
         self.vae_as_input = True  # use vae latent sample as input SOS to generate hx
         self.vae_as_input_hidd = False  # use vae sample as input SOS and hx init
 
@@ -215,13 +225,19 @@ class Params:
             self.model_type = args.model_type
             self.rnn_model = args.rnn_model
 
-        if any(s in self.model_type for s in ['vae', 'rnn', 'baseline']) \
+        # if any(s in self.model_type for s in ['vae', 'rnn', 'baseline']) \
+        if any(s in self.model_type for s in ['vae', 'baseline']) \
                 and torch.cuda.is_available():
-            self.use_cuda = True
-            if args is not None and not args.ignore:
-                torch.cuda.set_device(args.device)
+        # if torch.cuda.is_available():
+                self.use_cuda = True
+                if args is not None and not args.ignore:
+                    if args.device == -1:
+                        self.use_cuda = False
+                    else:
+                        torch.cuda.set_device(args.device)
         else:
             self.use_cuda = False
+        # self.use_cuda = True  # works faster with pytorch 1.0 : )
 
         if 'vae' in self.model_type:
             self.vae = True
@@ -237,7 +253,6 @@ class Params:
         if 'vae' in self.model_type or 'rnn' in self.model_type:
             self.use_strength = False
         self.n_hidden_context = [10]
-
         self.use_strength = False
         self.reg_strengths = 0  # regularisation of strengths to be close to 1
         self.reg_strengths_mean = 10.  # regularisation of strengths' means to be close to 1
@@ -254,16 +269,13 @@ class Params:
             self.iterations = 20  # to run analysis by synthesis
         else:
             self.max_iter = None
-            self.iterations = 1  # this is epochs for deep model
+            self.iterations = 3000  # this is epochs for deep model
 
         self.batch_size = 8  # all, auto or number,
-        self.hidden_units = [17]  # for the contour generators
-        self.learn_rate = .001  # learning rate - default for adam is 0.001
-        if 'baseline' in self.model_type:
-            self.l2 = 1e-4  # 1e-4 default
-        else:
-            self.l2 = 1e-5  # Merlin
-
+        self.hidden_units = [32]  # for the contour generators
+        self.learn_rate = 0.001
+        self.l2 = 0.0001  # 1e-4 default
+        self.drop_rate = 0
         self.adjust_max_iter = False  # adjust number of iterations
                 # so that the total learning steps equals the amount
                 # as for a 32 batch size - for batch_size analysis
@@ -271,17 +283,17 @@ class Params:
         self.f0_scale = .05  # originally .05 in the SFC
         self.dur_scale = 10  # 10/.05 = 200 (originally 10)
 
-        self.optimization = 'adam'  # can be 'adam', 'adadelta', 'adagrad', 'sparseadam',
-                                    # 'adamax','asgd','sgd','lbfgs','rmsprop','rprop',
-                                    # 'sgdr'
+        self.optimization = 'adam'
+        # can be 'adam', 'adadelta', 'adagrad', 'sparseadam',
+        # 'adamax','asgd','sgd','lbfgs','rmsprop','rprop', 'sgdr'
 
         # deprecated
-#        self.regularise_compensation = False  # punish mutual compensation of CGs
-#        self.reg_comp = 1
+        # self.regularise_compensation = False  # punish mutual compensation of CGs
+        # self.reg_comp = 1
         self.activation = 'tanh'  # relu or tanh for MLP. For VE and RNN set to tanh
-
         self.early_stopping = True
         self.early_thresh = 0.0001  # change in RMS to decrease patience 1e-4
+        # self.early_thresh = 1  # change in RMS to decrease patience 1e-4
         self.patience = 20  # number of epochs to wait if there is no improvement 20
 
         if self.early_stopping:
@@ -301,8 +313,8 @@ class Params:
         self.test_stratify = False  # TODO: fix stratification
 
         # build suffix for folders and pickles
-#        self.suffix = 'keeptargets'
-#        self.suffix = 'maskKL'
+        # self.suffix = 'keeptargets'
+        # self.suffix = 'maskKL'
         self.suffix = ''
         if self.early_stopping:
             self.suffix += '_early'
@@ -321,6 +333,7 @@ class Params:
         ###################
         if args is not None and not args.ignore:
             self.use_pretrained_models = args.use_pretrained_models
+            self.normalisation_type = args.normalisation_type
             self.freeze = args.freeze_pretrained_models
             self.tone_scope = args.tone_scope
             self.use_strength = args.use_strength
@@ -350,6 +363,16 @@ class Params:
             else:
                 self.n_hidden_rnn = args.n_hidden_rnn
 
+        if 'baseline' in self.model_type:  # Merlin
+            self.learn_rate = 0.002
+            self.l2 = 1e-5
+            self.drop_rate = 0  # actually they don't use dropout
+            self.activation = 'tanh'  # by the book
+            self.normalisation_type = 'minmax'
+
+        if any(x in self.model_type for x in 'vae rnn'.split()):
+            self.activation = 'tanh'
+
         #################
 #%%     database params
         #################
@@ -362,7 +385,11 @@ class Params:
 
         if self.database == 'morlec':
             # define context vector input
-            self.context_type = 'att'  # attitudes
+            if 'unified' in self.model_type:
+                # self.context_type = 'onehot'
+                self.context_type = 'onehotatt'
+            else:
+                self.context_type = 'att'  # attitudes
 #            'all'  # any contour apearing within the scope of the current one
 #            'att'  # attitudes only
 #            'mark'  # landmark context - all that fall on the same landmark
@@ -391,6 +418,8 @@ class Params:
 
             ## function types in data
             self.function_types = 'DD DG XX DV EM ID IT'.split()
+            self.syntax_functions = 'DD DG ID IT'.split()
+            self.morpheme_functions = 'XX DV EM'.split()
             #    DD - clause on the right depends on the left
             #    DG - clause on the left depends on the right
             #    XX - clitic on the left (les enfants) - downstepping for function words
@@ -415,9 +444,6 @@ class Params:
                                 name += 'ah'
                         name += '_lat{}'.format(self.n_latent)
                         name += '_regvae{}'.format(self.reg_vae)
-                    name += '_vh{}'.format(self.n_hidden_vae)
-                    name += '_lat{}'.format(self.n_latent)
-                    name += '_regvae{}'.format(self.reg_vae)
             elif self.vae:
                 name += self.vae_input
                 name += '_lat{}'.format(self.n_latent)
@@ -443,6 +469,9 @@ class Params:
                     self.learn_rate, self.iterations,
                     self.hidden_units, self.l2)
 
+            if self.normalisation_type:
+                name += '_norm'
+            name += '_'+self.activation
             if not self.do_all_phrases:
                 name += '_phrase{}'.format(self.phrase_types)
 
@@ -471,7 +500,9 @@ class Params:
 ##########
 
         elif self.database == 'chen':
-            if self.use_pretrained_models:  # train pretrained models for liu
+            if 'unified' in self.model_type:
+                self.context_type = 'onehot'
+            elif self.use_pretrained_models:  # train pretrained models for liu
                 self.context_type = 'emph'
                 self.use_pretrained_models = False
             else:
@@ -542,6 +573,9 @@ class Params:
                     self.learn_rate, self.iterations,
                     self.hidden_units, self.l2)
 
+            if self.normalisation_type:
+                name += '_norm'
+            name += '_'+self.activation
             if not self.do_all_phrases:
                 name += '_phrase{}'.format(self.phrase_types)
 
@@ -576,7 +610,7 @@ class Params:
                     self.datafolder = self.datapath + '_grid/'
                 else:
                     self.datafolder = self.datapath + '_grid/_context/'
-                self.re_folder = re.compile(r'^chen_\d*\.TextGrid$')  # eliminate the '_pred' fpros
+                self.re_folder = re.compile(r'^yanpin_\d*\.TextGrid$')  # eliminate the '_pred' fpros
 
             self.f0_folder = self.datapath + '_pca/'
 
@@ -585,7 +619,10 @@ class Params:
 ##########
 
         elif self.database == 'liu':
-            self.context_type = 'tonemarkemph'
+            if 'unified' in self.model_type:
+                self.context_type = 'onehot'
+            else:
+                self.context_type = 'tonemarkemph'
 #            'mark'  # landmark context - all that fall on the same landmark
 #            'emph'  # emphasis context - pre EMp, on EM, and post EMc emphasis
 #            'tone'  # tones only - make context vectors only for tones
@@ -653,6 +690,9 @@ class Params:
             if not self.do_all_phrases:
                 name += '_phrase{}'.format(self.phrase_types)
 
+            if self.normalisation_type:
+                name += '_norm'
+            name += '_'+self.activation
             if self.use_pretrained_models:
                 name += '_pre'
                 if self.freeze:
@@ -695,6 +735,7 @@ class Params:
         # attitudes have no context by default
         # context types are:
         #    'all'  # any contour apearing within the scope of the current one
+        #    'onehot'  # onehot encode the current contour for the oneCG VRPM
         #    'att'  # attitudes only
         #    'emph'  # full emphasis context - pre EMp, on EM, and post EMc emphasis
         #    'mark'  # landmark context - all that fall on the same landmark
@@ -706,7 +747,7 @@ class Params:
         # mark and all are mutually exclusive
         # mark and emph are not mutually exclusive - mark then applies for the rest i.e. WB
 
-        if 'all' in self.context_type:
+        if any(x in self.context_type for x in ['all', 'onehot']):
             self.context_columns = self.phrase_types + self.function_types
             if 'emph' in self.context_type:
                 self.context_columns += 'EMp EMc'.split()
@@ -892,6 +933,5 @@ class Params:
         self.pkl_path = 'pkls/'
 
         # save processed corpus data
-        self.save_processed_data = False
+        self.save_processed_data = True
         self.save_eval_data = False
-

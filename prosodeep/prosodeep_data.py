@@ -6,7 +6,7 @@ ProsoDeep - data input and analysis utility functions.
 @authors:
     Branislav Gerazov Nov 2017
 
-Copyright 2017 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -238,9 +238,12 @@ def read_textgrid(filename, params, phone_duration_means=None, f0_ref=None, isoc
         f0_all, f0_mean, f0_median, f0_kde = data
         prosodeep_plot.plot_histograms(f0_all, f0_mean, f0_median, save_path,
                                  plot_type='f0', show_plot=show_plot)
+        with open(params.pkl_path + params.f0_stats + '.pkl', 'wb') as f:
+            pickle.dump(data, f, -1)
+
 
     if f0_ref is None:
-        with open(params.pkl_path + f0_stats + '.pkl', 'rb') as f:
+        with open(params.pkl_path + params.f0_stats + '.pkl', 'rb') as f:
             data = pickle.load(f)
         f0_all, f0_mean, f0_median, f0_kde = data
         log.info('F0 mean = {} Hz, median = {} Hz, kde = {} Hz'.format(
@@ -264,9 +267,11 @@ def read_textgrid(filename, params, phone_duration_means=None, f0_ref=None, isoc
         prosodeep_plot.plot_histograms(just_phones.duration, phone_duration_total_mean,
                                  phone_duration_total_median, save_path,
                                  plot_type='phone', show_plot=show_plot)
+        with open(params.pkl_path + params.dur_stats + '.pkl', 'wb') as f:
+            pickle.dump(data, f, -1)
 
     if phone_duration_means is None:
-        with open(params.pkl_path + dur_stats + '.pkl', 'rb') as f:
+        with open(params.pkl_path + params.dur_stats + '.pkl', 'rb') as f:
             data = pickle.load(f)
         phone_durations, phone_duration_means, phone_counts, \
            just_phones, phone_duration_total_mean, phone_duration_total_median, \
@@ -281,10 +286,12 @@ def read_textgrid(filename, params, phone_duration_means=None, f0_ref=None, isoc
         prosodeep_plot.plot_histograms(syll_durations.duration, syll_duration_mean,
                                  syll_duration_median,
                                  save_path, plot_type='syll', show_plot=show_plot)
+        with open(params.pkl_path + params.syll_stats + '.pkl', 'wb') as f:
+            pickle.dump(data, f, -1)
 
     # let the user choose which clock to use:
     if isochrony_clock is None:
-        with open(params.pkl_path + syll_stats + '.pkl', 'rb') as f:
+        with open(params.pkl_path + params.syll_stats + '.pkl', 'rb') as f:
             data = pickle.load(f)
         syll_durations, syll_duration_means, syll_counts, \
             syll_duration_mean, syll_duration_median, syll_duration_kde = data

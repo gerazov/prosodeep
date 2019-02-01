@@ -12,11 +12,15 @@ the following prosody models:
 
 [1] Bailly, Gérard, and Bleicke Holm. "SFC: a trainable prosodic model."
     Speech communication 46, no. 3 (2005): 348-364.
+[2] Gerazov Branislav and Gérard Bailly, “PySFC – A System for Prosody Analysis based on the Superposition of Functional Contours Prosody Model,” in Speech Prosody, Poznan, Poland, 13 – 16 June, 2018.
+[3] Gerazov Branislav, Gérard Bailly, and Yi Xu, “A Weighted Superposition of Functional Contours model for modelling contextual prominence of elementary prosodic contours,” in Proceedings of Interspeech, Hyderabad, India, 02 – 07 Sep, 2018.
+[4] Gerazov Branislav, Gérard Bailly, Omar Mohammed, Yi Xu, and Philip N. Garner, “A Variational Prosody Model for the decomposition and synthesis of speech prosody,” in ArXiv e-prints, 22 June 2018. https://arxiv.org/abs/1806.08685
+[5] Gerazov Branislav, Gérard Bailly, Omar Mohammed, Yi Xu, and Philip N. Garner, “Embedding Context-Dependent Variations of Prosodic Contours using Variational Encoding for Decomposing the Structure of Speech Prosody,” Workshop on Prosody and Meaning: Information Structure and Beyond, Aix-en-Provence, France, 8 November 2018.
 
 @authors:
     Branislav Gerazov Oct 2017
 
-Copyright 2017 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -37,12 +41,8 @@ start_time = datetime.now()  # start stopwatch
 print()
 
 #%% enable to run with older backend on GPU server
-plt.switch_backend('agg')  # to be run using ssh
-#plt.switch_backend('Qt5Agg')  # to be run using ssh
-#font = {'family' : 'normal',  # increase font for plotting
-#        'weight' : 'bold',
-#        'size'   : 22}
-#matplotlib.rc('font', **font)
+# plt.switch_backend('agg')  # to be run using ssh
+plt.switch_backend('Qt5Agg')
 
 #%% parse input arguments
 parser = argparse.ArgumentParser()
@@ -84,8 +84,9 @@ formatter = logging.Formatter('%(name)-12s: %(levelname)-8s: %(message)s')
 console.setFormatter(formatter)  # tell the handler to use this format
 logging.getLogger('').addHandler(console)  # add the handler to the root logger
 
-# start logging
-
+#%% start logging
+# add all command line args passed to code
+logging.info('Command line arguments')
 if args is not None and not args.ignore:
     settings = ''
     for arg in args.__dict__:
@@ -94,6 +95,16 @@ if args is not None and not args.ignore:
         except:
             pass
     logging.info(settings)
+
+# add all params
+logging.info('All params')
+settings = ''
+for param in params.__dict__:
+    try:
+        settings += f'{param}={getattr(params, param)}, '
+    except:
+        pass
+logging.info(settings)
 
 if params.use_cuda:
     logging.info('Using GPU')
@@ -111,12 +122,8 @@ if params.load_corpus and os.path.isfile(pkl_corpus_name):
         f0_ref, isochrony_clock, isochrony_gravity, disol, stats = fpro_stats
 
 #    # add context if it isn't there
-    resave = False
     if not all([s in corpus.columns for s in params.context_columns]):
         corpus = prosodeep_corpus.add_context(corpus, params)
-        resave = True
-#
-    if resave:
         with open(pkl_corpus_name, 'wb') as f:
             fpro_stats = f0_ref, isochrony_clock, isochrony_gravity, disol, stats
             # to avoid bad headers
@@ -164,7 +171,7 @@ if params.load_processed_corpus and \
         data = pickle.load(f)
         if any(x in params.model_type for x in ['deep', 'baseline']):
             (corpus, f0_data, fpro_stats, utterances, dict_files, dict_models,
-             dict_losses, dict_scope_counts, params) = data
+              dict_losses, dict_scope_counts, params) = data
         else:
             (corpus, f0_data, fpro_stats, utterances, dict_files,
              dict_contour_generators,
@@ -178,7 +185,6 @@ else:
 #%% if not all phrase types remove those not necessary
     if not params.do_all_phrases:
         corpus = corpus[corpus.phrasetype.isin(params.phrase_types)]
-        ## TODO the error will not be for all the utterances
 
 # fix and add columns to the corpus
     corpus = prosodeep_corpus.scale_and_expand_corpus(corpus, params)
@@ -298,6 +304,8 @@ else:
                     corpus, params)
             corpus_test, _, _ = prosodeep_dsp.normalise_min_max(
                     corpus_test, params, feats_min=feats_min, feats_max=feats_max)
+            params.feat_min_train = feats_min
+            params.feat_max_train = feats_max
         #%% model training
         if params.model_type == 'anbysyn':
             (corpus,
@@ -330,16 +338,12 @@ else:
             dict_models[phrase_type] = model
 
     #%% save results
-    # downcast
     corpus.loc[:, 'f01':] = corpus.loc[:, 'f01':].apply(pd.to_numeric,
                                                         downcast='float')
 
-    if params.save_processed_data:
+    if params.save_processed_data and not params.use_test_set:
         with open(params.pkl_path + params.processed_corpus_name+'.pkl', 'wb') as f:
-            if params.use_test_set:
-                corpus_dict = {'corpus':corpus, 'corpus_test':corpus_test}
-            else:
-                corpus_dict = corpus
+            corpus_dict = corpus
             if any(x in params.model_type for x in ['deep', 'baseline']):
                 data = (corpus_dict, f0_data, fpro_stats, utterances, dict_files,
                         dict_models,
@@ -354,7 +358,7 @@ else:
     dif_time = end_time - start_train
     logging.info('='*42)
     logging.info('Finished training in {}'.format(dif_time))
-    os.system('spd-say "Training complete."')
+    # os.system('espeak "Training complete."')
 
 #%% make a DataFrame from utterances
 # db_utterances = pd.DataFrame(data=list(utterances.values()),
@@ -391,12 +395,12 @@ if params.plot_contours:
             l = m[:6]  # reduce plotting
 
         for file in l:
-            #% plot one file
-            # file = 'DC_328.TextGrid'
             if 'baseline' not in params.model_type:  # synthesise individual contours
                 if 'rnn' in params.model_type:
                     corpus = prosodeep_learn.synthesise_rnn_contours(
                             corpus, dict_models[phrase_type], file, params)
+                    corpus_test = prosodeep_learn.synthesise_rnn_contours(
+                            corpus_test, dict_models[phrase_type], file, params)
                 elif 'deep' in params.model_type:
                     corpus = prosodeep_learn.synthesise_deep_contours(
                             corpus, dict_models[phrase_type], file, params)
@@ -404,14 +408,17 @@ if params.plot_contours:
             logging.info('Plotting f0 and dur for file {} ...'.format(file))
             prosodeep_plot.plot_contours(params.save_path+'/'+phrase_type+'_f0/',
                                    file, utterances,
-                                   corpus, colors, params, plot_contour='f0',
-                                  show_plot=params.show_plot)
+                                    corpus,
+                                    # corpus_test,
+                                   colors, params, plot_contour='f0',
+                                   show_plot=params.show_plot)
             if params.plot_duration:
                 prosodeep_plot.plot_contours(
                         params.save_path+'/'+phrase_type+'_dur/',
                         file, utterances,
                         corpus, colors, params,
-                        plot_contour='dur', show_plot=params.show_plot)
+                        plot_contour='dur', 
+                        show_plot=params.show_plot)
 
 #%% plot expansion
 if params.plot_expansion:
@@ -454,9 +461,8 @@ if 'deep' not in params.model_type:
 
 #%% evaluate performance
 logging.info('Evaluating reconstruction performance ...')
-if corpus_test is None:
-    corpus_test = corpus
-else:  # synthesise test corpus data!
+if params.use_test_set:
+    # synthesise test corpus data!
     if 'anbysyn' in params.model_type:  # anbysyn synthesise contours
             corpus_test = prosodeep_learn.synthesise_anbysyn_testset(
                     corpus_test, contour_generators, params)
@@ -472,6 +478,21 @@ else:  # synthesise test corpus data!
                     corpus_test,
                     dict_models[phrase_type],
                     params)
+    # save processed data
+    if params.save_processed_data:
+        with open(params.pkl_path + params.processed_corpus_name+'.pkl', 'wb') as f:
+            corpus_dict = {'corpus':corpus, 'corpus_test':corpus_test}
+            if any(x in params.model_type for x in ['deep', 'baseline']):
+                data = (corpus_dict, f0_data, fpro_stats, utterances, dict_files,
+                        dict_models,
+                        dict_losses, dict_scope_counts, params)
+            else:
+                data = (corpus_dict, f0_data, fpro_stats, utterances, dict_files,
+                        dict_contour_generators,
+                        dict_losses, dict_scope_counts, params)
+            pickle.dump(data, f, -1)  # last version
+else:
+    corpus_test = corpus
 
 eval_pkl_name = params.pkl_path + params.processed_corpus_name + '_eval.pkl'
 if params.load_eval_corpus and os.path.isfile(eval_pkl_name):
@@ -554,7 +575,7 @@ logging.info(prompt)
 logging.info('='*42)
 print()
 print()
-os.system('spd-say "Finished boss!"')
+# os.system('espeak "Finished boss!"')
 
 #%% shut down
 #import time

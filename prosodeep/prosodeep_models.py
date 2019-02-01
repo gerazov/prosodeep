@@ -6,7 +6,7 @@ ProsoDeep - Pytorch model implementations.
 @authors:
     Branislav Gerazov Apr 2018
 
-Copyright 2017, 2018 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -35,8 +35,8 @@ class deep_baseline_model():
                  solver='adam',
                  learning_rate_init=1e-3,
                  use_cuda=True,
+                 drop_rate=0,
                  ):
-
         self.n_feature = n_feature
         self.n_hidden = n_hidden
         self.activation = activation
@@ -52,7 +52,7 @@ class deep_baseline_model():
         self.optimizer_type = solver
         self.learning_rate = learning_rate_init
         self.use_cuda = use_cuda
-
+        self.drop_rate = drop_rate
         self.init_model()
 
     def init_model(self):
@@ -63,7 +63,8 @@ class deep_baseline_model():
                         n_feature=self.n_feature,
                         n_hiddens=self.n_hidden,
                         n_output=self.n_output,
-                        activation=self.activation)
+                        activation=self.activation,
+                        drop_rate=self.drop_rate)
 
         if self.verbose:
             print(self.model)
@@ -177,6 +178,7 @@ class deep_baseline_model():
         self.losses_ = loss_in_batch
         if any(np.isnan(self.losses_)):
             print('Loss is NaN!')
+            raise ValueError
         self.mses_ = mse_in_batch
 
         # evaluate on validation data
@@ -213,13 +215,14 @@ class deep_baseline_model():
                 self.losses_ = loss_in_batch
                 if any(np.isnan(self.losses_)):
                     print('Loss is NaN!')
+                    raise ValueError
                 self.mses_ = mse_in_batch
 
         if self.verbose:
             print('\r', end='')
 
 
-    def predict(self, X):  #
+    def predict(self, X):
         """
         X is a np array (n_sample x n_feats)
         """
@@ -335,18 +338,19 @@ class deep_model():
         # init contour generators
         if self.verbose:
             print('Initialising contour generators ...')
-        contour_gen_list = self.contour_types
+        contour_gen_list = self.contour_types.copy()
         if self.contour_generators is None:
             self.contour_generators = {}  # init dictinary
         else:
+            to_delete = []
             for pre_contour_type in self.contour_generators.keys():
                 # go through pretrained contour generators
                 if pre_contour_type not in contour_gen_list:  # delete it from dict
-                    del self.contour_generators[pre_contour_type]
-
+                    to_delete.append(pre_contour_type)
                 if pre_contour_type in contour_gen_list:  # remove it from list
                     contour_gen_list.remove(pre_contour_type)
-
+            for contour_type in to_delete:  # can't delete while looping
+                del self.contour_generators[contour_type]
         # add missing ones
         for contour_type in contour_gen_list:
             if self.vae:
@@ -375,11 +379,14 @@ class deep_model():
 
         self.criterion = torch.nn.MSELoss()
 
-        self.static_graph = StaticGraph(self.contour_generators, self.contours_in_graph,
-                                        self.n_in_contour, self.n_output,
-                                        self.use_strength, self.strength_method,
-                                        # self.regularise_compensation,
-                                        self.vae, self.vae_input)
+        self.static_graph = StaticGraph(self.contour_generators,
+                                        self.contours_in_graph,
+                                        self.n_in_contour,
+                                        self.n_output,
+                                        self.use_strength,
+                                        self.strength_method,
+                                        self.vae,
+                                        self.vae_input)
         if self.verbose:
             print(self.static_graph)
 
@@ -512,7 +519,7 @@ class deep_model():
                             mus_batch, logvars_batch, masks_batch)
 
             self.optimizer.zero_grad()   # clear gradients for next train
-            loss.backward(retain_graph=True)         # backpropagation, compute gradients
+            loss.backward(retain_graph=True)  # backpropagation, compute gradients
             self.optimizer.step()        # apply gradients
 
             loss_in_batch[i] = loss.item()
@@ -524,6 +531,7 @@ class deep_model():
         self.losses_ = loss_in_batch
         if any(np.isnan(self.losses_)):
             print('Loss is NaN!')
+            raise ValueError
         self.mses_ = mse_in_batch
         if self.vae and 'mmd' in self.vae_input:
             self.mmds_ = mmd_in_batch
@@ -596,6 +604,7 @@ class deep_model():
                 self.losses_ = loss_in_batch
                 if any(np.isnan(self.losses_)):
                     print('Loss is NaN!')
+                    raise ValueError
                 self.mses_ = mse_in_batch
                 if self.vae and 'mmd' in self.vae_input:
                     self.mmds_ = mmd_in_batch
@@ -652,7 +661,7 @@ class deep_model():
 
                 y[batch_ind] = prediction_batch
 
-        # output
+        #% output
         if self.use_strength and 'context' in self.strength_method:
             return y.detach().cpu().numpy(), strengths.detach().cpu().numpy()
         else:
@@ -870,6 +879,7 @@ class deep_rnn_baseline_model():
                 self.losses_ = loss_in_batch
                 if any(np.isnan(self.losses_)):
                     print('Loss is NaN!')
+                    raise ValueError
                 self.mses_ = mse_in_batch
 
         if self.verbose:
@@ -954,6 +964,11 @@ class deep_rnn_model():
                  reg_vae=.3,
                  vae_as_input=False,
                  vae_as_input_hidd=False,  # use vae as input and as hidden init
+                 unified=False,  # use a single CG
+                 unify_atts=False,  # just unify attitudes
+                 phrase_types=None,  # to do the previous
+                 syntax_functions=None,
+                 morpheme_functions=None,
                  ):
 
         self.contour_types = contour_types
@@ -995,6 +1010,11 @@ class deep_rnn_model():
         self.vae_as_input = vae_as_input
         self.vae_as_input_hidd = vae_as_input_hidd
 
+        self.unified = unified
+        self.unify_atts = unify_atts
+        self.phrase_types = phrase_types
+        self.syntax_functions = syntax_functions
+        self.morpheme_functions = morpheme_functions
         self.init_model()
 
     def init_model(self):
@@ -1003,15 +1023,83 @@ class deep_rnn_model():
         if self.contour_generators is None:
             self.contour_generators = {}  # init dictinary
         else:
+            to_delete = []
             for pre_contour_type in self.contour_generators.keys():
                 # go through pretrained contour generators
                 if pre_contour_type not in contour_gen_list:  # delete it from dict
-                    del self.contour_generators[pre_contour_type]
+                    to_delete.append(pre_contour_type)
                 if pre_contour_type in contour_gen_list:  # remove it from list
                     contour_gen_list.remove(pre_contour_type)
+            for contour_type in to_delete:  # can't delete while looping
+                del self.contour_generators[contour_type]
         # add missing ones
-        for contour_type in contour_gen_list:
-            if self.vae:
+        if self.unified:
+            if not self.unify_atts:
+                unified_contour_generator = ContourGeneratorVRNN(
+                                n_feature=self.n_feature,
+                                n_hidden_rnn=self.n_hidden,
+                                n_output=self.n_output,
+                                n_feature_vae=self.n_feature_vae,
+                                n_hidden_vae=self.n_hidden_vae,
+                                n_latent=self.n_latent,
+                                rnn_model=self.rnn_model,
+                                vae_as_input=self.vae_as_input,
+                                vae_as_input_hidd=self.vae_as_input_hidd,
+                                )
+            else:
+                # we need separate generators for atts, syntax and morphems
+                unified_contour_generator_atts = ContourGeneratorVRNN(
+                                n_feature=self.n_feature,
+                                n_hidden_rnn=self.n_hidden,
+                                n_output=self.n_output,
+                                n_feature_vae=self.n_feature_vae,
+                                n_hidden_vae=self.n_hidden_vae,
+                                n_latent=self.n_latent,
+                                rnn_model=self.rnn_model,
+                                vae_as_input=self.vae_as_input,
+                                vae_as_input_hidd=self.vae_as_input_hidd,
+                                )
+                unified_contour_generator_synt = ContourGeneratorVRNN(
+                                n_feature=self.n_feature,
+                                n_hidden_rnn=self.n_hidden,
+                                n_output=self.n_output,
+                                n_feature_vae=self.n_feature_vae,
+                                n_hidden_vae=self.n_hidden_vae,
+                                n_latent=self.n_latent,
+                                rnn_model=self.rnn_model,
+                                vae_as_input=self.vae_as_input,
+                                vae_as_input_hidd=self.vae_as_input_hidd,
+                                )
+                unified_contour_generator_morph = ContourGeneratorVRNN(
+                                n_feature=self.n_feature,
+                                n_hidden_rnn=self.n_hidden,
+                                n_output=self.n_output,
+                                n_feature_vae=self.n_feature_vae,
+                                n_hidden_vae=self.n_hidden_vae,
+                                n_latent=self.n_latent,
+                                rnn_model=self.rnn_model,
+                                vae_as_input=self.vae_as_input,
+                                vae_as_input_hidd=self.vae_as_input_hidd,
+                                )
+
+        for i, contour_type in enumerate(contour_gen_list):
+            if self.unified:
+                if self.unify_atts:
+                    if contour_type in self.phrase_types:
+                        self.contour_generators[contour_type] = \
+                                unified_contour_generator_atts
+                    elif contour_type in self.syntax_functions:
+                        self.contour_generators[contour_type] = \
+                                unified_contour_generator_synt
+                    elif contour_type in self.morpheme_functions:
+                        self.contour_generators[contour_type] = \
+                                unified_contour_generator_morph
+                    else:
+                        raise ValueError('contour type not recognized!')
+                else:
+                    self.contour_generators[contour_type] = unified_contour_generator
+
+            elif self.vae:
                 self.contour_generators[contour_type] = ContourGeneratorVRNN(
                                         n_feature=self.n_feature,
                                         n_hidden_rnn=self.n_hidden,
@@ -1158,6 +1246,7 @@ class deep_rnn_model():
         self.losses_ = loss_in_batch
         if any(np.isnan(self.losses_)):
             print('Loss is NaN!')
+            raise ValueError
         self.mses_ = mse_in_batch
         if self.vae:
             self.mmds_ = mmd_in_batch
@@ -1221,6 +1310,7 @@ class deep_rnn_model():
                 self.losses_ = loss_in_batch
                 if any(np.isnan(self.losses_)):
                     print('Loss is NaN!')
+                    raise ValueError
                 self.mses_ = mse_in_batch
                 if self.vae:
                     self.mmds_ = mmd_in_batch
@@ -1683,7 +1773,8 @@ class StaticGraph(torch.nn.Module):
         # assemble graph
         for i, contour_in_graph in enumerate(self.contours_in_graph):
             # TODO change for longer function types
-            self.add_module(contour_in_graph, contour_generators[contour_in_graph[:2]])
+            self.add_module(contour_in_graph,
+                            contour_generators[contour_in_graph[:2]])
 
     def reset_parameters(self):
         for module in self.modules():
@@ -1696,8 +1787,8 @@ class StaticGraph(torch.nn.Module):
             x_module_all = x[:, :, i]
 
             strengths_module = x_module_all[:, 0]
-            contexts_module = x_module_all[:, 5:]
             x_module = x_module_all[:, 1:5]
+            contexts_module = x_module_all[:, 5:]
             if self.vae:
                 if 'context' in self.vae_input:
                     y_module, zs_module, mus_module, logvars_module = module(
@@ -1867,6 +1958,7 @@ class ContourGeneratorMLP(torch.nn.Module):
                  n_hiddens,
                  n_output=None,
                  activation='relu',
+                 drop_rate=0,
                  output_hidden=False  # for stacking an RNN for the baselineRNN
                  ):
         super(ContourGeneratorMLP, self).__init__()
@@ -1893,6 +1985,10 @@ class ContourGeneratorMLP(torch.nn.Module):
                 setattr(self, 'hidden{}'.format(i),
                         torch.nn.Linear(n_last, n_hidden))
                 n_last = n_hidden
+        if drop_rate:
+            self.dropout = torch.nn.Dropout(drop_rate)
+        else:
+            self.dropout = None
 
         if not output_hidden:  # add a linear output layer
             self.out_contour = torch.nn.Linear(n_last, n_output)   # output layer
@@ -1910,6 +2006,8 @@ class ContourGeneratorMLP(torch.nn.Module):
         for i in range(self.n_hidden_layers):
             x = getattr(self, 'hidden{}'.format(i))(x)
             x = self.activation(x)
+            if self.dropout:
+                x = self.dropout(x)
         if self.output_hidden:
             return x
         else:
@@ -1983,8 +2081,9 @@ class ContourGeneratorStrengthMLP(torch.nn.Module):
         # context
         for i in range(self.n_hidden_layers_context):
             getattr(self, 'hidden_context{}'.format(i)).reset_parameters()
-            # set weights to 0 so strength is close to 1
-            getattr(self, 'hidden_context{}'.format(i)).bias.fill_(0)
+            # # set weights to 0 so strength is close to 1
+            # getattr(self, 'hidden_context{}'.format(i)).bias = \
+            #         getattr(self, 'hidden_context{}'.format(i)).bias * 0
         self.out_strength.reset_parameters()
 
     def forward(self, x, contexts=None):
@@ -2020,9 +2119,9 @@ class ContourGeneratorVar(torch.nn.Module):
         """
         n_hiddens and n_hiddens_context are lists of hidden layer widths.
         """
-        self.sigmoid = torch.sigmoid
+        # self.sigmoid = torch.sigmoid
         self.tanh = torch.tanh
-        self.relu = torch.relu
+        # self.relu = torch.relu
 
         if dec_hidden is None:
             dec_hidden = enc_hidden
@@ -2245,8 +2344,11 @@ class ContourGeneratorVRNN(torch.nn.Module):
         eps = torch.zeros_like(logvar).normal_()
         return mu + eps*std
 
-    def decode(self, z):
-        return self.tanh(self.dec_hidden(z))  # maybe linear?
+    def decode(self, z):  # deprecated!
+        if self.vae_as_input:
+            return self.tanh(self.dec_hid_to_input(z))  # maybe linear?
+        else:
+            return self.tanh(self.dec_hidden(z))  # maybe linear?
 
     def init_zeros(self, tensor):
         hx = tensor.new_zeros((1, self.n_hidden_rnn))

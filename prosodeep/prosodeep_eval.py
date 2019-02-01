@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Pyprosodeep - evaluation of performance functions.
+ProsoDeep - evaluation of performance functions.
 
 @authors:
     Branislav Gerazov Nov 2017
 
-Copyright 2017 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -20,7 +20,6 @@ import sys
 from prosodeep import prosodeep_dsp, prosodeep_plot
 
 #%% funcs
-
 def eval_performance(corpus, f0_data, params,
                      eval_unit, eval_ref, eval_weight, eval_segment,
                      corpus_eval=None):

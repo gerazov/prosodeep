@@ -6,7 +6,7 @@ Pyprosodeep - plotting functions.
 @authors:
     Branislav Gerazov Nov 2017
 
-Copyright 2017 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -21,7 +21,7 @@ import glob
 import shutil
 import torch
 from prosodeep import prosodeep_corpus
-#%%
+
 def init_colors(params):
     '''
     Init color palet for plots.
@@ -59,7 +59,6 @@ def init_colors(params):
 
     return colors
 
-#%%
 def plot_histograms(data_all, data_mean, data_median, save_path, plot_type=None, show_plot=False):
     '''
     Used for obtaining f0_ref and duration isochrony clock.
@@ -135,8 +134,9 @@ def plot_histograms(data_all, data_mean, data_median, save_path, plot_type=None,
 
     if not show_plot:
         plt.close(fig)
-#%%
-def plot_contours(save_path, file, utterances, corpus, colors, params, plot_contour='f0', show_plot=False):
+
+def plot_contours(save_path, file, utterances, corpus, colors, params,
+                  plot_contour='f0', show_plot=False):
     '''
     Plot prosodeep contours.
 
@@ -176,8 +176,6 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
 
     i = params.iterations -1
     function_types = params.function_types
-#    learn_rate = params.learn_rate
-#    max_iter = params.max_iter
     orig_columns = params.orig_columns
     target_columns = params.target_columns
     database = params.database
@@ -187,7 +185,8 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
         scale = params.f0_scale
     else:
         scale = params.dur_scale
-#%% init
+    #%% init
+    # file = 'DI_328.TextGrid'
     barename = file.split('.',1)[0]
     mask_file = corpus['file'] == file
     corpus_file = corpus[mask_file]
@@ -202,8 +201,7 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
     n_rus = rus.size
 
     ## open fig and setup axis
-    if database in ['morlec', 'yi']:
-#        fig = plt.figure(figsize=(10,8))
+    if database in ['morlec', 'liu']:
         if 'baseline' in params.model_type:
             fig = plt.figure(figsize=(8,4))
         else:
@@ -219,9 +217,6 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
     ax2 = ax1.twiny()
     ax2.set_xticks(np.arange(n_rus)+1)
     ax2.set_xticklabels(rus)
-#    ax2.set_xlabel('{}, learn_rate {}, iteration {}'.format(barename, learn_rate, i+1))
-    # plt.title('{} : {}'.format(barename, utterances[barename].lower()),
-    #           y=1.05)
 
     if plot_contour == 'f0':
         ax1.set_ylabel('Normalised f0')
@@ -244,7 +239,8 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
 
     # for deep model final recon is already in target f0
     if any(x in params.model_type for x in ['deep','baseline']) \
-            or not any([c in function_types for c in contourtypes.tolist()]):  # only phrase component
+            or not any([c in function_types for c in contourtypes.tolist()]):
+                # only phrase component
 
         if plot_contour == 'f0':
             f0_pred = corpus.loc[mask_row, target_columns[:-1]].values
@@ -260,7 +256,7 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
 
     if 'baseline' not in params.model_type:
         if any([c in function_types for c in contourtypes.tolist()]):  # non-phrase contours
-            if 'deep' in params.model_type:
+            if any(x in params.model_type for x in ['deep','rnn']):
                 if plot_contour == 'f0':
                     pred_columns = corpus.columns[-params.vowel_pts-1:-1]
                     # this is where the individual ones are
@@ -268,13 +264,6 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
                     pred_columns = corpus.columns[-1]
 
             n_units = corpus.loc[mask_file, 'n_unit'].values
-    #        ramp4 = corpus.loc[mask_file, 'ramp4'].values  # we use this to separate contours
-    #        ramp2 = corpus.loc[mask_file, 'ramp2'].values  # we use this to find landmarks
-            ## go through ramp4 and decompose the contours
-    #        end_inds = np.where(ramp4 == 0)[0]
-    #        start_inds = np.r_[0, end_inds[:-1]+1]
-    #        corpus_file = corpus[mask_file]
-    #        corpus_file = corpus_file.reset_index()
             marks = corpus_file['marks']
             start_inds = marks.index[marks.str.contains('start')].values
             landmark_inds = marks.index[marks.str.contains('mark')].values
@@ -433,14 +422,12 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
     #                     bbox=dict(facecolor='w', lw=0, alpha=0.8))
                 plt.plot(x_axis, contour/scale+offset, c=color,
                          marker='o', ms=3.5, lw=3, alpha=.8)
-    #            f0_min =  offset - np.ceil(np.abs(np.nanmin(contour)) / offset_coef) * offset_coef
 
             # delete ticks from y-axis
             ax1.set_yticks(y_ticks)
             ax1.set_yticklabels(y_ticks)
 
             offset = f0_min - np.max(contour_levels + 1)*offset_coef
-    #        final_limit = f0_min - np.max(contour_levels)*offset_coef-lower_margin
             final_limit = offset-lower_margin
             ax1.axis([0,n_rus+1,final_limit, ylims[1]+upper_margin])
             ax2.axis([0,n_rus+1,final_limit, ylims[1]+upper_margin])
@@ -449,25 +436,13 @@ def plot_contours(save_path, file, utterances, corpus, colors, params, plot_cont
             ax1.legend(loc='upper right')
         else:
             ax1.legend(loc='upper left')
+
 #%% save
     plt.tight_layout()
     plt.savefig('{}{}_{}_{}.png'.format(save_path, barename, plot_contour,
                                         params.processed_corpus_name), dpi='figure')
     if not show_plot:
         plt.close(fig)
-
-#    # for publication
-    ax1.legend(loc='lower left')
-    plt.title('')
-
-##    ax1.set_xlabel('')
-##    ax1.set_xticklabels([])
-#
-#    ax2.set_xticklabels([])
-#
-#    ax1.set_ylabel('')
-#    ax1.set_yticklabels([])
-#    ax1.legend(loc='upper right')
 
 
 def plot_losses(save_path, phrase_type, losses,
@@ -1113,3 +1088,8 @@ def plot_eval(tuple_plot, params, show_plot=False):
 
     if not show_plot:
         plt.close(fig)
+
+def draw_sigma(mu, sigma, ax, color=None):
+    ell = matplotlib.patches.Ellipse(mu, 2*sigma[0], 2*sigma[1],
+                                     color=color, alpha=.2)
+    ax.add_artist(ell)

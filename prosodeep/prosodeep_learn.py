@@ -6,7 +6,7 @@ ProsoDeep - Learning utils used for model training.
 @authors:
     Branislav Gerazov Oct 2017
 
-Copyright 2017, 2018 by GIPSA-lab, Grenoble INP, Grenoble, France.
+Copyright 2019 by GIPSA-lab, Grenoble INP, Grenoble, France.
 
 See the file LICENSE for the licence associated with this software.
 """
@@ -330,6 +330,7 @@ def train_model(corpus, contour_generators=None, params=None):
     validation_size = params.validation_size
     model_type = params.model_type
     activation = params.activation
+    drop_rate = params.drop_rate
 
     # transform corpus to have one row per (filename, n_unit) combination
     # check for transformed corpus
@@ -339,6 +340,8 @@ def train_model(corpus, contour_generators=None, params=None):
     pklname += '_static_reformated'
     if vae:
         pklname += '_vae'
+    if params.normalisation_type:
+        pklname += '_norm'
     pklname += '.pkl'
 
     if params.load_corpus and os.path.isfile(pklname):
@@ -366,8 +369,9 @@ def train_model(corpus, contour_generators=None, params=None):
         else:
             X = X[:, 1:5, :]  # just the ramps
         X = np.reshape(X, (X.shape[0], -1))
-        # now turn all the nans into something improbable (0s?)
-        X[np.isnan(X)] = 0
+
+    # now turn all the nans into something improbable (0s?)
+    X[np.isnan(X)] = 0
 
     # init model
     log.info('Initialising model ...')
@@ -387,6 +391,7 @@ def train_model(corpus, contour_generators=None, params=None):
                 solver=optimization,
                 learning_rate_init=learn_rate,
                 use_cuda=use_cuda,
+                drop_rate=drop_rate,
                 )
     else:
         n_feature = 4
@@ -490,43 +495,37 @@ def train_model(corpus, contour_generators=None, params=None):
             log.info('mse: {:.5f} \t loss: {:.5f}'.format(
                    mse_epoch, loss_epoch))
 
-        if np.isnan(loss_epoch):  # we have a nan - why??
-            log.warning('Loss is NaN! Breaking ...')
-            patience = 0
+        if early_stopping:  # check if error is not improving
+            if best_error - loss_epoch > early_thresh:
+                patience = params.patience
+            else:
+                patience -= 1
+                log.info('loosing patience: {}'.format(patience))
 
-        else:
-            if early_stopping:  # check if error is not improving
-                if best_error - loss_epoch > early_thresh:
-                    patience = params.patience
-                else:
-                    patience -= 1
-                    log.info('loosing patience: {}'.format(patience))
-
-            if best_error > loss_epoch:  # update best error
-                best_error = loss_epoch
-                # run a forward pass on all the data to get the predictions
-                if use_strength and 'context' in strength_method:
-                    y_pred, strengths = model.predict(X_all, masks_all)
-
-                else:
-                    if 'baseline' in model_type:
-                        y_pred = model.predict(X_all)
-                    else:
-                        y_pred = model.predict(X_all, masks_all)
-                # presave model
-                if use_strength and 'context' in strength_method:
-                    best_output = y_pred, strengths
-                else:
-                    best_output = y_pred
-                best_epoch = iteration
-                best_losses = (batch_losses, epoch_cnt, epoch_losses,
-                               batch_mses, epoch_mses)
+        if best_error > loss_epoch:  # update best error
+            best_error = loss_epoch
+            # run a forward pass on all the data to get the predictions
+            if use_strength and 'context' in strength_method:
+                y_pred, strengths = model.predict(X_all, masks_all)
+            else:
                 if 'baseline' in model_type:
-                    best_model = model.model.state_dict()
+                    y_pred = model.predict(X_all)
                 else:
-                    best_model = model.static_graph.state_dict()
-                best_optim = model.optimizer.state_dict()  # for cont training
-                best_return = best_model, best_optim, best_losses
+                    y_pred = model.predict(X_all, masks_all)
+            # presave model
+            if use_strength and 'context' in strength_method:
+                best_output = y_pred, strengths
+            else:
+                best_output = y_pred
+            best_epoch = iteration
+            best_losses = (batch_losses, epoch_cnt, epoch_losses,
+                           batch_mses, epoch_mses)
+            if 'baseline' in model_type:
+                best_model = model.model.state_dict()
+            else:
+                best_model = model.static_graph.state_dict()
+            best_optim = model.optimizer.state_dict()  # for cont training
+            best_return = best_model, best_optim, best_losses
 
         # stop if criteria are met
         if (iteration == iterations - 1) or not patience:
@@ -541,7 +540,8 @@ def train_model(corpus, contour_generators=None, params=None):
                        best_epoch, best_losses[4][-1], best_losses[2][-1]))
 
             log.info('Writing predictions in corpus ...')
-            pred_columns = [column + '_it{:03}'.format(iteration) for column in orig_columns]
+            pred_columns = [column + '_it{:03}'.format(iteration)
+                            for column in orig_columns]
             columns = corpus.columns.tolist()
             columns[-vowel_pts-1:] = pred_columns
             corpus.columns = columns
@@ -595,7 +595,8 @@ def train_model(corpus, contour_generators=None, params=None):
 
 def train_rnn_model(corpus, contour_generators=None, params=None):
     '''
-    Train deep RNN model based on a big static graph with masks for local context.
+    Train deep RNN model based on a big static graph with masks for local
+    context.
 
     Parameters
     ===========
@@ -643,6 +644,24 @@ def train_rnn_model(corpus, contour_generators=None, params=None):
     use_test_set = params.use_test_set
 
     model_type = params.model_type
+    if 'unified' in model_type:
+        unified = True
+        if 'atts' in model_type:
+            unify_atts = True
+            phrase_types = params.phrase_types
+            syntax_functions = params.syntax_functions
+            morpheme_functions = params.morpheme_functions
+        else:
+            unify_atts = False
+            phrase_types = None
+            syntax_functions = None
+            morpheme_functions = None
+    else:
+        unified = False
+        unify_atts = False
+        phrase_types = None
+        syntax_functions = None
+        morpheme_functions = None
     activation = params.activation
 
     # check for transformed corpus
@@ -652,6 +671,8 @@ def train_rnn_model(corpus, contour_generators=None, params=None):
     pklname += '_rnn_reformated'
     if vae:
         pklname += '_vae'
+    if params.normalisation_type:
+        pklname += '_norm'
     if not use_test_set:
         pklname += '_notest'
     pklname += '.pkl'
@@ -671,23 +692,25 @@ def train_rnn_model(corpus, contour_generators=None, params=None):
             pickle.dump(data, f, -1)
 
     X, cg_masks, contour_starts, y, contours_in_graph, unique_combinations = data
-#    files = [key[0] for key in unique_combinations.keys()]
+    # X shape is (n_files, seq_len, n_input, n_modules_in_graph)
+    # debug
+    # files = [key[0] for key in unique_combinations.keys()]
 
     # reshape data for baseline
-    # X shape is (n_files, seq_len, n_input, n_modules_in_graph)
     # where n_input is [strength + n_syll_ramps + n_context_columns]
     # we need: (n_files, seq_len, n_feats)
     # where n_feats = (n_syll_ramps + n_context_columns) * n_modules_in_graph
     # or n_feats = n_syll_ramps * n_modules_in_graph
     # since every function can have a different context
     if 'baseline' in model_type:
-        if 'context' in model_type:
-            X = X[:, :, 1:, :]
-        else:
-            X = X[:, :, 1:5, :]  # just the ramps
+        # if 'context' in model_type:
+        #     X = X[:, :, 1:, :]
+        # else:
+        X = X[:, :, 1:5, :]  # just the ramps - context is implicitly modelled
         X = np.reshape(X, (X.shape[0], X.shape[1], -1))
-        # now turn all the nans into something improbable (0s?)
-        X[np.isnan(X)] = 0
+
+    # now turn all the nans into something improbable (0s?)
+    X[np.isnan(X)] = 0
 
     # init model
     log.info('Initialising model ...')
@@ -738,6 +761,11 @@ def train_rnn_model(corpus, contour_generators=None, params=None):
                 reg_vae=reg_vae,
                 vae_as_input=vae_as_input,
                 vae_as_input_hidd=vae_as_input_hidd,
+                unified=unified,
+                unify_atts=unify_atts,
+                phrase_types=phrase_types,
+                syntax_functions=syntax_functions,
+                morpheme_functions=morpheme_functions
                 )
 
     # do the epochs
@@ -891,7 +919,7 @@ def synthesise_deep_contours(corpus, model, filename, params):
     synthesise individual contours for a file and put them in corpus.
     '''
 #    filename = 'yanpin_000001.TextGrid'
-#    filename = 'DC_328.TextGrid'
+    # filename = 'DC_328.TextGrid'
     log = logging.getLogger('deep-synth')
     log.info('Synthesizing contours for file {} ...'.format(filename))
 #    target_columns = params.target_columns
@@ -899,7 +927,8 @@ def synthesise_deep_contours(corpus, model, filename, params):
 #    corpus.loc[:, pred_columns] = np.nan
     print()
     for ind in corpus[corpus.file == filename].index:
-#        ind = 36
+        # ind = 3401  # DC start
+        # ind = 3409  # DG start
         print('\rSynthesizing row : {}/{}'.format(
                 ind, corpus[corpus.file == filename].index.size), end='')
         X = corpus.loc[ind, 'ramp1':'ramp4'].values.astype('float32')
@@ -1009,6 +1038,8 @@ def synthesise_deep_testset(corpus, model, params):
     pklname += '_static_reformated'
     if params.vae:
         pklname += '_vae'
+    if params.normalisation_type:
+        pklname += '_norm'
 
     if 'baseline' in model_type:
         # reshape data for baseline - but keep same contour ordering as for
@@ -1061,29 +1092,16 @@ def synthesise_deep_testset(corpus, model, params):
                 pickle.dump(data, f, -1)
 
         X, masks, y, contours_in_graph, unique_combinations = data
+        contour_types = set([x[:2] for x in contours_in_graph])
+        X[np.isnan(X)] = 0
 
-    #% init model
-    if 'baseline' in model_type:
-        model_test = prosodeep_models.deep_baseline_model(
-            batch_size=model.batch_size,
-            n_feature=model.n_feature,
-            n_hidden=model.n_hidden,
-            activation=model.activation,
-            n_output=model.n_output,
-            max_iter=model.max_iter,  # this is now iteration
-            weight_decay=model.weight_decay,
-            shuffle=False,
-            random_state=model.random_state,
-            verbose=False,
-            solver=model.optimizer_type,
-            learning_rate_init=model.learning_rate,
-            use_cuda=model.use_cuda,
-            )
-    else:
+#%% init model
+    if 'baseline' not in model_type:
         model_test = prosodeep_models.deep_model(
             contours_in_graph=contours_in_graph,
             contour_generators=model.contour_generators,
-            contour_types=model.contour_types,
+            # contour_types=model.contour_types,  # prev it didn't remember them
+            contour_types=contour_types,
             batch_size=model.batch_size,
             n_feature=model.n_feature,
             n_hidden=model.n_hidden,
@@ -1114,7 +1132,9 @@ def synthesise_deep_testset(corpus, model, params):
     if params.use_strength and 'context' in params.strength_method:
         y_pred, strengths = model_test.predict(X, masks)
     elif 'baseline' in model_type:
-        y_pred = model_test.predict(X)
+        model.model.cuda()  # because models are sent to cpu after training
+        y_pred = model.predict(X)
+        model.model.cpu()
     else:
         y_pred = model_test.predict(X, masks)
     #% write predictions in corpus
@@ -1167,6 +1187,8 @@ def synthesise_rnn_testset(corpus, model, params):
     pklname += '_rnn_reformated'
     if params.vae:
         pklname += '_vae'
+    if params.normalisation_type:
+        pklname += '_norm'
     if 'baseline' in model_type:
         # reshape data for baseline - but keep same contour ordering as for
         # training!!!
@@ -1223,21 +1245,7 @@ def synthesise_rnn_testset(corpus, model, params):
          y, contours_in_graph, unique_combinations) = data
 
     #% init model
-    if 'baseline' in model_type:
-        model_test = prosodeep_models.deep_rnn_baseline_model(
-                batch_size=model.batch_size,
-                n_feature=model.n_feature,
-                n_hidden=model.n_hidden,
-                n_hidden_rnn=model.n_hidden_rnn,
-                activation=model.activation,
-                n_output=model.n_output,
-                weight_decay=model.weight_decay,
-                shuffle=False,
-                random_state=model.random_state,
-                verbose=False,
-                use_cuda=model.use_cuda,
-                )
-    else:
+    if 'baseline' not in model_type:
         model_test = prosodeep_models.deep_rnn_model(
                 contour_types=model.contour_types,  # which nncgs to init
                 contour_generators=model.contour_generators,
@@ -1264,7 +1272,11 @@ def synthesise_rnn_testset(corpus, model, params):
     log.info('Running forward pass ...')
     # run a forward pass on all the data to get the predictions
     if 'baseline' in model_type:
-        y_pred = model_test.predict(X)
+        model.model.cuda()  # because models are sent to cpu after training
+        model.model_rnn.cuda()
+        y_pred = model.predict(X)
+        model.model.cpu()
+        model.model_rnn.cpu()
     else:
         y_pred = model_test.predict(X, cg_masks, contour_starts)
     #% write predictions in corpus
