@@ -64,7 +64,7 @@ PySFC</title>
     <!-- Sidebar -->
     <aside class="large-3 columns">
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#sfc" title="SFC">SFC</a></li><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#tone function scope" title="Tone function&nbsp;scope">Tone function&nbsp;scope</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#sfc" title="SFC">SFC</a></li><li><a class="toc-href" href="#pysfc" title="PySFC">PySFC</a></li><li><a class="toc-href" href="#tone-function-scope" title="Tone function&nbsp;scope">Tone function&nbsp;scope</a></li></ul></div>
         </ul>
         <ul class="logos">
           <h5 class="sidebar-title">Partners</h5>
@@ -129,7 +129,7 @@ PySFC</title>
     <!--  -->
     <!--  -->
     <h1 id="sfc"><span class="caps">SFC</span></h1>
-<p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is based on neural network contour generators (CGs), each responsible for encoding one linguistic function. Four rhythmic unit (<span class="caps">RU</span>) position ramps are input to the CGs that describe the absolute and relative position of the current <span class="caps">RU</span> within the function&rsquo;s scope. The CGs then output the prosodic contour for that <span class="caps">RU</span>, as shown in Fig.&nbsp;1. </p>
+<p>The Superposition of Functional Contours (<span class="caps">SFC</span>) model is based on neural network contour generators (CGs), each responsible for encoding one linguistic function. Four rhythmic unit (<span class="caps">RU</span>) position ramps are input to the CGs that describe the absolute and relative position of the current <span class="caps">RU</span> within the function&rsquo;s scope. The CGs then output the prosodic contour for that <span class="caps">RU</span>, as shown in Fig.&nbsp;1.</p>
 <p><img align="middle" class="center" src="images/sfc_cg_action.png" style="width: 50%;"/>
 <p class="caption">
 <strong>Fig. 1</strong> &mdash; The <span class="caps">SFC</span> contour generators generate the prosodic contours (here three <span class="math">\(f_0\)</span> targets for the  and one duration coefficient) one rhythmic unit at a time based on its position within the function&rsquo;s&nbsp;scope.
@@ -146,34 +146,34 @@ The PySFC also implements a minimum set of tools necessary to make the system se
 <p><img class="center" src="images/pysfc_morlec_dc_393_ann.png" style="padding-left: 5em; width: 90%;"/></p>
 <p><img class="center" src="images/pysfc_morlec_dc_393.png" style="width: 80%;"/>
 <p class="caption">
-<strong>Fig. 2</strong> &mdash; Example Praat annotation (top) of the functions withing the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> and PySFC  decomposition into constituent functional contours (bottom): declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).
+<strong>Fig. 3</strong> &mdash; Example Praat annotation (top) of the functions withing the French utterance: <em>Son bagou pourrait faciliter la communaut&eacute;.</em> and PySFC  decomposition into constituent functional contours (bottom): declaration (<span class="caps">DC</span>), dependency to the left/right (<span class="caps">DG</span>/<span class="caps">DD</span>), and cliticisation (<span class="caps">XX</span>, <span class="caps">DV</span>).
 </p></p>
 <p><img class="center" src="images/pysfc_chen_003.png" style="width: 100%;"/>
 <p class="caption">
-<strong>Fig. 3</strong> &mdash; Example PySFC intonation decomposition for the Chinese utterance: <em>Tā men c&eacute;ng z&agrave;i jī cāng n&egrave;i g&eacute;i lǔ k&egrave; diǎn gē h&egrave; shēng r&igrave;,
+<strong>Fig. 4</strong> &mdash; Example PySFC intonation decomposition for the Chinese utterance: <em>Tā men c&eacute;ng z&agrave;i jī cāng n&egrave;i g&eacute;i lǔ k&egrave; diǎn gē h&egrave; shēng r&igrave;,
 c&eacute;ng n&aacute; zhē shu&iacute; guǒ n&aacute;i fěn q&ugrave; t&agrave;n w&agrave;ng y&oacute;u tā men zhuǎn s&ograve;ng q&ugrave; yī yu&agrave;n de lǔ k&egrave; chǎn f&ugrave;.</em> into constituent functional contours: declaration (<span class="caps">DC</span>), tones (C0-4), word boundaries (<span class="caps">WB</span>), and independence (<span class="caps">ID</span>).
 </p>
 <img class="center" src="images/pysfc_morlec_attitudes.png" style="width: 100%;"/>
 <p class="caption">
-<strong>Fig. 4</strong> &mdash; Example PySFC expansion for (left to right): the assertion (<span class="caps">DC</span>), question (<span class="caps">QS</span>), incredulous question (<span class="caps">DI</span>), and obviousness (<span class="caps">EV</span>) attitudes
+<strong>Fig. 5</strong> &mdash; Example PySFC expansion for (left to right): the assertion (<span class="caps">DC</span>), question (<span class="caps">QS</span>), incredulous question (<span class="caps">DI</span>), and obviousness (<span class="caps">EV</span>) attitudes
 contours, numbers next to the plots show the number of occurences of that scope in the&nbsp;data.
 </p>
 <img class="center" src="images/pysfc_expansion_morlec_dg.png" style="width: 75%;"/>
 <p class="caption">
-<strong>Fig. 5</strong> &mdash; Example PySFC expansion in left and right context
+<strong>Fig. 6</strong> &mdash; Example PySFC expansion in left and right context
 for the dependency to the left (<span class="caps">DG</span>) functional contour, numbers
 next to the plots show the number of occurences of that scope in
 the&nbsp;data.
 </p>
 <img class="center" src="images/pysfc_losses_morlec_dc.png" style="width: 80%;"/>
 <p class="caption">
-<strong>Fig. 6</strong> &mdash; Example PySFC plots of <span class="math">\(f_0\)</span> reconstruction losses for all NNCGs for attitude <span class="caps">DC</span> per iteration for&nbsp;French.
+<strong>Fig. 7</strong> &mdash; Example PySFC plots of <span class="math">\(f_0\)</span> reconstruction losses for all NNCGs for attitude <span class="caps">DC</span> per iteration for&nbsp;French.
 </p></p>
-<h1 id="tone function scope">Tone function&nbsp;scope</h1>
+<h1 id="tone-function-scope">Tone function&nbsp;scope</h1>
 <p>We validated the usability of the PySFC through confirming the established carry-over phenomenon present in Chinese tones [<a href="./pubs">pysfc-tones</a>]. We observed that including the succeeding rhythmic unit within the tonal function scope, makes a statistically significant impact on modelling performance. On the other hand, including the preceding unit, does not. The carry-over effect can clearly be seen in the juxtaposition of the four tonal function contours in Fig.&nbsp;7.</p>
 <p><img class="center" src="images/pysfc_tones.png" style="width: 70%;"/>
 <p class="caption">
-<strong>Fig. 7</strong> &mdash; A superposition plot of the <span class="math">\(f_0\)</span> contours generated by
+<strong>Fig. 8</strong> &mdash; A superposition plot of the <span class="math">\(f_0\)</span> contours generated by
 the four tone CGs using the double scope with both neighbouring syllables. Taken from [<a href="./pubs">pysfc-tones</a>]
 </p></p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -191,10 +191,13 @@ the four tone CGs using the double scope with both neighbouring syllables. Taken
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
     mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -208,6 +211,7 @@ the four tone CGs using the double scope with both neighbouring syllables. Taken
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        fonts: [['STIX', 'TeX']]," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -228,6 +232,8 @@ the four tone CGs using the double scope with both neighbouring syllables. Taken
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>

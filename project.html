@@ -64,7 +64,7 @@ Project outline</title>
     <!-- Sidebar -->
     <aside class="large-3 columns">
         <ul class="side-nav">
-              <div id="toc"><ul><li><a class="toc-href" href="#details" title="Details">Details</a></li><li><a class="toc-href" href="#objectives" title="Objectives">Objectives</a></li><li><a class="toc-href" href="#the problem" title="The&nbsp;problem">The&nbsp;problem</a></li><li><a class="toc-href" href="#state-of-the-art" title="State-of-the-art">State-of-the-art</a><ul><li><a class="toc-href" href="#sfc" title="SFC">SFC</a></li><li><a class="toc-href" href="#gcr" title="GCR">GCR</a></li></ul></li><li><a class="toc-href" href="#goal_1" title="Goal">Goal</a></li></ul></div>
+              <div id="toc"><ul><li><a class="toc-href" href="#details" title="Details">Details</a></li><li><a class="toc-href" href="#objectives" title="Objectives">Objectives</a></li><li><a class="toc-href" href="#the-problem" title="The&nbsp;problem">The&nbsp;problem</a></li><li><a class="toc-href" href="#state-of-the-art" title="State-of-the-art">State-of-the-art</a><ul><li><a class="toc-href" href="#sfc" title="SFC">SFC</a></li><li><a class="toc-href" href="#gcr" title="GCR">GCR</a></li></ul></li><li><a class="toc-href" href="#goal_1" title="Goal">Goal</a></li></ul></div>
         </ul>
         <ul class="logos">
           <h5 class="sidebar-title">Partners</h5>
@@ -166,7 +166,7 @@ Project outline</title>
 <h1 id="objectives">Objectives</h1>
 <p>The prime objective of the ProsoDeep project is to gain a deeper understanding of the language of prosody through the analysis of all the levels in the production hierarchy of prosody. In particular, it will exploit the benefits of the top-down and bottom-up approaches through their incorporation within a deep prosody model (<span class="caps">DPM</span>).</p>
 <p>The <span class="caps">DPM</span> will facilitate the advancement of speech technologies that rely both on the synthesis of prosody, e.g. text-to-speech (<span class="caps">TTS</span>) systems, and its analysis, e.g. speech recognition and speech emotion recognition (<span class="caps">SER</span>). To reach this objective the project will draw on a variety of scientific fields, including signal processing, physiology of prosody production and biomechanics, linguistics, and machine learning, and will also be augmented with respiratory&nbsp;measurements.</p>
-<h1 id="the problem">The&nbsp;problem</h1>
+<h1 id="the-problem">The&nbsp;problem</h1>
 <p>Prosody is a multidimensional phenomenon comprising intonation, energy, and rhythm. It is the carrier of both linguistic information, e.g. sentence structure, focus and contrast, lexical stress; as well as paralinguistic information, e.g. gender, age, personality, and emotions. In recent years, prosodic research has considerably enlarged the spectrum of properties and functions. In contrast, prosodic models able to map signals to functions or vice-versa are rare: comprehensive models of rhythm and intonation have difficulties coping with this expanding dimensionality, and machine learning techniques still have difficulties with offering structuring&nbsp;principles.</p>
 <h1 id="state-of-the-art">State-of-the-art</h1>
 <p>The importance of prosody in <span class="caps">TTS</span> systems has been the driving force in the development of prosody models, with a special focus on intonation. Most of these models follow a bottom-up approach, i.e. from signals to functions. A number of intonation models following this approach also incorporate physiological constrains. Only a few models seek to model prosody taking a top-down function that starts with the linguistic functions&nbsp;themselves.</p>
@@ -205,10 +205,13 @@ elementary accent atoms (middle), and the energy, the <span class="caps">POV</sp
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
     mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
         "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
         "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
         "    displayAlign: '"+ align +"'," +
@@ -222,6 +225,7 @@ elementary accent atoms (middle), and the energy, the <span class="caps">POV</sp
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        "        fonts: [['STIX', 'TeX']]," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
         "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
         "    }, " +
@@ -242,6 +246,8 @@ elementary accent atoms (middle), and the energy, the <span class="caps">POV</sp
                 "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
             "});" +
         "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 </script>
